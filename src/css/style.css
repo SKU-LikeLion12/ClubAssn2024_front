@@ -1,0 +1,90 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* responsive style */
+@media (min-width: 375px) {
+  .App,
+  .Nav {
+      width: 375px;
+  }
+}
+
+@media (max-width:500px) {
+  .App,
+  .Nav {
+      width: 100vw;
+  }
+}
+
+#root {
+  box-shadow: rgba(100, 100, 111, 0.5) 0px 7px 29px 0px;
+}
+
+.App {
+  min-height: 100vh;
+}
+
+body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  margin: 0;
+}
+
+/* font style */
+@font-face {
+  font-family: 'RixInooAriDuriR';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2207-01@1.0/RixInooAriDuriR.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: 'GyeonggiTitleM';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_one@1.0/GyeonggiTitleM.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+/* NanumSquareNeo-Bold */
+@font-face {
+  font-family: 'NanumSquareNeo-Bold';
+  src: url('../../public/assets/fonts/NanumSquareNeoOTF-Bd.otf') format('woff2');
+}
+
+/* NanumSquareNeo-ExtraBold */
+@font-face {
+  font-family: 'NanumSquareNeo-ExtraBold';
+  src: url('../../public/assets/fonts/NanumSquareNeoOTF-Eb.otf') format('woff2');
+}
+
+/* NanumSquareNeo-Heavy */
+@font-face {
+  font-family: 'NanumSquareNeo-Heavy';
+  src: url('../../public/assets/fonts/NanumSquareNeoOTF-Hv.otf') format('woff2');
+}
+
+/* 제목 폰트 */
+.titleFont {
+  font-family: 'RixInooAriDuriR';
+}
+
+/* 텍스트 폰트 */
+.textFont {
+  font-family: 'GyeonggiTitleM';
+}
+
+/* 만든이들 폰트 */
+.aboutBold {
+  font-family: 'NanumSquareNeo-Bold';
+}
+
+.aboutEB{
+  font-family: 'NanumSquareNeo-ExtraBold';
+}
+
+.aboutHeavy {
+  font-family: 'NanumSquareNeo-Heavy';
+}
