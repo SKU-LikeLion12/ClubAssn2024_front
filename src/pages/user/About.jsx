@@ -1,9 +1,10 @@
 import React from 'react';
+import About from './About';
 
 const About = () => {
   return (
     <div>
-      About
+      About test issue1
     </div>
   );
 };
