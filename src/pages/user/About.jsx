@@ -3,21 +3,24 @@ import { FaHandshakeSimple } from "react-icons/fa6";
 import { images } from '../../utils/images';
 import person from '../../utils/person.json';
 import '../../css/style.css'
+import PageTitle from '../../components/PageTitle';
+import { MainNav, MenuNav} from '../../components/MainNav';
 
 const About = () => {
   return (
-    <div className='bg-[#FFF4ED] aboutBold'>
-      <AboutTitle />
-      <AboutPerson />
+    <div className='bg-[#FFF4ED] aboutBold min-h-screen'>
+      <PageTitle title={'Puzzle'} subTitle={'만든이들'} Tcolor={'#705441'}/>
+      <AboutTitle color={'#705441'}/>
+      <AboutPerson/>
     </div>
   );
 };
 
 export default About;
 
-export const AboutTitle = () => {
+export const AboutTitle = ({color}) => {
   return(
-    <div className='w-11/12 mx-auto text-center border-b-2 border-[#654F40] my-10'>
+    <div className={`text-[${color}] w-11/12 mx-auto text-center border-b-2 border-[#654F40] my-10`}>
       <div className='text-xs break-keep my-5'>
         제40대 Puzzle 동아리연합회에서 웹 사이트를 기획하였습니다.<br/>
         멋쟁이사자처럼에서 웹 사이트를 제작하였습니다.
@@ -28,7 +31,7 @@ export const AboutTitle = () => {
           <img src={images.puzzle} alt="puzzle" className='w-4/12 mx-auto'/>  
           <p className='text-xs mt-3'>성결대학교<br/>제40대 Puzzle 동아리연합회</p>
         </div>      
-        <FaHandshakeSimple size={35} color={'#654F40'}/>
+        <FaHandshakeSimple size={35} />
         <div className='w-6/12'>
           <img src={images.likelion} alt="likelion" className='w-5/12 mx-auto'/>  
           <p className='text-xs mt-3'>성결대학교<br/>멋쟁이사자처럼 12기</p>
@@ -52,7 +55,7 @@ export const PuzzlePerson = () => {
     <div className='my-4'>
       <div className='w-10/12 mx-auto text-center mb-5'>
         <img src={images.puzzle} alt="puzzle" className='w-2/12 mx-auto mb-1'/>
-        <p className='text-xs'>성결대학교<br/>제40대 Puzzle 동아리연합회</p>
+        <p className='text-xs text-[#705441]'>성결대학교<br/>제40대 Puzzle 동아리연합회</p>
       </div>
 
       <div className='grid grid-cols-3 text-white'>
@@ -71,7 +74,7 @@ export const LikelionPerson = () => {
     <div className='my-4'>
       <div className='w-10/12 mx-auto text-center mb-5'>
         <img src={images.likelion} alt="likelion" className='w-2/12 mx-auto mb-1'/>
-        <p className='text-xs'>성결대학교<br/>멋쟁이사자처럼 12기</p>
+        <p className='text-xs text-[#705441]'>성결대학교<br/>멋쟁이사자처럼 12기</p>
       </div>
 
       <div className='flex flex-wrap w-8/12 mx-auto text-white'>
@@ -87,6 +90,7 @@ export const LikelionPerson = () => {
 
 export const Person = ({person}) => {
   return (
+    <>
     <div className='text-[10px] text-center py-3 bg-[#654F40] rounded-xl w-[110px] mx-auto mb-3'>
       <div className='h-[75px] w-[75px] flex items-center mx-auto text-center'>
         <img src={person.image} className='h-full mx-auto'/>
@@ -100,5 +104,6 @@ export const Person = ({person}) => {
       <hr className='p-1 w-10/12 mx-auto'/>
       <div className='text-[#FFCB67]'>{person.role}</div>
     </div>
+    </>
   )
 }
