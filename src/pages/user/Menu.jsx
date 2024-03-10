@@ -2,9 +2,12 @@ import React from 'react';
 import { images } from '../../utils/images';
 import { Link } from 'react-router-dom';
 import '../../css/menu.css';
+import Back from '../../components/shared/Back';
+import { MenuNav } from '../../components/MainNav';
 
 const Menu = () => {
   return (
+    <>
     <div className='Menu flex text-sm text-white min-h-screen relative'>
       <div className='relative w-10/12 mx-auto'>
         <img src={images.menuPuzzle} className='absolute -z-10' />
@@ -15,9 +18,9 @@ const Menu = () => {
         </div>
       </div>
 
-      <img src={images.menuBackLeftPiece} className='absolute w-1/2 left-0 bottom-[15%] -z-20'/>
-      <img src={images.menuBackRightPiece} className='absolute w-1/2 right-0 top-[10%] -z-20'/>
+      <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
     </div>
+    </>
   );
 };
 

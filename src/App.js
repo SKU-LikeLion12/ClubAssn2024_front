@@ -1,4 +1,4 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Main from './pages/user/Main';
 import Login from "./pages/user/Login";
 import Mypage from "./pages/user/Mypage";
@@ -9,16 +9,19 @@ import ClubIntro from "./pages/user/ClubIntro";
 import About from "./pages/user/About";
 import Nav from "./components/Nav";
 import './css/style.css'
-import {MainNav, PageNav, BackNav} from "./components/MainNav";
+import {MainNav, MenuNav} from "./components/MainNav";
 import Menu from "./pages/user/Menu";
 
 function App() {
+  const location = useLocation();
+  const path = location.pathname;  
+  const navPaths = ['/menu', '/sns', '/clubintro', '/about'];
+  const isNavPath = navPaths.includes(path);
+
   return (
-    <div className="App">
-      <MainNav />
-      {/* <PageNav />
-      <BackNav /> */}
-      
+    <div className="App textFont">
+      {isNavPath ? <MenuNav /> : <MainNav />}
+
       <Routes>
         <Route path="/main" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>

@@ -2,10 +2,11 @@ import React from 'react';
 import { FaHandshakeSimple } from "react-icons/fa6";
 import { images } from '../../utils/images';
 import person from '../../utils/person.json';
+import '../../css/style.css'
 
 const About = () => {
   return (
-    <div className='bg-[#FFF4ED]'>
+    <div className='bg-[#FFF4ED] aboutBold'>
       <AboutTitle />
       <AboutPerson />
     </div>
@@ -92,7 +93,7 @@ export const Person = ({person}) => {
       </div>
       <div className='flex items-center justify-center p-1'>
         <img src={person.logo} width={20}/>
-        <div className='ml-2'>{person.name}</div>
+        <div className='ml-1'>{person.name}</div>
       </div>
       <div className={`p-[1px] ${person.department === '미디어소프트웨어학과' && 'text-[8px]'}`}>{person.department}</div>
       <div className='p-1'>{person.position}</div>

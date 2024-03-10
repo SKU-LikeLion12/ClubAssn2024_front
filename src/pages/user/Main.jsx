@@ -1,4 +1,5 @@
 import React from 'react';
+import { MainNav } from '../../components/MainNav';
 
 const Main = () => {
   return (
