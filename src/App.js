@@ -7,11 +7,17 @@ import Map from "./pages/user/Map";
 import Sns from "./pages/user/Sns";
 import ClubIntro from "./pages/user/ClubIntro";
 import About from "./pages/user/About";
+import Nav from "./components/Nav";
 import './css/style.css'
+import {MainNav, PageNav, BackNav} from "./components/MainNav";
 
 function App() {
   return (
     <div className="App">
+      <MainNav />
+      <PageNav />
+      <BackNav />
+      
       <Routes>
         <Route path="/main" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>

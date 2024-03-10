@@ -1,0 +1,55 @@
+[{
+        "id": 1,
+        "image": "assets/images/about/likelion/seunghee.png",
+        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "name": "노승희",
+        "department": "미디어소프트웨어학과",
+        "position": "대표",
+        "role": "Front-End"
+    },
+    {
+        "id": 2,
+        "image": "assets/images/about/likelion/cz.png",
+        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "name": "고창준",
+        "department": "컴퓨터공학과",
+        "position": "운영진",
+        "role": "Front-End"
+    },
+    {
+        "id": 3,
+        "image": "assets/images/about/likelion/minji.png",
+        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "name": "남민지",
+        "department": "컴퓨터공학과",
+        "position": "운영진",
+        "role": "Back-End"
+    },
+    {
+        "id": 4,
+        "image": "assets/images/about/likelion/hojoo.png",
+        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "name": "문호주",
+        "department": "컴퓨터공학과",
+        "position": "운영진",
+        "role": "Back-End"
+    },
+    {
+        "id": 5,
+        "image": "assets/images/about/studentCouncil/jh.jpg",
+        "logo": "assets/images/about/studentCouncil/총학생회로고.png",
+        "name": "박주혁",
+        "department": "중어중문학과",
+        "position": "비상대책위원장",
+        "role": "디자인 총괄"
+    },
+    {
+        "id": 6,
+        "image": "assets/images/about/studentCouncil/jm.jpg",
+        "logo": "assets/images/about/studentCouncil/총학생회로고.png",
+        "name": "김준모",
+        "department": "국어국문학과",
+        "position": "홍보미디어국장",
+        "role": "디자인 작업"
+    }
+]
