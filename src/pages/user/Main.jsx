@@ -1,9 +1,11 @@
 import React from 'react';
+import Footer from "../../components/Footer";
 
 const Main = () => {
   return (
     <div>
       Main
+      <Footer/>
     </div>
   );
 };
