@@ -1,7 +1,8 @@
 [{
         "id": 1,
-        "image": "assets/images/about/likelion/seunghee.png",
-        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "image": "assets/images/person/likelion/seunghee.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
         "name": "노승희",
         "department": "미디어소프트웨어학과",
         "position": "대표",
@@ -9,47 +10,112 @@
     },
     {
         "id": 2,
-        "image": "assets/images/about/likelion/cz.png",
-        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "image": "assets/images/person/likelion/taekwon.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
+        "name": "정택원",
+        "department": "컴퓨터공학과",
+        "position": "부대표",
+        "role": "Back-End"
+    },
+    {
+        "id": 3,
+        "image": "assets/images/person/likelion/changjun.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
         "name": "고창준",
         "department": "컴퓨터공학과",
         "position": "운영진",
         "role": "Front-End"
     },
     {
-        "id": 3,
-        "image": "assets/images/about/likelion/minji.png",
-        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "id": 4,
+        "image": "assets/images/person/likelion/younghyun.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
+        "name": "김영현",
+        "department": "컴퓨터공학과",
+        "position": "운영진",
+        "role": "Front-End"
+    },
+    {
+        "id": 5,
+        "image": "assets/images/person/likelion/minseo.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
+        "name": "신민서",
+        "department": "미디어소프트웨어학과",
+        "position": "운영진",
+        "role": "Front-End"
+    },
+    {
+        "id": 6,
+        "image": "assets/images/person/likelion/minji.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
         "name": "남민지",
         "department": "컴퓨터공학과",
         "position": "운영진",
         "role": "Back-End"
     },
     {
-        "id": 4,
-        "image": "assets/images/about/likelion/hojoo.png",
-        "logo": "assets/images/about/likelion/likelionLogo.png",
+        "id": 7,
+        "image": "assets/images/person/likelion/hojoo.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
         "name": "문호주",
         "department": "컴퓨터공학과",
         "position": "운영진",
         "role": "Back-End"
     },
     {
-        "id": 5,
-        "image": "assets/images/about/studentCouncil/jh.jpg",
-        "logo": "assets/images/about/studentCouncil/총학생회로고.png",
-        "name": "박주혁",
-        "department": "중어중문학과",
-        "position": "비상대책위원장",
-        "role": "디자인 총괄"
+        "id": 8,
+        "image": "assets/images/person/likelion/mingyu.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
+        "name": "한민규",
+        "department": "컴퓨터공학과",
+        "position": "운영진",
+        "role": "Back-End"
     },
     {
-        "id": 6,
-        "image": "assets/images/about/studentCouncil/jm.jpg",
-        "logo": "assets/images/about/studentCouncil/총학생회로고.png",
-        "name": "김준모",
-        "department": "국어국문학과",
-        "position": "홍보미디어국장",
-        "role": "디자인 작업"
+        "id": 9,
+        "image": "assets/images/person/likelion/minju.png",
+        "logo": "assets/images/logo/likelion.png",
+        "group": "likelion",
+        "name": "서민주",
+        "department": "관광개발학과",
+        "position": "운영진",
+        "role": "UI/UX 디자인"
+    },
+    {
+        "id": 10,
+        "image": "assets/images/person/puzzle/hosun.png",
+        "logo": "assets/images/logo/puzzle.png",
+        "group": "puzzle",
+        "name": "두호선",
+        "department": "관광개발학과",
+        "position": "홍보국장",
+        "role": "UI/UX 디자인"
+    },
+    {
+        "id": 11,
+        "image": "assets/images/person/puzzle/sungju.png",
+        "logo": "assets/images/logo/puzzle.png",
+        "group": "puzzle",
+        "name": "임성주",
+        "department": "산업경영공학과",
+        "position": "회장",
+        "role": "총괄"
+    },
+    {
+        "id": 12,
+        "image": "assets/images/person/puzzle/sungjin.png",
+        "logo": "assets/images/logo/puzzle.png",
+        "group": "puzzle",
+        "name": "김성진",
+        "department": "중어중문학과",
+        "position": "기획국장",
+        "role": "기획"
     }
 ]
