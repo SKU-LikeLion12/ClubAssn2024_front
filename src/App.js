@@ -10,13 +10,14 @@ import About from "./pages/user/About";
 import Nav from "./components/Nav";
 import './css/style.css'
 import {MainNav, PageNav, BackNav} from "./components/MainNav";
+import Menu from "./pages/user/Menu";
 
 function App() {
   return (
     <div className="App">
       <MainNav />
-      <PageNav />
-      <BackNav />
+      {/* <PageNav />
+      <BackNav /> */}
       
       <Routes>
         <Route path="/main" element={<Main/>}/>
@@ -24,6 +25,7 @@ function App() {
         <Route path="/myPage" element={<Mypage/>}/>
         <Route path="/rental" element={<Rental/>}/>
         <Route path="/map" element={<Map/>}/>
+        <Route path="/menu" element={<Menu/>}/>
         <Route path="/sns" element={<Sns/>}/>
         <Route path="/clubIntro" element={<ClubIntro/>}/>
         <Route path="/about" element={<About/>}/>
