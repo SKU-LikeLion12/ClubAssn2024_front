@@ -1,16 +1,17 @@
 import React from 'react';
 import { MainNav } from '../../components/MainNav';
 import Footer from "../../components/Footer";
+import PageTitle from '../../components/PageTitle';
 
 const Main = () => {
   return (
     <div className='overflow-hidden'>
       <div className='relative'>
-        <p>Puzzle</p>
+        <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
         <div className='flex justify-end'>
-          <img src="assets/images/puzzle/backPuzzleT.png" className='absolute z-0 w-2/5 h-auto '/>
+          <img src="assets/images/puzzle/backPuzzleT.png" className='absolute z-[-10] w-2/5 h-auto bottom-[10rem]'/>
         </div>
-        <div className='textFont text-white text-lg mt-20'>
+        <div className='textFont text-white text-lg mt-16'>
           <div className='grid grid-rows-1 grid-flow-col justify-center relative mb-[-68px] z-10'>
             <img src="assets/images/puzzle/puzzleG.png" className='w-auto h-32 ml-16 mr-1'/>
             <a href ="#" className='absolute text-center top-8 left-[5.5rem]'>퍼즐 조각 <br/> 모으기</a>
@@ -24,7 +25,7 @@ const Main = () => {
             <a href ="#" className='absolute text-center top-[4.5rem] left-56'>강의실<br/>시간표</a>
           </div>
           <div className='flex justify-start'>
-          <img src="assets/images/puzzle/backPuzzleB.png" className='absolute z-[-10] w-2/5 h-auto top-[18rem]'/>
+          <img src="assets/images/puzzle/backPuzzleB.png" className='absolute z-[-10] w-2/5 h-auto top-[25rem]'/>
         </div>
         </div>
       </div>
