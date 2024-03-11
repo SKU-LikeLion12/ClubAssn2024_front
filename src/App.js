@@ -2,7 +2,7 @@ import { Route, Routes, useLocation } from "react-router-dom";
 import Main from './pages/user/Main';
 import Login from "./pages/user/Login";
 import Mypage from "./pages/user/Mypage";
-import Rental from "./pages/user/Rental";
+import Rental from "./pages/user/Rental/Rental.jsx";
 import Map from "./pages/user/Map";
 import Sns from "./pages/user/Sns";
 import ClubIntro from "./pages/user/ClubIntro";
@@ -11,6 +11,8 @@ import Nav from "./components/Nav";
 import './css/style.css'
 import {MainNav, MenuNav} from "./components/MainNav";
 import Menu from "./pages/user/Menu";
+import RentalBook from "./pages/user/Rental/RentalBook.jsx";
+import RentalConfirm from "./pages/user/Rental/RentalConfirm.jsx";
 
 function App() {
   const location = useLocation();
@@ -26,7 +28,11 @@ function App() {
         <Route path="/main" element={<Main/>}/>
         <Route path="/login" element={<Login/>}/>
         <Route path="/myPage" element={<Mypage/>}/>
+
         <Route path="/rental" element={<Rental/>}/>
+        <Route path="/rentalBook" element={<RentalBook/>} />
+        <Route path="/rentalConfirm" element={<RentalConfirm/>} />
+
         <Route path="/map" element={<Map/>}/>
         <Route path="/menu" element={<Menu/>}/>
         <Route path="/sns" element={<Sns/>}/>

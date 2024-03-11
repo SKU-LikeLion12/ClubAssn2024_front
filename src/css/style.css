@@ -77,6 +77,14 @@ body {
 }
 
 /* 만든이들 폰트 */
+.aboutLight {
+  font-family: 'NanumSquareNeo-Light';
+}
+
+.aboutRegular {
+  font-family: 'NanumSquareNeo-Regular';
+}
+
 .aboutBold {
   font-family: 'NanumSquareNeo-Bold';
 }
@@ -87,4 +95,54 @@ body {
 
 .aboutHeavy {
   font-family: 'NanumSquareNeo-Heavy';
+}
+
+/* scroll */
+.rentalBox::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+.rentalBox::-webkit-scrollbar-thumb {
+  height: 3px; /* 스크롤바의 길이 */
+  background: #B79A5F; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.rentalBox::-webkit-scrollbar-track {
+  background: inherit;
+  border-radius: 10px;
+}
+
+.rentalBox::-webkit-scrollbar-button:vertical:start:decrement {
+  display: block;
+  height: 20px; 
+}
+
+.rentalBox::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+  height: 20px;
+}
+
+.rentalCheckBox {
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: 2px solid #ceb421;
+  cursor: pointer;
+}
+.rentalCheckBox::before {
+  content: '';
+  color: transparent;
+  display: block;
+  width: inherit; 
+  height: inherit; 
+  border-radius: inherit; 
+  border: 0;
+  background-color: transparent;
+  background-size: 13px; 
+  background-repeat: no-repeat;
+}
+
+.rentalCheckBox:checked::before {
+  background-image: url(../../public/assets/images/rental/check.png);
 }

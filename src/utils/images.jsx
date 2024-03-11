@@ -23,4 +23,9 @@ export const images = {
     kakaotalk: PATH + '/assets/images/sns/kakaotalk.png',
     naverCafe: PATH + '/assets/images/sns/naverCafe.png',
     youtube: PATH + '/assets/images/sns/youtube.png',
+
+    // Rental
+    LYP: PATH + '/assets/images/rental/LeftYellowPuzzle.svg',
+    RYP: PATH + '/assets/images/rental/RightYellowPuzzle.svg',
+
 }
