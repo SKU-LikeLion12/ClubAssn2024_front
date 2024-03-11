@@ -1,11 +1,13 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { images } from '../../utils/images';
+import PageTitle from '../../components/PageTitle';
 
 const Sns = () => {
   return (
     <div>
-      <div className='grid grid-cols-2 gap-5 mx-auto'>
+      <PageTitle title={'Puzzle'} subTitle={'SNS'} Tcolor={'#C7A266'}/>
+      <div className='grid grid-cols-2 gap-5 mx-auto text-[#C7A266]'>
         <SnsContent image={'instagram'} title={'인스타그램'} sub={'@sku_dongari40'} url={'https://www.naver.com/'}/>
         <SnsContent image={'naverCafe'} title={'네이버 카페'} sub={'성결대학교 동아리연합회 카페'} url={'https://www.naver.com/'}/>
         <SnsContent image={'kakaotalk'} title={'카카오톡 채널'} sub={'성결대 동아리연합회'} url={'https://www.naver.com/'}/>
