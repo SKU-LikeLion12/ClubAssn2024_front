@@ -9,7 +9,7 @@ import PageTitle from '../../components/PageTitle';
 const Menu = () => {
   return (
     <div className='relative'>
-    <PageTitle title={'Puzzle'} title2={'Menu'} Tcolor={'#AB7A67'} Tcolor2={'#C19589'}/>
+    <PageTitle title={'Puzzle'} title2={'Menu'} Tcolor={'#AB7A67'} Tcolor2={'#C19589'} />
     <div className='Menu flex text-sm text-white min-h-screen'>
       <div className='relative w-10/12 mx-auto'>
         <img src={images.menuPuzzle} className='absolute -z-10' />
