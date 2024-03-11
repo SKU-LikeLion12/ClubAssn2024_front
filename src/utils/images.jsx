@@ -1,6 +1,13 @@
 const PATH = process.env.PUBLIC_URL;
 
 export const images = {
+    // Background
+    leftPinkMenu: PATH + '/assets/images/puzzlePiece/leftPinkMenu.png',
+    rightPinkMenu: PATH + '/assets/images/puzzlePiece/rightPinkMenu.png',
+    
+    // PuzzlePiece
+    menuPuzzle: PATH + '/assets/images/puzzlePiece/menuPuzzle.png',
+    
     // 로고
     puzzle: PATH + '/assets/images/logo/puzzle.png',
     likelion: PATH + '/assets/images/logo/likelion.png',
