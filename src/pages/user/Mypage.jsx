@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
+import Footer from '../../components/Footer';
 
 const Mypage = () => {
   const [isgoodsOpen, setIsgoodsOpen] = useState(false); // 물품 대여 현황
@@ -72,11 +73,11 @@ const Mypage = () => {
     <div>
       <div className="relative -z-10">
         <img className="w-32 h-[20rem] absolute top-32 right-0" src='assets/images/Mypage-puzzle1.png' alt='puzzle1'/>
-        <img className="w-32 h-[22rem] absolute top-[26rem]" src='assets/images/Mypage-puzzle2.png' alt='puzzle2'/>
+        <img className="w-32 h-[22rem] absolute top-[21rem]" src='assets/images/Mypage-puzzle2.png' alt='puzzle2'/>
       </div>
       <div className="flex flex-col justify-center items-center h-full">
         <div>
-        <PageTitle title={"Puzzle"} Tcolor={"#AB7A67"}/>
+        <PageTitle title={"Puzzle"} Tcolor="#AB7A67"/>
         </div>
         <div className="mb-4">동아리소속,이름</div>
         <div className="flex flex-col mt-7">
@@ -178,8 +179,7 @@ const Mypage = () => {
             <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여</div>
           </div>
         </div>
-        <img className="size-20 mt-7" src='assets/images/logo.png' alt='logo'/>
-        <div className="text-primary mt-4 text-xl font-bold font-['GyeonggiTitleM']">제40대 puzzle 동아리연합회</div>
+        <Footer/>
       </div>
       </div>
   );
