@@ -3,7 +3,7 @@ import Main from './pages/user/Main';
 import Login from "./pages/user/Login";
 import Mypage from "./pages/user/Mypage";
 import Rental from "./pages/user/Rental/Rental.jsx";
-import Map from "./pages/user/Map";
+import {Map,StudentUnion,StudentCenter} from "./pages/user/Map";
 import Sns from "./pages/user/Sns";
 import ClubIntro from "./pages/user/ClubIntro";
 import About from "./pages/user/About";
@@ -13,9 +13,6 @@ import {MainNav, MenuNav} from "./components/MainNav";
 import Menu from "./pages/user/Menu";
 import RentalBook from "./pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "./pages/user/Rental/RentalConfirm.jsx";
-import StudentUnion from "./components/map/StudentUnion.jsx";
-import StudentCenter from "./components/map/StudentCenter.jsx";
-
 function App() {
   const location = useLocation();
   const path = location.pathname;  

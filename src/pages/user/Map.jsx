@@ -3,10 +3,9 @@ import PageTitle from '../../components/PageTitle';
 import Back from '../../components/shared/Back';
 import '../../css/map.css'
 import { Route, Routes, useNavigate, Link, Outlet} from 'react-router-dom';
-import StudentUnion from '../../components/map/StudentUnion';
-import StudentCenter from '../../components/map/StudentCenter';
+import { images } from '../../utils/images';
 
-const Map = () => {
+export const Map = () => {
   const navigate = useNavigate();
 
   return (
@@ -19,9 +18,41 @@ const Map = () => {
       <Outlet />
 
       <div className='mapSmallTitle'>동아리 SNS</div>
+      <ClubSNS />
       <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
     </div>
   );
 };
 
-export default Map;
+// 동아리 SNS component
+export const ClubSNS = () => {
+  return (
+    <div>
+      동아리 SNS 컴포넌트
+    </div>
+  );
+};
+
+// 중생관 component
+export const StudentCenter = () => {
+  return (
+    <div>
+      <div className='mapSmallTitle'>중생관</div>
+      <img src={images.center} alt="중생관 배치도" />
+    </div>
+  );
+};
+
+// 학생회관 component
+export const StudentUnion = () => {
+  return (
+    <div>
+      <div className='mapSmallTitle'>학생회관 3F</div>
+      <img src={images.union3F} alt="학생회관 3층" />
+
+      <div className='mapSmallTitle'>학생회관 1F</div>
+      <img src={images.union1F} alt="학생회관 1층" />
+    </div>
+  );
+};
+
