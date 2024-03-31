@@ -28,4 +28,9 @@ export const images = {
     LYP: PATH + '/assets/images/rental/LeftYellowPuzzle.svg',
     RYP: PATH + '/assets/images/rental/RightYellowPuzzle.svg',
 
+    // map
+    union3F: PATH + '/assets/images/map/studentUnion3F.png',
+    union1F: PATH + '/assets/images/map/studentUnion1F.png',
+    center: PATH + '/assets/images/map/studentCenter.png',
+
 }

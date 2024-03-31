@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 import Main from './pages/user/Main';
 import Login from "./pages/user/Login";
 import Mypage from "./pages/user/Mypage";
@@ -13,6 +13,8 @@ import {MainNav, MenuNav} from "./components/MainNav";
 import Menu from "./pages/user/Menu";
 import RentalBook from "./pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "./pages/user/Rental/RentalConfirm.jsx";
+import StudentUnion from "./components/map/StudentUnion.jsx";
+import StudentCenter from "./components/map/StudentCenter.jsx";
 
 function App() {
   const location = useLocation();
@@ -21,25 +23,28 @@ function App() {
   const isNavPath = navPaths.includes(path);
 
   return (
-    <div className="App textFont">
-      {isNavPath ? <MenuNav /> : <MainNav />}
+      <div className="App textFont">
+        {isNavPath ? <MenuNav /> : <MainNav />}
+        <Routes>
+          <Route path="/main" element={<Main/>}/>
+          <Route path="/login" element={<Login/>}/>
+          <Route path="/myPage" element={<Mypage/>}/>
 
-      <Routes>
-        <Route path="/main" element={<Main/>}/>
-        <Route path="/login" element={<Login/>}/>
-        <Route path="/myPage" element={<Mypage/>}/>
+          <Route path="/rental" element={<Rental/>}/>
+          <Route path="/rentalBook" element={<RentalBook/>} />
+          <Route path="/rentalConfirm" element={<RentalConfirm/>} />
 
-        <Route path="/rental" element={<Rental/>}/>
-        <Route path="/rentalBook" element={<RentalBook/>} />
-        <Route path="/rentalConfirm" element={<RentalConfirm/>} />
+          <Route path="/map/*" element={<Map />}>
+            <Route path="studentUnion" element={<StudentUnion />} />
+            <Route path="studentCenter" element={<StudentCenter />} />
+          </Route>
 
-        <Route path="/map" element={<Map/>}/>
-        <Route path="/menu" element={<Menu/>}/>
-        <Route path="/sns" element={<Sns/>}/>
-        <Route path="/clubIntro" element={<ClubIntro/>}/>
-        <Route path="/about" element={<About/>}/>
-      </Routes>
-    </div>
+          <Route path="/menu" element={<Menu/>}/>
+          <Route path="/sns" element={<Sns/>}/>
+          <Route path="/clubIntro" element={<ClubIntro/>}/>
+          <Route path="/about" element={<About/>}/>
+        </Routes>
+      </div>
   );
 }
 
