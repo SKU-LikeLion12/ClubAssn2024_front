@@ -2,7 +2,7 @@ import React from 'react';
 import PageTitle from '../../components/PageTitle';
 import Back from '../../components/shared/Back';
 import '../../css/map.css'
-import { Route, Routes, useNavigate, Link, Outlet} from 'react-router-dom';
+import { Route, Routes, useNavigate, Outlet} from 'react-router-dom';
 import { images } from '../../utils/images';
 
 export const Map = () => {
@@ -11,24 +11,16 @@ export const Map = () => {
   return (
     <div className='relative'>
       <PageTitle title={'동아리'} title2={'미니맵'} Tcolor={'#DA8372'} Tcolor2={'#B45C4B'}/>
-      <div className='flex w-9/12 mx-auto justify-center'>
+      <div className='flex w-full mx-auto justify-center'>
         <button className='btnStyle' onClick={()=>{navigate('studentUnion')}}>학생회관</button> 
         <button className='btnStyle' onClick={()=>{navigate('studentCenter')}}>중생관</button> 
+        <button className='btnStyle' onClick={()=>{navigate('clubSNS')}}>동아리 SNS</button>
       </div>
       <Outlet />
 
-      <div className='mapSmallTitle'>동아리 SNS</div>
-      <ClubSNS />
+      {/* <div className='mapSmallTitle'>동아리 SNS</div>
+      <ClubSNS /> */}
       <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
-    </div>
-  );
-};
-
-// 동아리 SNS component
-export const ClubSNS = () => {
-  return (
-    <div>
-      동아리 SNS 컴포넌트
     </div>
   );
 };

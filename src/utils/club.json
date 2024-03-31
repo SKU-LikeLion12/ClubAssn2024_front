@@ -2,11 +2,145 @@
   {
     "category" : "동아리연합회",
     "clubName" : "동아리연합회",
-    "clubImgUrl" : "",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#FBC3CC"
   },
   {
     "category" : "기독 1",
     "clubName" : "산돌찬양선교단",
-    "clubImgUrl" : "",
+    "clubImgUrl" : "/assets/images/logo/likelion.png",
+    "color" : "#F4A48D"
+  },
+  {
+    "category" : "기독 1",
+    "clubName" : "예수전도단",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F4A48D"
+  },
+  {
+    "category" : "기독 1",
+    "clubName" : "시와찬미 찬양선교단",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F4A48D"
+  },
+  {
+    "category" : "기독 1",
+    "clubName" : "주사랑믐약선교단",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F4A48D"
+  },
+  {
+    "category" : "기독 2",
+    "clubName" : "마르튀스",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#FBC994"
+  },
+  {
+    "category" : "기독 2",
+    "clubName" : "애양선교회",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#FBC994"
+  },
+  {
+    "category" : "기독 2",
+    "clubName" : "CCC",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#FBC994"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "페가수스",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "세인트",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "소리하나",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "흑심",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "소너러스",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "예능",
+    "clubName" : "뮤직애",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#F2DF9D"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "성결FC",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "S-COCK",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "PRESS",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "더그아웃",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "하랑",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "체능",
+    "clubName" : "S.T.C",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#89C1DC"
+  },
+  {
+    "category" : "학술/봉사",
+    "clubName" : "희망선교회",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#BED69A"
+  },
+  {
+    "category" : "학술/봉사",
+    "clubName" : "애드마인",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#BED69A"
+  },
+  {
+    "category" : "학술/봉사",
+    "clubName" : "멋쟁이사자처럼",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#BED69A"
+  },
+  {
+    "category" : "문화",
+    "clubName" : "C.A.S",
+    "clubImgUrl" : "/assets/images/logo/puzzle.png",
+    "color" : "#BED69A"
   }
 ]

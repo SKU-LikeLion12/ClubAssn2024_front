@@ -13,6 +13,7 @@ import {MainNav, MenuNav} from "./components/MainNav";
 import Menu from "./pages/user/Menu";
 import RentalBook from "./pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "./pages/user/Rental/RentalConfirm.jsx";
+import ClubSNS from "./components/ClubSNS.jsx";
 function App() {
   const location = useLocation();
   const path = location.pathname;  
@@ -34,6 +35,7 @@ function App() {
           <Route path="/map/*" element={<Map />}>
             <Route path="studentUnion" element={<StudentUnion />} />
             <Route path="studentCenter" element={<StudentCenter />} />
+            <Route path="clubSNS" element={<ClubSNS />} />
           </Route>
 
           <Route path="/menu" element={<Menu/>}/>
