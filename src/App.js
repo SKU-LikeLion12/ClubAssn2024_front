@@ -1,4 +1,4 @@
-import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
+import { Route, Routes, useLocation } from "react-router-dom";
 import Main from './pages/user/Main';
 import Login from "./pages/user/Login";
 import Mypage from "./pages/user/Mypage";
@@ -46,5 +46,4 @@ function App() {
       </div>
   );
 }
-
 export default App;
