@@ -175,7 +175,7 @@ const Mypage = () => {
           <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer">
             <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">퍼즐 조각 모으기</div>
           </div>
-          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer">
+          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
             <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여</div>
           </div>
         </div>
