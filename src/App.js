@@ -14,6 +14,14 @@ import Menu from "./pages/user/Menu";
 import RentalBook from "./pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "./pages/user/Rental/RentalConfirm.jsx";
 import ClubSNS from "./components/ClubSNS.jsx";
+import AdminMain from "./pages/admin/AdminMain.jsx";
+import ItemReservationStatus from "./pages/admin/ItemReservationStatus.jsx";
+import ItemRentalStatus from "./pages/admin/ItemRentalStatus.jsx";
+import RentalItemManagement from "./pages/admin/RentalItemManagement.jsx";
+import PuzzlePieceManagement from "./pages/admin/PuzzlePieceManagement.jsx";
+import ClubMemberManagement from "./pages/admin/ClubMemberManagement.jsx";
+import ClubManagement from "./pages/admin/ClubManagement.jsx";
+import TimetableManagement from "./pages/admin/TimetableManagement.jsx";
 function App() {
   const location = useLocation();
   const path = location.pathname;  
@@ -33,7 +41,8 @@ function App() {
           <Route path="/rentalConfirm" element={<RentalConfirm/>} />
 
           <Route path="/map/*" element={<Map />}>
-            <Route path="studentUnion" element={<StudentUnion />} />
+            <Route index element={<StudentUnion />} />
+            <Route index path="studentUnion" element={<StudentUnion />} />  
             <Route path="studentCenter" element={<StudentCenter />} />
             <Route path="clubSNS" element={<ClubSNS />} />
           </Route>
@@ -42,6 +51,16 @@ function App() {
           <Route path="/sns" element={<Sns/>}/>
           <Route path="/clubIntro" element={<ClubIntro/>}/>
           <Route path="/about" element={<About/>}/>
+
+          {/* admin */}
+          <Route path="/adminMain" element={<AdminMain/>}/>
+          <Route path="/ItemReservationStatus" element={<ItemReservationStatus />}/>
+          <Route path="/ItemRentalStatus" element={<ItemRentalStatus />}/>
+          <Route path="/RentalItemManagement" element={<RentalItemManagement/>}/>
+          <Route path="/PuzzlePieceManagement" element={<PuzzlePieceManagement/>}/>
+          <Route path="/ClubMemberManagement" element={<ClubMemberManagement/>}/>
+          <Route path="/ClubManagement" element={<ClubManagement/>}/>
+          <Route path="/TimetableManagement" element={<TimetableManagement/>}/>
         </Routes>
       </div>
   );
