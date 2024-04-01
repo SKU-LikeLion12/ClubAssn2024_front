@@ -5,12 +5,13 @@ import '../../css/menu.css';
 import Back from '../../components/shared/Back';
 import { MenuNav } from '../../components/MainNav';
 import PageTitle from '../../components/PageTitle';
+import MyInfo from '../../components/shared/MyInfo';
 
 const Menu = () => {
   return (
-    <div className='relative'>
+    <div className='relative min-h-screen'>
     <PageTitle title={'Puzzle'} title2={'Menu'} Tcolor={'#AB7A67'} Tcolor2={'#C19589'} />
-    <div className='Menu flex text-sm text-white min-h-screen'>
+    <div className='Menu flex text-sm text-white'>
       <div className='relative w-10/12 mx-auto'>
         <img src={images.menuPuzzle} className='absolute -z-10' />
         <div className='flex text-center justify-between'>
@@ -20,6 +21,8 @@ const Menu = () => {
         </div>
       </div>
     </div>
+
+    <MyInfo />
     <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
     </div>
   );
