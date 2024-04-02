@@ -32,7 +32,7 @@ function App() {
       <div className="App textFont">
         {isNavPath ? <MenuNav /> : <MainNav />}
         <Routes>
-          <Route path="/main" element={<Main/>}/>
+          <Route path="/" element={<Main/>}/>
           <Route path="/login" element={<Login/>}/>
           <Route path="/myPage" element={<Mypage/>}/>
 
