@@ -45,8 +45,8 @@ const ItemRentalStatus = () => {
               <div key={index} className="mt-4">
                 <p>이름 : {result.name}</p>
                 <p>학번 : {result.numberId}</p>
-                <p>그룹 : {result.group}</p>
-                <p>물품 : {result.product}</p>
+                <p>소속 동아리 : {result.group}</p>
+                <p>대여 물품 : {result.product}</p>
                 <p>수량 : {result.count}</p>
                 <p>반납일 : {result.dueDate}</p>
                 <p>연체 횟수 : {result.overDue}</p>
