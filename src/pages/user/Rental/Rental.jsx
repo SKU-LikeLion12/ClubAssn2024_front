@@ -5,7 +5,7 @@ import { images } from '../../../utils/images';
 import articles from '../../../utils/article';
 
 const Rental = () => {
-  const articleIds = Array.from({ length: 10 }, (_, i) => i + 1);
+  const articleIds = Array.from({ length: 19 }, (_, i) => i + 1);
 
   return (
     <>
@@ -37,10 +37,10 @@ export const Article = ({id}) => {
     <div>
       {articles.map(article => (
         (article.id === id) && (
-          <div className='textFont font-black px-6 my-4' key={article.id}>
-            <img className='mx-auto my-2 w-10/12' src={article.image} alt="물품사진" />
-            <div className="text-center text-[20px] mb-2">{article.name}</div>
-            <div>
+          <div className='textFont font-black px-4 my-4' key={article.id}>
+            <img className='mx-auto my-2 w-9/12' src={article.image} alt="물품사진" />
+            <div className="text-center text-[18px] mb-2">{article.name}</div>
+            <div className='w-10/12 mx-auto'>
               <div className='flex justify-between'>
                 <div>총 수량 :</div>
                 <div>{article.total}</div>
