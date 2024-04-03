@@ -80,7 +80,8 @@ const Mypage = () => {
         <div>
         <PageTitle title={"Puzzle"} Tcolor="#AB7A67"/>
         </div>
-        <div className="mb-4">동아리소속,이름</div>
+        {/* <div className="mb-4">동아리소속,이름</div> */}
+        <MyInfo />
         <div className="flex flex-col mt-7">
           {!isgoodsOpen && ( // 물품 대여 현황 누르기 전
             <div className="w-[17rem] h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer" onClick={openPopup}>

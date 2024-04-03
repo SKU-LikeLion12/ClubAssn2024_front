@@ -4,6 +4,8 @@ export const images = {
     // Background
     leftPinkMenu: PATH + '/assets/images/puzzlePiece/leftPinkMenu.png',
     rightPinkMenu: PATH + '/assets/images/puzzlePiece/rightPinkMenu.png',
+    leftGreen: PATH + '/assets/images/puzzlePiece/leftGreen.png',
+    rightGreen: PATH + '/assets/images/puzzlePiece/rightGreen.png',
     
     // PuzzlePiece
     menuPuzzle: PATH + '/assets/images/puzzlePiece/menuPuzzle.png',
