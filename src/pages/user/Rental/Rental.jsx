@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
 import articles from '../../../utils/article';
+import MyInfo from '../../../components/shared/MyInfo';
 
 const Rental = () => {
   const articleIds = Array.from({ length: 19 }, (_, i) => i + 1);
@@ -10,6 +11,7 @@ const Rental = () => {
   return (
     <>
       <PageTitle title='물품대여' Tcolor='#B79A5F' />
+      <MyInfo />
       <div className="relative">
         <div className="flex justify-end">
           <img src={images.RYP} alt="오른쪽퍼즐" className='w-[140px]' />

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import Footer from '../../components/Footer';
+import MyInfo from '../../components/shared/MyInfo';
 
 const Mypage = () => {
   const [isgoodsOpen, setIsgoodsOpen] = useState(false); // 물품 대여 현황
