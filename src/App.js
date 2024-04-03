@@ -22,6 +22,7 @@ import PuzzlePieceManagement from "./pages/admin/PuzzlePieceManagement.jsx";
 import ClubMemberManagement from "./pages/admin/ClubMemberManagement.jsx";
 import ClubManagement from "./pages/admin/ClubManagement.jsx";
 import TimetableManagement from "./pages/admin/TimetableManagement.jsx";
+import CollectingPuzzle from "./pages/user/CollectingPuzzle.jsx";
 function App() {
   const location = useLocation();
   const path = location.pathname;  
@@ -51,6 +52,8 @@ function App() {
           <Route path="/sns" element={<Sns/>}/>
           <Route path="/clubIntro" element={<ClubIntro/>}/>
           <Route path="/about" element={<About/>}/>
+
+          <Route path="/collectingpuzzle" element={<CollectingPuzzle/>}/>
 
           {/* admin */}
           <Route path="/adminMain" element={<AdminMain/>}/>
