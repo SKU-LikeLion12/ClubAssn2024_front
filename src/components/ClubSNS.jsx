@@ -35,7 +35,7 @@ const ClubSNS = () => {
     },
     content: {
       width: "360px",
-      // height: "200px",
+      height: "300px",
       zIndex: "150",
       position: "absolute",
       top: "50%",
@@ -97,7 +97,7 @@ const ClubSNS = () => {
                         <div className='flex flex-col justify-center items-center grow w-full'>
                           <img src={club.clubImgUrl} alt="동아리 로고" className='w-[100px] mx-auto' />
                           <div className='m-3 text-2xl text-bold'>{club.clubName}</div>
-                          <div className='w-9/12 break-keep text-center'>{club.clubIntro}</div>
+                          <div className='w-11/12 break-keep text-center'>{club.clubIntro}</div>
                         </div>
                       </div>
                     )

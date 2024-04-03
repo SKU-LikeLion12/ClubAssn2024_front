@@ -2,20 +2,20 @@
   {
     "category" : "체능",
     "clubName" : "S-COCK",
-    "clubImgUrl" : "/assets/images/logo/likelion.png",
+    "clubImgUrl" : "/assets/images/logo/s-cock.png",
     "clubIntro" : "성결대의 유일무이 배드민턴 동아리"
   },
   {
     "category" : "체능",
     "clubName" : "PRESS",
-    "clubImgUrl" : "/assets/images/logo/likelion.png",
+    "clubImgUrl" : "/assets/images/logo/프레스.png",
     "clubIntro" : "농구를 좋아하는 사람들이 주기적으로 모여 훈련을 통해 농구를 배우고 시합을 하며 친목을 도모하는 동아리"
   },
 
   {
     "category" : "문화",
     "clubName" : "C.A.S",
-    "clubImgUrl" : "/assets/images/logo/likelion.png",
+    "clubImgUrl" : "/assets/images/logo/CAS.png",
     "clubIntro" : "서브컬쳐를 사랑하는 사람들의 모임 동아리"
   }
 ]
