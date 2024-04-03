@@ -82,14 +82,14 @@ const Mypage = () => {
         <div className="mb-4">동아리소속,이름</div>
         <div className="flex flex-col mt-7">
           {!isgoodsOpen && ( // 물품 대여 현황 누르기 전
-            <div className="w-[17rem] h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8" onClick={openPopup}>
+            <div className="w-[17rem] h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer" onClick={openPopup}>
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여 현황</div>
             </div>
           )}
         {isgoodsOpen && ( // 물품 대여 현황 눌렀을 때 
           <div className="bg-white border-primary border-2 font-bold font-['GyeonggiTitleM'] p-4 rounded-lg mb-8 w-[17rem] h-[18rem] relative">
             <div className="text-primary mb-4 text-center">물품 대여 현황</div>
-            <img src="assets/images/Xbutton.png" alt="Xbutton" className="absolute top-0 right-0 mr-3 mt-4 w-[1rem]" onClick={closePopup} />
+            <img src="assets/images/Xbutton.png" alt="Xbutton" className="absolute top-0 right-0 mr-3 mt-4 w-[1rem] cursor-pointer" onClick={closePopup} />
             {rentalData ? ( // 대여현황이 있으면 렌더링 
               <div className="flex flex-col justify-center items-center text-center">
                 <div className="w-[5rem] h-[6rem] border-2 border-primary rounded overflow-hidden mb-3">
@@ -99,9 +99,9 @@ const Mypage = () => {
                 <div className="text-primary font-medium text-[14px]">대여일: {rentalData.rentalDate}</div>
                 <div className="text-primary font-medium text-[14px]">반납일: {rentalData.returnDate}</div>
                 <div className="flex justify-center mt-3">
-                  <img src="assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6" onClick={prevGoods} />
+                  <img src="assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6 cursor-pointer" onClick={prevGoods} />
                   <div className="text-primary">{rentalData.count}</div>
-                  <img src="assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6" onClick={nextGoods} />
+                  <img src="assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6 cursor-pointer" onClick={nextGoods} />
                 </div>
               </div>
             ) : ( // 물품 대여 현황 없으면 렌더링
@@ -112,14 +112,14 @@ const Mypage = () => {
         </div>
         )}
         {!isreserveOpen && ( // 물품 예약 현황 누르기 전
-          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8" onClick={openReservation} >
+          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer" onClick={openReservation} >
             <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']" >물품 예약 현황</div>
           </div>
         )}
           {isreserveOpen && ( // 물품 예약 현황 눌렀을 때 
           <div className="bg-white border-primary border-2 font-bold font-['GyeonggiTitleM'] p-4 rounded-lg mb-8 w-[17rem] h-[20rem] relative">
             <div className="text-primary mb-4 text-center">물품 예약 현황</div>
-            <img src="assets/images/Xbutton.png" alt="Xbutton" className="absolute top-0 right-0 mr-3 mt-4 w-[1rem]" onClick={closeReservation} />
+            <img src="assets/images/Xbutton.png" alt="Xbutton" className="absolute top-0 right-0 mr-3 mt-4 w-[1rem] cursor-pointer" onClick={closeReservation} />
             {reservation ? ( // 예약현황이 있으면 렌더링 
               <div className="flex flex-col justify-center items-center text-center">
                 <div className="w-[5rem] h-[6rem] border-2 border-primary rounded overflow-hidden mb-3">
@@ -158,9 +158,9 @@ const Mypage = () => {
                       <button onClick={handleCancelClick} className="mt-[3px] text-primary font-medium text-[0.9rem]">예약 취소</button>
                     </div>
                     <div className="flex justify-center mt-3">
-                      <img src="assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6" onClick={prevGoods} />
+                      <img src="assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6 cursor-pointer" onClick={prevGoods} />
                       <div className="text-primary">{reservation.count}</div>
-                      <img src="assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6" onClick={nextGoods} />
+                      <img src="assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6 cursor-pointer" onClick={nextGoods} />
                     </div>
                   </>
                 )}
@@ -172,7 +172,7 @@ const Mypage = () => {
           )}
         </div>
         )}
-          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
+          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer">
             <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">퍼즐 조각 모으기</div>
           </div>
           <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
