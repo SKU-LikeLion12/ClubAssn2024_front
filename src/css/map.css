@@ -1,0 +1,22 @@
+.btnStyle {
+  width: 100%;
+  background-color: #fcd1c8;
+  margin: 7px;
+  padding: 1px;
+  border-radius: 5px;
+  border: 2px solid #B45C4B;
+  color: #B45C4B;
+}
+
+.mapSmallTitle {
+  width: 30%;
+  margin: 20px auto 5px auto;
+  background-color: #DA8372;
+  border-radius: 30px;
+  text-align: center;
+}
+
+.clubCategoryBox {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+}

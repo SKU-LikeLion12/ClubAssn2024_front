@@ -1,0 +1,17 @@
+.adminMainBtn {
+  width: 70%;
+  background-color: #dbebff;
+  border-radius: 10px;
+  padding: 12px;
+  margin: 15px auto;
+  text-align: center;
+  font-size: 18px;
+}
+
+.textDeepBlue {
+  color: #12172B;
+}
+
+.textSkyBlue {
+  color: #5979A7;
+}
