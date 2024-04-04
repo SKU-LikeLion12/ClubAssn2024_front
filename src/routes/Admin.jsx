@@ -9,20 +9,21 @@ import ClubMemberManagement from "../pages/admin/ClubMemberManagement.jsx";
 import ClubManagement from "../pages/admin/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
+import ProtectedRoute from "../components/ProtectedRoute .jsx";
 
 const Admin = () => {
   return (
     <div>
       <Routes>
         <Route path='/adminLogin' element={<AdminLogin/>} />
-        <Route path="/adminMain" element={<AdminMain/>}/>
-        <Route path="/ItemReservationStatus" element={<ItemReservationStatus />}/>
-        <Route path="/ItemRentalStatus" element={<ItemRentalStatus />}/>
-        <Route path="/RentalItemManagement" element={<RentalItemManagement/>}/>
-        <Route path="/PuzzlePieceManagement" element={<PuzzlePieceManagement/>}/>
-        <Route path="/ClubMemberManagement" element={<ClubMemberManagement/>}/>
-        <Route path="/ClubManagement" element={<ClubManagement/>}/>
-        <Route path="/TimetableManagement" element={<TimetableManagement/>}/>
+        <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
+        <Route path="/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
+        <Route path="/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
+        <Route path="/RentalItemManagement" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>}/>
+        <Route path="/PuzzlePieceManagement" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
+        <Route path="/ClubMemberManagement" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
+        <Route path="/ClubManagement" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
+        <Route path="/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
       </Routes>
     </div>
 );
