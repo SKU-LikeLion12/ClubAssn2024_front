@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import Footer from '../../components/Footer';
 import MyInfo from '../../components/shared/MyInfo';
+import axios from 'axios';
 
 const Mypage = () => {
   const [isgoodsOpen, setIsgoodsOpen] = useState(false); // 물품 대여 현황
@@ -13,15 +14,7 @@ const Mypage = () => {
 
   const openPopup = () => {
     setIsgoodsOpen(true);
-    // 임시데이터
-    const initialRentalData = {
-      image: 'assets/images/기도방석.png',
-      goodsname: '우산',
-      rentalDate: '2024년 2월 15일 ',
-      returnDate: '2024년 2월 14일',
-      count: "2/3", 
-    };
-    setRentalData(initialRentalData);
+    
   }
 
   const openReservation = () => {
@@ -73,8 +66,8 @@ const Mypage = () => {
   return (
     <div>
       <div className="relative -z-10">
-        <img className="w-32 h-[20rem] absolute top-32 right-0" src='assets/images/Mypage-puzzle1.png' alt='puzzle1'/>
-        <img className="w-32 h-[22rem] absolute top-[21rem]" src='assets/images/Mypage-puzzle2.png' alt='puzzle2'/>
+        <img className="w-32 h-[20rem] absolute top-32 right-0" src='../assets/images/puzzle/backPuzzleT.png' alt='puzzleT'/>
+        <img className="w-32 h-[22rem] absolute top-[21rem]" src='../assets/images/puzzle/backPuzzleB.png' alt='puzzleB'/>
       </div>
       <div className="flex flex-col justify-center items-center h-full">
         <div>
@@ -101,9 +94,9 @@ const Mypage = () => {
                 <div className="text-primary font-medium text-[14px]">대여일: {rentalData.rentalDate}</div>
                 <div className="text-primary font-medium text-[14px]">반납일: {rentalData.returnDate}</div>
                 <div className="flex justify-center mt-3">
-                  <img src="assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6 cursor-pointer" onClick={prevGoods} />
+                  <img src="../assets/images/Mypage-polygon.png" alt="polygon" className="w-[0.7rem] ml-6 mr-6 cursor-pointer" onClick={prevGoods} />
                   <div className="text-primary">{rentalData.count}</div>
-                  <img src="assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6 cursor-pointer" onClick={nextGoods} />
+                  <img src="../assets/images/Mypage-polygon.png" alt="polygon2" className="w-[0.7rem] transform rotate-180 ml-6 mr-6 cursor-pointer" onClick={nextGoods} />
                 </div>
               </div>
             ) : ( // 물품 대여 현황 없으면 렌더링
