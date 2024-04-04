@@ -68,7 +68,7 @@ const ClubSNS = () => {
               {category}</div>
           <div 
             style={{ borderColor: color }}
-            className={`clubCategoryBox border pt-2 ${category==='동아리연합회' && 'grid-cols-1'}`}>
+            className={`clubCategoryBox border pt-2 ${category==='동아리연합회' ? 'grid-cols-1' : 'grid-cols-4'}`}>
             {/* 각 카테고리별 동아리 출력 */}
             {clubs.map(({ clubName, clubImgUrl, snsLink }) => (
               snsLink !== 'Modal' ?
