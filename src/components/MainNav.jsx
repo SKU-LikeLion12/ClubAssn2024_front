@@ -9,10 +9,10 @@ export const MainNav = ({color}) => {
   const navigate = useNavigate();
   return (
     <ul className='Nav flex justify-between items-center p-5 fixed top-0 w-full backdrop-blur-sm'>
-      <li><Link to='/'><img src={images.puzzle} className='w-8' /></Link></li>
+      <li><Link to='/user'><img src={images.puzzle} className='w-8' /></Link></li>
       <div className='flex items-center'>
-        <li><Link to='/login'><AiOutlineUser size={30} className='mr-2'/></Link></li>
-        <li><Link to='/menu'><BsList size={30} /></Link></li>
+        <li><Link to='login'><AiOutlineUser size={30} className='mr-2'/></Link></li>
+        <li><Link to='menu'><BsList size={30} /></Link></li>
       </div>
     </ul>
   )

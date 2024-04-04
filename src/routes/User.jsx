@@ -13,6 +13,7 @@ import Menu from "../pages/user/Menu.jsx";
 import RentalBook from "../pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "../pages/user/Rental/RentalConfirm.jsx";
 import ClubSNS from "../components/ClubSNS.jsx";
+import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
 
 const User = () => {
   const location = useLocation();
@@ -43,6 +44,7 @@ const User = () => {
           <Route path="/sns" element={<Sns/>}/>
           <Route path="/clubIntro" element={<ClubIntro/>}/>
           <Route path="/about" element={<About/>}/>
+          <Route path="/collectingpuzzle" element={<CollectingPuzzle />}/>
         </Routes>
       </div>
   );

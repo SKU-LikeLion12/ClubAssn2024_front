@@ -34,5 +34,14 @@ export const images = {
     union3F: PATH + '/assets/images/map/studentUnion3F.png',
     union1F: PATH + '/assets/images/map/studentUnion1F.png',
     center: PATH + '/assets/images/map/studentCenter.png',
+    
+    // 퍼즐조각 모으기
+    emptyPuzzle: PATH + '/assets/images/collectPuzzle/EmptyPuzzle.png',
+    puzzle1: PATH + '/assets/images/collectPuzzle/puzzle1.png',
+    puzzle2: PATH + '/assets/images/collectPuzzle/puzzle2.png',
+    puzzle3: PATH + '/assets/images/collectPuzzle/puzzle3.png',
+    puzzle4: PATH + '/assets/images/collectPuzzle/puzzle4.png',
+    puzzle1svg: PATH + '/assets/images/collectPuzzle/puzzle1.svg',
+    puzzle2svg: PATH + '/assets/images/collectPuzzle/puzzle2.svg',
 
 }
