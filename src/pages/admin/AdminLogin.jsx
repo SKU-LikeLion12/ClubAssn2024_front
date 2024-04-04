@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { useNavigate } from 'react-router-dom';
 import AdminNav from './../../components/AdminNav';
 import PageTitle from './../../components/PageTitle';
+import { useAuth } from '../../components/AuthContext';
 
 const User = {
   id: 'puzzle40',
@@ -16,6 +17,7 @@ const AdminLogin = () => {
   const [pwValid, setPwValid] = useState(false);
   const [notAllow, setNotAllow] = useState(true);
 
+  const { setIsAuthenticated } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -47,8 +49,9 @@ const AdminLogin = () => {
 
   const confirmMessage = () => {
     if(id === User.id && pw === User.pw) {
+      setIsAuthenticated(true);
       alert('로그인에 성공했습니다.');
-      navigate('/adminMain')
+      navigate('/admin/adminMain')
     }else {
       alert('등록되지 않은 회원입니다.');
     }
