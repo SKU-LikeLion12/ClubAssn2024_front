@@ -6,7 +6,7 @@ import { useAuth } from '../../components/AuthContext';
 
 const User = {
   id: 'puzzle40',
-  pw: 'dlaehdwns4040'
+  pw: 'dlatjdwn4040'
 }
 
 const AdminLogin = () => {
