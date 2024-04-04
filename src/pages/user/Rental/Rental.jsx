@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
 import articles from '../../../utils/article';
+import axios from 'axios';
 import MyInfo from '../../../components/shared/MyInfo';
 
 const Rental = () => {
