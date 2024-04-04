@@ -3,6 +3,7 @@ import { MainNav } from '../../components/MainNav';
 import Footer from "../../components/Footer";
 import { Link } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
+import Back from '../../components/shared/Back';
 
 const Main = () => {
   return (

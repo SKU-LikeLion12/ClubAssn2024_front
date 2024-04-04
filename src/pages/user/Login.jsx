@@ -1,8 +1,9 @@
-import React,{useState} from 'react';
+import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import Footer from "../../components/Footer";
 import AgreeModal from '../../components/AgreeModal';
 import FailModal from '../../components/FailModal';
+import Back from '../../components/shared/Back';
 
 const Login = () => {
   const [modalOpen, setModalOpen] = useState(false);
@@ -12,18 +13,16 @@ const Login = () => {
   const showModal =() =>{
     if(id === '' || name ===''){
     setFailModalOpen(true);
-    }else{
+    } else {
       setModalOpen(true);
     }
   }
+
   return (
     <div className='overflow-hidden'>
-      <div className='relative'>
+      <div className='relative min-h-screen'>
       <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'} />
-        <div className='flex justify-end'>
-        <img src="assets/images/puzzle/backPuzzleT.png" className='absolute z-[-10] w-2/5 h-auto bottom-[10rem]'/>
-        </div>
-        <div className='flex justify-center text-center textFont text-[#AB7A67] my-16 mt-16 mb-20'>
+        <div className='flex justify-center text-center textFont text-[#AB7A67] my-8'>
           <div className='py-14 px-8 bg-white rounded-xl border-2 border-[#AB7A67]'>
             <p className='mb-6'>학번: <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" value={id} onChange={(e)=>setId(e.target.value)}/> </p>
             <p>이름: <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" value={name} onChange={(e)=>setName(e.target.value)}/> </p>
@@ -32,13 +31,10 @@ const Login = () => {
         </div>
         {modalOpen&&<AgreeModal setModalOpen={setModalOpen}/>}
         {failModalOpen && <FailModal setFailModalOpen={setFailModalOpen}/>} {/* 실패 모달 렌더링 */}
-        <div className='flex justify-start'>
-        <img src="assets/images/puzzle/backPuzzleB.png" className='absolute z-[-10] w-2/5 h-auto top-[25rem]'/>
+        <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
+        <Footer/>
         </div>
-        </div>
-      <Footer/>
     </div>
-    
   );
 };
 
