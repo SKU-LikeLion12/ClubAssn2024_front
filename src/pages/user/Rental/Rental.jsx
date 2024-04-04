@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom';
 import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
 import articles from '../../../utils/article';
+import axios from 'axios';
 
 const Rental = () => {
   const articleIds = Array.from({ length: 19 }, (_, i) => i + 1);
