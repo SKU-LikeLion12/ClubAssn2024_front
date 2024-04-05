@@ -17,13 +17,13 @@ const Admin = () => {
       <Routes>
         <Route path='/adminLogin' element={<AdminLogin/>} />
         <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
-        <Route path="/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
-        <Route path="/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
-        <Route path="/RentalItemManagement" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>}/>
-        <Route path="/PuzzlePieceManagement" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
-        <Route path="/ClubMemberManagement" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
-        <Route path="/ClubManagement" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
-        <Route path="/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
+        <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
+        <Route path="/adminMain/RentalItemManagement" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/PuzzlePieceManagement" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/ClubMemberManagement" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/ClubManagement" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
       </Routes>
     </div>
 );

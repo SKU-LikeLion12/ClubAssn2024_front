@@ -15,9 +15,9 @@ const Menu = () => {
       <div className='relative w-10/12 mx-auto'>
         <img src={images.menuPuzzle} className='absolute -z-10' />
         <div className='flex text-center justify-between mt-[5px]'>
-          <Link to='/sns'><div className='w-[100px] h-[100px] flex justify-start pl-6 items-center'>SNS</div></Link>
-          <Link to='/clubintro'><div className='w-[100px] h-[100px] flex justify-center items-center'>동아리연합회<br/>소개</div></Link>
-          <Link to='/about'><div className='w-[100px] h-[100px] flex justify-end pr-2 items-center'>만든이들</div></Link>
+          <Link to='/user/sns'><div className='w-[100px] h-[100px] flex justify-start pl-6 items-center'>SNS</div></Link>
+          <Link to='/user/clubintro'><div className='w-[100px] h-[100px] flex justify-center items-center'>동아리연합회<br/>소개</div></Link>
+          <Link to='/user/about'><div className='w-[100px] h-[100px] flex justify-end pr-2 items-center'>만든이들</div></Link>
         </div>
       </div>
     </div>

@@ -23,6 +23,7 @@ const ClubSNS = () => {
   // 객체를 배열로 변환
   const groupedClubsArray = Object.entries(groupedClubs).map(([category, { color, clubs }]) => ({ category, color, clubs }));
 
+  // Modal Styles
   const customModalStyles = {
     overlay: {
       backgroundColor: " rgba(0, 0, 0, 0.4)",
@@ -61,16 +62,19 @@ const ClubSNS = () => {
         <div key={category}>
           <div
             style={{ backgroundColor: color }}
-            className={`w-[70px] text-[11px] text-center mx-1 rounded-2xl relative -bottom-2`}>{category}</div>
+            className={`w-[70px] text-[11px] text-center mx-1 rounded-2xl relative -bottom-2
+              ${category==='동아리연합회' && 'mx-auto'}
+            `}>
+              {category}</div>
           <div 
             style={{ borderColor: color }}
-            className={`clubCategoryBox border pt-2`}>
+            className={`clubCategoryBox border pt-2 ${category==='동아리연합회' ? 'grid-cols-1' : 'grid-cols-4'}`}>
             {/* 각 카테고리별 동아리 출력 */}
             {clubs.map(({ clubName, clubImgUrl, snsLink }) => (
               snsLink !== 'Modal' ?
               // SNS 링크로 이동하는 동아리
               <Link to={snsLink} target='_blank' key={clubName}>
-                <div className='w-[70px] text-center break-keep my-2 mx-1'>
+                <div className={`w-[70px] text-center break-keep my-2 ${category==='동아리연합회' ? 'mx-auto' : 'mx-1'}`}>
                   <img src={clubImgUrl} alt="동아리 로고" className='w-[40px] mx-auto' />
                   <div>{clubName}</div>
                 </div>
@@ -85,6 +89,7 @@ const ClubSNS = () => {
                   <div>{clubName}</div>
                 </div>
 
+                {/* SNS 없는 동아리 모달창 */}
                 <Modal
                   style={customModalStyles}
                   ariaHideApp={false}
