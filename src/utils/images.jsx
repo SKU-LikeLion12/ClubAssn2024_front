@@ -19,10 +19,11 @@ export const images = {
     likelion: PATH + '/assets/images/logo/likelion.png',
 
     //퍼즐조각
-    puzzleG: PATH + '/assets/images/puzzlePiece/puzzleG',
-    puzzleB: PATH + '/assets/images/puzzlePiece/puzzleB',
-    puzzleR: PATH + '/assets/images/puzzlePiece/puzzleR',
-    puzzleY: PATH + '/assets/images/puzzlePiece/puzzleY',
+    puzzleG: PATH + '/assets/images/puzzlePiece/puzzleG.png',
+    puzzleB: PATH + '/assets/images/puzzlePiece/puzzleB.png',
+    puzzleR: PATH + '/assets/images/puzzlePiece/puzzleR.png',
+    puzzleY: PATH + '/assets/images/puzzlePiece/puzzleY.png',
+    mainPuzzle: PATH + '/assets/images/puzzlePiece/mainPuzzle.png',
 
     // SNS
     instagram: PATH + '/assets/images/sns/instagram.png',
