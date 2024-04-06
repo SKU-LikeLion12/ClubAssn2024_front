@@ -1,36 +1,28 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import AdminNav from '../../components/AdminNav';
 import { useNavigate } from 'react-router-dom';
 import { API } from '../../api/API';
 
 const ManageRental = () => {
-  const exGetItems = [
-    {
-      "id": 1,
-      "name": "방석",
-      "count": 14
-    }, {
-      "id": 2,
-      "name": "방석2",
-      "count": 14
-    }
-  ]
   const navigate = useNavigate();
+  const [getItems, setGetItems] = useState([]);
 
   const handleGetItem = async () => {
     try {
       const result = await API().get('/admin/item/all')
-      const getItems = result.data;
-      console.log(result);
-      console.log(getItems);
+      const items = result.data;
+      setGetItems(items);
     } catch (error) {
       console.error(error)
     }
   }
-
   useEffect(()=> {
     handleGetItem();
   },[])
+
+  const handleEditNavigate = (itemId, itemName, itemCount) => {
+    navigate('editRental', { state: { id: itemId, name: itemName, count: itemCount } });
+  };
 
   return (
     <div className='min-h-screen'>
@@ -40,7 +32,7 @@ const ManageRental = () => {
       <button className='bg-[#12172B] text-white py-1 px-4 rounded-xl' onClick={()=>navigate('addRental')}>추가</button>
     </div>
 
-    {exGetItems.map((item)=>{
+    {getItems.map((item)=>{
       return (
       <div key={item.id} className='flex w-10/12 mx-auto border-y py-3 px-1 gap-2 border-[#12172B]'>
         <div className='flex flex-col grow gap-1'>
@@ -53,7 +45,7 @@ const ManageRental = () => {
             <span className='ml-3'>{item.count}</span>
           </div>
         </div>
-        <button onClick={()=>navigate('editRental')} className='text-[#898989]'>수정</button>
+        <button onClick={() => handleEditNavigate(item.id, item.name, item.count)} className='text-[#898989]'>수정</button>
       </div>
       )
     })}

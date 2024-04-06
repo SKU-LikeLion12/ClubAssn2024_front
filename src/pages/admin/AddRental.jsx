@@ -14,12 +14,13 @@ const AddRental = () => {
     setAddItemData({ ...addItemData, image: file });
   };
   
-  // 보내는 폼데이터.. 어떤 형식? 400 에러 
   const handleAddItem = async () => {
     const formData = new FormData();
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('count', addItemData.count); // 수량 추가
     formData.append('image', addItemData.image); // 이미지 파일 추가
+
+    console.log(formData)
     try {
       const result = await API().post('/admin/item', formData, {
         headers: {

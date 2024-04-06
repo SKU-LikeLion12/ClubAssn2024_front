@@ -1,10 +1,17 @@
 import React, { useState } from 'react';
 import AdminNav from '../../components/AdminNav';
 import { API } from '../../api/API';
-import { useNavigate } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 const EditRental = () => {
-  const [addItemData, setAddItemData] = useState({})
+  const location = useLocation();
+  const { id, name, count } = location.state;
+  const [addItemData, setAddItemData] = useState({
+    itemId: id,
+    name: name,
+    count: count,
+    image: null,
+  });
 
   const handleChangeValue = (e) => {
     const { name, value } = e.target;
@@ -15,20 +22,18 @@ const EditRental = () => {
     setAddItemData({ ...addItemData, image: file });
   };
 
-  const handleDeleteItem = async () => {
-    alert('정말 삭제하시겠습니까? 진심?');
-    const itemid = 3; // 임시
+  const handleDeleteItem = async (id) => {
     try {
-      const result = await API().delete(`/admin/item/${itemid}`, itemid)
+      const result = await API().delete(`/admin/item/${id}`, id)
       console.log(result);
     } catch (error) {
       console.error(error)
     }
   }
   
-  // 보내는 폼데이터.. 어떤 형식? 400 에러 
   const handleEditItem = async () => {
     const formData = new FormData();
+    formData.append('itemId', addItemData.itemId); // 이름 추가
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('count', addItemData.count); // 수량 추가
     formData.append('image', addItemData.image); // 이미지 파일 추가
@@ -68,7 +73,7 @@ const EditRental = () => {
               <input type="file" className='text-xs grow ml-5' name='image' onChange={handleFileChange}/>
             </div>
           </div>
-          <button onClick={handleDeleteItem} className='text-[red] w-2/12 ml-2'>삭제</button>
+          <button onClick={()=>{handleDeleteItem(id)}} className='text-[red] w-2/12 ml-2'>삭제</button>
         </div>
         <div className='flex justify-center'>
           <button type='submit' onClick={handleEditItem}
