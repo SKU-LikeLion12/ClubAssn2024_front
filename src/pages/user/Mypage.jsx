@@ -66,8 +66,8 @@ const Mypage = () => {
   return (
     <div>
       <div className="relative -z-10">
-        <img className="w-32 h-[20rem] absolute top-32 right-0" src='../assets/images/puzzle/backPuzzleT.png' alt='puzzleT'/>
-        <img className="w-32 h-[22rem] absolute top-[21rem]" src='../assets/images/puzzle/backPuzzleB.png' alt='puzzleB'/>
+        <img className="w-32 h-[20rem] absolute top-32 right-0" src='../assets/images/Bgpuzzle/rightPinkPuzzle.png' alt='puzzleT'/>
+        <img className="w-32 h-[22rem] absolute top-[21rem]" src='../assets/images/Bgpuzzle/leftPinkPuzzle.png' alt='puzzleB'/>
       </div>
       <div className="flex flex-col justify-center items-center h-full">
         <div>

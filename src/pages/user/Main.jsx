@@ -3,34 +3,39 @@ import { MainNav } from '../../components/MainNav';
 import Footer from "../../components/Footer";
 import { Link } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
+import { images } from '../../utils/images';
+import Back from '../../components/shared/Back';
+import { useLogin } from '../../context/LoginContext';
 
 const Main = () => {
+  const { isLoggedIn } = useLogin();
+  const linkPuzzle = isLoggedIn ? 'collectingpuzzle' : 'login';
+  const linkRental = isLoggedIn ? 'rental' : 'login';
+  
+  const showAlert = () => {
+    alert("출시 예정");
+  }
+
   return (
-    <div className='overflow-hidden'>
-      <div className='relative'>
-        <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
-        <div className='flex justify-end'>
-          <img src="assets/images/puzzle/backPuzzleT.png" className='absolute z-[-10] w-2/5 h-auto bottom-[10rem]'/>
-        </div>
-        <div className='textFont text-white text-lg mt-16'>
-          <div className='grid grid-rows-1 grid-flow-col justify-center relative mb-[-68px] z-10'>
-            <img src="assets/images/puzzle/puzzleG.png" className='w-auto h-32 ml-16 mr-1'/>
-            <Link to='collectingpuzzle'><div className='absolute text-center top-8 left-[5.5rem]'>퍼즐 조각 <br/> 모으기</div></Link>
-            <img src="assets/images/puzzle/puzzleY.png" className='w-32 h-auto mr-20 ml-1'/>
-            <Link to='rental'><div className='absolute text-center top-8 left-60'>물품<br/>대여</div></Link>
+    <div>
+      <div className='relative min-h-screen'>
+        <div className='relative'>
+          <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
+          <div className='textFont text-white text-lg mt-16'>
+            <div className='flex justify-center mb-10 relative'>
+              <img src={images.mainPuzzle} className='absolute -z-10 w-2/3'/>
+              <div className='grid grid-cols-2 mt-8 gap-9'>
+                <Link to={linkPuzzle}><div className='flex w-[100px] h-[100px] text-center justify-center'>퍼즐 조각 <br/> 모으기</div></Link>
+                <Link to={linkRental}><div className='flex w-[100px] h-[100px] text-center justify-center'>물품<br/>대여</div></Link>
+                <Link to='map'><div className='flex w-[100px] h-[100px] text-center justify-center'>동아리<br/>미니맵</div></Link>
+                <button onClick={showAlert}><div className='flex w-[100px] h-[100px] justify-center'>강의실<br/>시간표</div></button>
+              </div>
+            </div>
           </div>
-          <div className='grid grid-rows-1 grid-flow-col justify-center relative z-=10'>
-            <img src="assets/images/puzzle/puzzleR.png" className='w-32 h-auto ml-16 mb-20'/>
-            <Link to='map'><div className='absolute text-center top-[4.5rem] left-[5.5rem]'>동아리<br/>미니맵</div></Link>
-            <img src="assets/images/puzzle/puzzleB.png" className='w-auto h-32 mr-36 ml-3 mt-[30px]'/>
-            <Link to='sns'><div className='absolute text-center top-[4.5rem] left-56'>강의실<br/>시간표</div></Link>
-          </div>
-          <div className='flex justify-start'>
-          <img src="assets/images/puzzle/backPuzzleB.png" className='absolute z-[-10] w-2/5 h-auto top-[25rem]'/>
         </div>
-        </div>
+        <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
+        <Footer/>
       </div>
-      <Footer/>
     </div>
   );
 };

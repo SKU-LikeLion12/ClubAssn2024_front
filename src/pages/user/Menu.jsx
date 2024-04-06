@@ -1,7 +1,6 @@
 import React from 'react';
 import { images } from '../../utils/images';
 import { Link } from 'react-router-dom';
-import '../../css/menu.css';
 import Back from '../../components/shared/Back';
 import { MenuNav } from '../../components/MainNav';
 import PageTitle from '../../components/PageTitle';
