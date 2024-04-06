@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import Main from '../pages/user/Main.jsx';
 import Login from "../pages/user/Login.jsx";
@@ -14,12 +14,25 @@ import RentalBook from "../pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "../pages/user/Rental/RentalConfirm.jsx";
 import ClubSNS from "../components/ClubSNS.jsx";
 import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
+import { API } from '../api/API.jsx';
 
 const User = () => {
   const location = useLocation();
   const path = location.pathname;  
-  const navPaths = ['/menu', '/sns', '/clubintro', '/about'];
+  const navPaths = ['/user/menu', '/user/sns', '/user/clubintro', '/user/about'];
   const isNavPath = navPaths.includes(path);
+
+  const getMyInfo = async () => {
+    try {
+      const result = await API().get('/mypage');
+      console.log(result)
+    } catch (error) {
+      console.error(error)
+    }
+  }
+  useEffect(()=> {
+    getMyInfo()
+  },[])
 
   return (
       <div>

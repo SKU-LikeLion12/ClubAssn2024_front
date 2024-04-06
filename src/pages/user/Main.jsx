@@ -5,8 +5,13 @@ import { Link } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
 import { images } from '../../utils/images';
 import Back from '../../components/shared/Back';
+import { useLogin } from '../../context/LoginContext';
 
 const Main = () => {
+  const { isLoggedIn } = useLogin();
+  const linkPuzzle = isLoggedIn ? 'collectingpuzzle' : 'login';
+  const linkRental = isLoggedIn ? 'rental' : 'login';
+  
   const showAlert = () => {
     alert("출시 예정");
   }
@@ -20,8 +25,8 @@ const Main = () => {
             <div className='flex justify-center mb-10 relative'>
               <img src={images.mainPuzzle} className='absolute -z-10 w-2/3'/>
               <div className='grid grid-cols-2 mt-8 gap-9'>
-                <Link to='collectingpuzzle'><div className='flex w-[100px] h-[100px] text-center justify-center'>퍼즐 조각 <br/> 모으기</div></Link>
-                <Link to='rental'><div className='flex w-[100px] h-[100px] text-center justify-center'>물품<br/>대여</div></Link>
+                <Link to={linkPuzzle}><div className='flex w-[100px] h-[100px] text-center justify-center'>퍼즐 조각 <br/> 모으기</div></Link>
+                <Link to={linkRental}><div className='flex w-[100px] h-[100px] text-center justify-center'>물품<br/>대여</div></Link>
                 <Link to='map'><div className='flex w-[100px] h-[100px] text-center justify-center'>동아리<br/>미니맵</div></Link>
                 <button onClick={showAlert}><div className='flex w-[100px] h-[100px] justify-center'>강의실<br/>시간표</div></button>
               </div>
