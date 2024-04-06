@@ -18,8 +18,8 @@ const Admin = () => {
   return (
     <div>
       <Routes>
-        <Route path='/adminLogin' element={<AdminLogin/>} />
-        <Route path='/adminLoginn' element={<AdminLoginn />} />
+        <Route path='/adminLoginn' element={<AdminLogin/>} />
+        <Route path='/adminLogin' element={<AdminLoginn />} />
         <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
         <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
