@@ -10,12 +10,14 @@ import ClubManagement from "../pages/admin/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
+import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
 
 const Admin = () => {
   return (
     <div>
       <Routes>
         <Route path='/adminLogin' element={<AdminLogin/>} />
+        <Route path='/adminLoginn' element={<AdminLoginn />} />
         <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
         <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
