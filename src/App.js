@@ -12,7 +12,7 @@ function App() {
         <div className="App textFont">
           <Routes>
             <Route path="/user/*" element={<User/>} />
-              <Route path="/admin/*" element={<Admin/>} />
+            <Route path="/admin/*" element={<Admin/>} />
           </Routes>
         </div>
       </LoginProvider>

@@ -1,5 +1,5 @@
 import React from 'react';
-import { images } from './../../utils/images';
+import { images } from '../../utils/images';
 
 const Back = ({left, right}) => {
   return (
