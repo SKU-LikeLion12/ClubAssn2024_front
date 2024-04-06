@@ -23,14 +23,11 @@ const Admin = () => {
         <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
         <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
-        <Route path="/adminMain/RentalItemManagement" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>} />
+        <Route path="/adminMain/RentalItemManagement/*" element={<RentalItemManagement/>} />
         <Route path="/adminMain/PuzzlePieceManagement" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/ClubMemberManagement" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/ClubManagement" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
-
-        <Route path="/addRental" element={<ProtectedRoute><AddRental/></ProtectedRoute>}/>
-        <Route path="/editRental" element={<ProtectedRoute><EditRental/></ProtectedRoute>}/>
       </Routes>
     </div>
 );
