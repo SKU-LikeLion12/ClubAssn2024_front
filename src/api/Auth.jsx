@@ -7,4 +7,4 @@ export const APIClient = () => axios.create({
     }
 })
 
-// 이 함수로 통신하는 중 
+// 테스트 통신 코드
