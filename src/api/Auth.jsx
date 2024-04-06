@@ -6,5 +6,4 @@ export const APIClient = () => axios.create({
         'Content-Type': 'application/json',
     }
 })
-
 // 테스트 통신 코드

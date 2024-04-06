@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import { images } from '../../utils/images';
 import { useLocation } from 'react-router';
+import { API } from '../../api/API';
 
 const MyInfo = () => {
     const location = useLocation();
@@ -12,9 +13,18 @@ const MyInfo = () => {
     // 현재 경로에 맞는 색상 활성화
     const ActiveColor = currentPath === '/user/myPage' ? myPageColor : currentPath === '/user/collectingpuzzle' ? CollectingPuzzleColor : RentalColor
 
-    useEffect(()=> {
-      
-    }, [])
+    // const getMyInfo = async () => {
+    //   try {
+    //     const result = await API().get('/mypage');
+    //     console.log(result)
+    //   } catch (error) {
+    //     console.error(error)
+    //   }
+    // }
+    // useEffect(()=> {
+    //   getMyInfo()
+    // },[])
+
   return (
     <div className={`flex justify-around items-center w-9/12 mx-auto mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
       <img src={images.likelion} alt="동아리 로고" className='w-2/12' />

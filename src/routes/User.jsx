@@ -22,18 +22,6 @@ const User = () => {
   const navPaths = ['/user/menu', '/user/sns', '/user/clubintro', '/user/about'];
   const isNavPath = navPaths.includes(path);
 
-  const getMyInfo = async () => {
-    try {
-      const result = await API().get('/mypage');
-      console.log(result)
-    } catch (error) {
-      console.error(error)
-    }
-  }
-  useEffect(()=> {
-    getMyInfo()
-  },[])
-
   return (
       <div>
         {isNavPath ? <MenuNav /> : <MainNav />}
