@@ -8,8 +8,10 @@ import { API }from '../../api/API';
 import axios from 'axios';
 import { APIClient } from '../../api/Auth';
 import { useNavigate } from 'react-router-dom';
+import { useLogin } from '../../context/LoginContext';
 
 const Login = () => {
+  const { isLoggedIn, setIsLoggedIn } = useLogin();
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [failModalOpen, setFailModalOpen] = useState(false);
@@ -39,11 +41,10 @@ const handleLogin = async () => {
   try {
     console.log(studentInfo)
     const result = await API().post('/login', studentInfo); // 로그인 성공
-    console.log(result);
     navigate('/user'); // 사용자 메인으로 이동
-    console.log(result.data.accessToken) 
     localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken)
+    setIsLoggedIn(true);
   } catch (error) {
     if (error.response) {
       const statusCode = error.response.status;
