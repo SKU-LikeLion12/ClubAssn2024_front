@@ -19,11 +19,12 @@ const CollectingPuzzle = () => {
       <MyInfo />
       <div className='text-center my-8'>퍼즐 조각을 모아 퍼즐을 완성해보세요!</div>
 
-      <div className='relative w-9/12 h-[281.25px] mx-auto rounded-2xl bg-white border-1 border-[#476832] '>
+      <div className='relative w-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] '>
         <img src={images.emptyPuzzle} alt="초기 빈 퍼즐" />
-        {/* <img src={images.puzzle1} alt="" className='w-1/2 absolute top-0 left-0'/>
-        <img src={images.puzzle2} alt="" className='w-1/2 absolute top-0 right-0'/>
-        <img src={images.puzzle1} alt="" className='w-1/2 absolute top-0 left-0'/> */}
+        <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
+        <img src={images.puzzle2} alt="" className='w-[64%] absolute top-0 right-0 z-[2]'/>
+        <img src={images.puzzle3} alt="" className='w-[63%] absolute top-[49%] left-0 z-[3]'/>
+        <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[37%] right-0 z-[2]'/>
       </div>
       <div className='w-9/12 mx-auto text-center my-7'>
         <div className='mb-4'>코드를 입력해주세요.</div>
