@@ -1,13 +1,29 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
-import articles from '../../../utils/article';
-import axios from 'axios';
 import MyInfo from '../../../components/shared/MyInfo';
+import { API } from '../../../api/API';
 
 const Rental = () => {
-  const articleIds = Array.from({ length: 19 }, (_, i) => i + 1);
+  const [items, setItems] = useState([]);
+  
+  const fetchItems = async () => {
+    try {
+      const response = await API().get('/item-rent/list');
+      const updatedItems = response.data.map(item => ({
+        ...item,
+        image: `data:image/jpeg;base64,${item.image}`
+      }));
+      setItems(updatedItems); 
+    } catch (error) {
+      console.error('물품 목록을 불러오는 데 실패했습니다.', error);
+    }
+  };
+
+  useEffect(() => {
+    fetchItems();
+  }, []);
 
   return (
     <>
@@ -22,8 +38,8 @@ const Rental = () => {
         </div>
         <div className="rentalBox absolute z-10 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pr-2 pl-4 overflow-y-scroll">
           <div className="w-full grid grid-cols-2 my-4">
-            {articleIds.map((id) => (
-              <Article key={id} id={id} />
+            {items.map((item) => (
+              <Article key={item.id} article={item} />
             ))}
           </div>
         </div>
@@ -34,33 +50,32 @@ const Rental = () => {
 
 export default Rental;
 
-
-export const Article = ({id}) => {
-  return(
-    <div>
-      {articles.map(article => (
-        (article.id === id) && (
-          <div className='textFont font-black px-4 my-4' key={article.id}>
-            <img className='mx-auto my-2 w-9/12' src={article.image} alt="물품사진" />
-            <div className="text-center text-[18px] mb-2">{article.name}</div>
-            <div className='w-10/12 mx-auto'>
-              <div className='flex justify-between'>
-                <div>총 수량 :</div>
-                <div>{article.total}</div>
-              </div>
-              <div className="flex justify-between">
-                <div>대여중 :</div>
-                <div>{article.renting}</div>
-              </div>
-              <div className="flex justify-between">
-                <div>대여가능 :</div>
-                <div>{article.available}</div>
-              </div>
-            </div>
-            <Link to='/rentalBook'><div className='text-center text-white bg-[#ceb341] mt-2 mx-4 rounded py-1'>예약하기</div></Link>
-          </div>
-        )
-      ))}
+export const Article = ({ article }) => {
+  return (
+    <div className='textFont font-black px-4 my-4'>
+      <div className='mx-auto my-auto w-9/12'>
+        <img className='my-2 h-[90px] mx-auto object-cover border-[3px] border-[#ceb341] rounded-md' src={article.image} alt="물품사진" />
+      </div>
+      <div className="text-center text-[18px] mb-2">{article.name}</div>
+      <div className='w-10/12 mx-auto'>
+        <div className='flex justify-between'>
+          <div>총 수량 :</div>
+          <div>{article.count}</div>
+        </div>
+        <div className="flex justify-between">
+          <div>대여중 :</div>
+          <div>{article.rentingCount}</div>
+        </div>
+        <div className="flex justify-between">
+          <div>예약중 :</div>
+          <div>{article.bookingCount}</div>
+        </div>
+      </div>
+      <Link to={`/user/rentalBook?image=${encodeURIComponent(article.image)}&name=${encodeURIComponent(article.name)}&itemId=${article.id}`}>
+        <div className='text-center text-white bg-[#ceb341] mt-2 mx-4 rounded py-1'>
+          예약하기
+        </div>
+      </Link>
     </div>
   );
 };
