@@ -1,21 +1,22 @@
 import React, { useState } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import AdminNav from '../../components/AdminNav';
-import { API } from '../../api/API';
 import { IoTrashOutline } from "react-icons/io5";
 import Modal from 'react-modal';
-import { confirmModalStyle } from '../../css/customModal'; 
+import { confirmModalStyle } from '../../../css/customModal'; 
+import { API } from '../../../api/API';
+import AdminNav from '../../../components/AdminNav';
 
-const EditClub = () => {
+const EditRental = () => {
   const navigate = useNavigate();
   const location = useLocation();
-  const [confirmModal, setConfirmModal] = useState(false); // 수정 모달
-  const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
-  const { name, description, logo} = location.state;
+  const [confirmModal, setConfirmModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
+  const { id, name, count } = location.state;
   const [addItemData, setAddItemData] = useState({
+    itemId: id,
     name: name,
-    description: description,
-    logo: null,
+    count: count,
+    image: null,
   });
 
   const handleChangeValue = (e) => {
@@ -24,17 +25,13 @@ const EditClub = () => {
   }
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    setAddItemData({ ...addItemData, logo: file });
+    setAddItemData({ ...addItemData, image: file });
   };
 
-  const handleDeleteItem = async (name) => {
+  const handleDeleteItem = async (id) => {
     try {
-      const result = await API().delete('/admin/club', {data: { clubName: name }}, {
-        headers: {
-          'Content-Type': 'application/json'
-        }
-      });
-      navigate('/admin/adminMain/ClubManagement');
+      const result = await API().delete(`/admin/item/${id}`, id);
+      navigate('/admin/adminMain/RentalItemManagement');
       console.log(result);
     } catch (error) {
       console.error(error)
@@ -43,12 +40,13 @@ const EditClub = () => {
   
   const handleEditItem = async () => {
     const formData = new FormData();
+    formData.append('itemId', addItemData.itemId); // 이름 추가
     formData.append('name', addItemData.name); // 이름 추가
-    formData.append('description', addItemData.description); // 수량 추가
-    formData.append('logo', addItemData.logo); // 이미지 파일 추가
+    formData.append('count', addItemData.count); // 수량 추가
+    formData.append('image', addItemData.image); // 이미지 파일 추가
 
     try {
-      const result = await API().put('/admin/club', formData, {
+      const result = await API().put('/admin/item', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
@@ -60,12 +58,11 @@ const EditClub = () => {
     }
   }
 
-
   return (
     <div className='min-h-screen'>
     <AdminNav />
     <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-2'>
-      <div className='text-3xl'>동아리 수정</div>
+      <div className='text-3xl'>대여 물품 수정</div>
     </div>
 
     <div className='flex w-10/12 mx-auto py-3 px-1 gap-2 textFont mt-1 border-[#12172B] border-y'>
@@ -73,16 +70,16 @@ const EditClub = () => {
         <div className='flex'>
           <div className='flex flex-col grow gap-1'>
             <div className='flex justify-between items-end mt-1'>
-              <label className='w-4/12' htmlFor="물품명">동아리명</label>
+              <label className='w-3/12' htmlFor="물품명">물품명</label>
               <input type="text" className='adminInput grow' name='name' value={addItemData.name} onChange={handleChangeValue}/>
             </div>
             <div className='flex justify-between items-end mt-1'>
-              <label className='w-4/12' htmlFor="총 수량">동아리 설명</label>
-              <input type="text" className='adminInput grow' name='description' value={addItemData.description} onChange={handleChangeValue}/>
+              <label className='w-3/12' htmlFor="총 수량">총 수량  </label>
+              <input type="text" className='adminInput grow' name='count' value={addItemData.count} onChange={handleChangeValue}/>
             </div>
             <div className='flex justify-between items-end mt-1'>
-              <label className='w-4/12' htmlFor="로고">로고 </label>
-              <input type="file" className='text-xs grow ml-5' name='logo' onChange={handleFileChange}/>
+              <label className='w-3/12' htmlFor="사진">사진 </label>
+              <input type="file" className='text-xs grow ml-5' name='image' onChange={handleFileChange}/>
             </div>
           </div>
           <button onClick={()=>{setDeleteModal(!deleteModal)}} className='text-[red] w-2/12 ml-4'>
@@ -96,12 +93,12 @@ const EditClub = () => {
       </div>
     </div>
     {confirmModal && <ConfirmEditModal confirmModal={confirmModal} setConfirmModal={setConfirmModal} setAddItemData={setAddItemData} />}
-    {deleteModal && <ConfirmDeleteModal name={addItemData.name} deleteModal={deleteModal} setDeleteModal={setDeleteModal} Dfunc={handleDeleteItem} />}
+    {deleteModal && <ConfirmDeleteModal id={id} deleteModal={deleteModal} setDeleteModal={setDeleteModal} Dfunc={handleDeleteItem} />}
   </div>
   );
 };
 
-export default EditClub;
+export default EditRental;
 
 export const ConfirmEditModal = ({confirmModal, setConfirmModal, setAddItemData}) => {
   const navigate = useNavigate();
@@ -110,7 +107,7 @@ export const ConfirmEditModal = ({confirmModal, setConfirmModal, setAddItemData}
     setAddItemData({
       name: '',
       count: '',
-      logo: null
+      image: null
     });
   }
 
@@ -121,14 +118,14 @@ export const ConfirmEditModal = ({confirmModal, setConfirmModal, setAddItemData}
       onRequestClose={() => setConfirmModal(false)}
       isOpen={confirmModal}>
         <div className='textFont flex flex-col items-center justify-center h-full'>
-          <div className='text-2xl p-8'>동아리 수정 완료</div>
-          <button className='text-white bg-[#12172b] py-1 px-12 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/ClubManagement')}}>확인</button>   
+          <div className='text-2xl p-8'>물품 수정 완료</div>
+          <button className='text-white bg-[#12172b] py-1 px-12 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>확인</button>   
         </div>
     </Modal>
   )
 }
 
-export const ConfirmDeleteModal = ({name, deleteModal, setDeleteModal, Dfunc}) => {
+export const ConfirmDeleteModal = ({id, deleteModal, setDeleteModal, Dfunc}) => {
   return (
     <Modal
       style={confirmModalStyle}
@@ -139,7 +136,7 @@ export const ConfirmDeleteModal = ({name, deleteModal, setDeleteModal, Dfunc}) =
           <div className='text-2xl p-8'>정말 삭제하시겠습니까?</div>
           <div>
             <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{setDeleteModal(!deleteModal)}}>취소</button>
-            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{Dfunc(name)}}>삭제</button>
+            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{Dfunc(id)}}>삭제</button>
           </div> 
         </div>
     </Modal>

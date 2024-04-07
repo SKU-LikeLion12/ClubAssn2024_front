@@ -3,16 +3,14 @@ import { Route, Routes } from "react-router-dom";
 import AdminMain from "../pages/admin/AdminMain.jsx";
 import ItemReservationStatus from "../pages/admin/ItemReservationStatus.jsx";
 import ItemRentalStatus from "../pages/admin/ItemRentalStatus.jsx";
-import RentalItemManagement from "../pages/admin/RentalItemManagement.jsx";
-import PuzzlePieceManagement from "../pages/admin/PuzzlePieceManagement.jsx";
+import RentalItemManagement from "../pages/admin/ManageRental/RentalItemManagement.jsx";
+import PuzzlePieceManagement from "../pages/admin/puzzle/PuzzlePieceManagement.jsx";
 import ClubMemberManagement from "../pages/admin/ClubMemberManagement.jsx";
-import ClubManagement from "../pages/admin/ClubManagement.jsx";
+import ClubManagement from "../pages/admin/club/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
-import AddRental from '../pages/admin/AddRental.jsx';
-import EditRental from '../pages/admin/EditRental.jsx';
 
 const Admin = () => {
   return (

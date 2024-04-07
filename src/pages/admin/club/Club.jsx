@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AdminNav from '../../components/AdminNav';
+import AdminNav from '../../../components/AdminNav';
 import { useNavigate } from 'react-router-dom';
-import { API } from '../../api/API';
+import { API } from '../../../api/API';
 import { MdModeEditOutline } from "react-icons/md";
 
 const Club = () => {

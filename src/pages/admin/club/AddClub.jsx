@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import AdminNav from '../../components/AdminNav';
+import AdminNav from '../../../components/AdminNav';
 import { useNavigate } from 'react-router-dom';
-import { API } from '../../api/API';
+import { API } from '../../../api/API';
 import Modal from 'react-modal';
-import { confirmModalStyle } from '../../css/customModal'; 
+import { confirmModalStyle } from '../../../css/customModal'; 
 
 const AddClub = () => {
   const navigate = useNavigate();

@@ -1,12 +1,12 @@
 import React, { useState } from 'react';
-import AdminNav from '../../components/AdminNav';
 import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
-import { RentalItemModal } from '../../css/customModal'; 
-import { API } from '../../api/API';
 import AddRental from './AddRental';
 import EditRental from './EditRental';
 import ManageRental from './ManageRental';
+import { API } from '../../../api/API';
+import AdminNav from '../../../components/AdminNav';
+import { customModalStyles } from '../../../css/customModal';
 
 const RentalItemManagement = () => {
   const navigate = useNavigate();

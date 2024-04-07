@@ -1,9 +1,9 @@
 import React, { useState } from 'react';
-import AdminNav from '../../components/AdminNav';
-import { API } from '../../api/API';
 import Modal from 'react-modal';
-import { confirmModalStyle } from '../../css/customModal'; 
+import { confirmModalStyle } from '../../../css/customModal'; 
 import { useNavigate } from 'react-router-dom';
+import { API } from '../../../api/API';
+import AdminNav from '../../../components/AdminNav';
 
 const AddRental = () => {
   const [addItemData, setAddItemData] = useState({})
@@ -19,6 +19,7 @@ const AddRental = () => {
   };
   
   const handleAddItem = async () => {
+
     const formData = new FormData();
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('count', addItemData.count); // 수량 추가

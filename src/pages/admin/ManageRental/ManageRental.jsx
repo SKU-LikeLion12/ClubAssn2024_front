@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import AdminNav from '../../components/AdminNav';
 import { useNavigate } from 'react-router-dom';
-import { API } from '../../api/API';
+import AdminNav from '../../../components/AdminNav';
+import { API } from '../../../api/API';
 
 const ManageRental = () => {
   const navigate = useNavigate();
