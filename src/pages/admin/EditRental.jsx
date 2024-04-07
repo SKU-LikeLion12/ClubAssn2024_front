@@ -2,9 +2,15 @@ import React, { useState } from 'react';
 import AdminNav from '../../components/AdminNav';
 import { API } from '../../api/API';
 import { useLocation, useNavigate } from 'react-router-dom';
+import { IoTrashOutline } from "react-icons/io5";
+import Modal from 'react-modal';
+import { confirmModalStyle } from '../../css/customModal'; 
 
 const EditRental = () => {
+  const navigate = useNavigate();
   const location = useLocation();
+  const [confirmModal, setConfirmModal] = useState(false);
+  const [deleteModal, setDeleteModal] = useState(false);
   const { id, name, count } = location.state;
   const [addItemData, setAddItemData] = useState({
     itemId: id,
@@ -24,7 +30,8 @@ const EditRental = () => {
 
   const handleDeleteItem = async (id) => {
     try {
-      const result = await API().delete(`/admin/item/${id}`, id)
+      const result = await API().delete(`/admin/item/${id}`, id);
+      navigate('/admin/adminMain/RentalItemManagement');
       console.log(result);
     } catch (error) {
       console.error(error)
@@ -37,12 +44,14 @@ const EditRental = () => {
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('count', addItemData.count); // 수량 추가
     formData.append('image', addItemData.image); // 이미지 파일 추가
+
     try {
       const result = await API().put('/admin/item', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       })
+      setConfirmModal(!confirmModal);
       console.log(result);
     } catch (error) {
       console.error(error)
@@ -73,7 +82,9 @@ const EditRental = () => {
               <input type="file" className='text-xs grow ml-5' name='image' onChange={handleFileChange}/>
             </div>
           </div>
-          <button onClick={()=>{handleDeleteItem(id)}} className='text-[red] w-2/12 ml-2'>삭제</button>
+          <button onClick={()=>{setDeleteModal(!deleteModal)}} className='text-[red] w-2/12 ml-4'>
+            <IoTrashOutline size={22}/>
+          </button>
         </div>
         <div className='flex justify-center'>
           <button type='submit' onClick={handleEditItem}
@@ -81,8 +92,53 @@ const EditRental = () => {
         </div>
       </div>
     </div>
+    {confirmModal && <ConfirmEditModal confirmModal={confirmModal} setConfirmModal={setConfirmModal} setAddItemData={setAddItemData} />}
+    {deleteModal && <ConfirmDeleteModal id={id} deleteModal={deleteModal} setDeleteModal={setDeleteModal} Dfunc={handleDeleteItem} />}
   </div>
   );
 };
 
 export default EditRental;
+
+export const ConfirmEditModal = ({confirmModal, setConfirmModal, setAddItemData}) => {
+  const navigate = useNavigate();
+  const closeModal = () => {
+    setConfirmModal(!confirmModal)
+    setAddItemData({
+      name: '',
+      count: '',
+      image: null
+    });
+  }
+
+  return (
+    <Modal
+      style={confirmModalStyle}
+      ariaHideApp={false}
+      onRequestClose={() => setConfirmModal(false)}
+      isOpen={confirmModal}>
+        <div className='textFont flex flex-col items-center justify-center h-full'>
+          <div className='text-2xl p-8'>물품 수정 완료</div>
+          <button className='text-white bg-[#12172b] py-1 px-12 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>확인</button>   
+        </div>
+    </Modal>
+  )
+}
+
+export const ConfirmDeleteModal = ({id, deleteModal, setDeleteModal, Dfunc}) => {
+  return (
+    <Modal
+      style={confirmModalStyle}
+      ariaHideApp={false}
+      onRequestClose={() => setDeleteModal(false)}
+      isOpen={deleteModal}>
+        <div className='textFont flex flex-col items-center justify-center h-full'>
+          <div className='text-2xl p-8'>정말 삭제하시겠습니까?</div>
+          <div>
+            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{setDeleteModal(!deleteModal)}}>취소</button>
+            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{Dfunc(id)}}>삭제</button>
+          </div> 
+        </div>
+    </Modal>
+  )
+}

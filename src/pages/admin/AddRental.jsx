@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import AdminNav from '../../components/AdminNav';
 import { API } from '../../api/API';
+import Modal from 'react-modal';
+import { confirmModalStyle } from '../../css/customModal'; 
+import { useNavigate } from 'react-router-dom';
 
 const AddRental = () => {
   const [addItemData, setAddItemData] = useState({})
+  const [confirmModal, setConfirmModal] = useState(false);
 
   const handleChangeValue = (e) => {
     const { name, value } = e.target;
@@ -26,7 +30,8 @@ const AddRental = () => {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
-      })
+      });
+      setConfirmModal(!confirmModal);
       console.log(result);
     } catch (error) {
       console.error(error)
@@ -64,8 +69,37 @@ const AddRental = () => {
         </div>
       </div>
     </div>
+    {confirmModal && <ConfirmAddModal confirmModal={confirmModal} setConfirmModal={setConfirmModal} setAddItemData={setAddItemData} />}
   </div>
   );
 };
 
 export default AddRental;
+
+export const ConfirmAddModal = ({confirmModal, setConfirmModal, setAddItemData}) => {
+  const navigate = useNavigate();
+  const closeModal = () => {
+    setConfirmModal(!confirmModal)
+    setAddItemData({
+      name: '',
+      count: '',
+      image: null
+    })
+  }
+
+  return (
+    <Modal
+      style={confirmModalStyle}
+      ariaHideApp={false}
+      onRequestClose={() => setConfirmModal(false)}
+      isOpen={confirmModal}>
+        <div className='textFont flex flex-col items-center justify-center h-full'>
+          <div className='text-2xl p-8'>물품 추가 완료</div>
+          <div>
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>하나 더 추가</button>
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>관리 홈으로</button>
+          </div>
+        </div>
+    </Modal>
+  )
+}
