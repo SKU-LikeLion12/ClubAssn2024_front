@@ -70,7 +70,7 @@ const MyInfo = () => {
   return (
     <>
     {/* 대표 동아리만 보이기 */}
-    {!FixedInfo && !isOpen && 
+    {!FixedInfo && !isOpen &&
     <div onClick={handleShowList} className=' w-9/12 mx-auto '>
       <div className={`flex justify-center gap-5 items-center mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
         <img src={myInfoData.logo} alt="동아리 로고" className='w-2/12' />

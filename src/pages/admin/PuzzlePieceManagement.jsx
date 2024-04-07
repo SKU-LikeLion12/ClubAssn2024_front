@@ -1,10 +1,14 @@
 import React from 'react';
+import { Route, Routes } from 'react-router-dom';
+import ManagePuzzle from './ManagePuzzle';
+import EditPuzzle from './EditPuzzle';
 
 const PuzzlePieceManagement = () => {
   return (
-    <div>
-      퍼즐 조각 관리
-    </div>
+    <Routes>
+      <Route path="/" element={<ManagePuzzle/>}/>
+      <Route path="/editPuzzle" element={<EditPuzzle/>}/>
+    </Routes>
   );
 };
 
