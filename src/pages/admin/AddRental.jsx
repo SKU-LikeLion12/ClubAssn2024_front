@@ -24,7 +24,6 @@ const AddRental = () => {
     formData.append('count', addItemData.count); // 수량 추가
     formData.append('image', addItemData.image); // 이미지 파일 추가
 
-    console.log(formData)
     try {
       const result = await API().post('/admin/item', formData, {
         headers: {
@@ -96,7 +95,7 @@ export const ConfirmAddModal = ({confirmModal, setConfirmModal, setAddItemData})
         <div className='textFont flex flex-col items-center justify-center h-full'>
           <div className='text-2xl p-8'>물품 추가 완료</div>
           <div>
-            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>하나 더 추가</button>
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>물품 추가</button>
             <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>관리 홈으로</button>
           </div>
         </div>
