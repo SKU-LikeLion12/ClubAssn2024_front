@@ -15,7 +15,7 @@ const Mypage = () => {
   const handleLogout = () => {
     localStorage.clear()
     setIsLoggedIn(false);
-    navigate('/user')
+    navigate('/')
   }
 
   return (
@@ -30,21 +30,21 @@ const Mypage = () => {
         <div className="flex flex-col mt-7">
           <RentalStatus/>
           <ReserveStatus/>
-          <Link to="/user/collectingpuzzle">
+          <Link to="/collectingpuzzle">
             <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer">
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">퍼즐 조각 모으기</div>
             </div>
           </Link>
-          <Link to="/user/rental">
+          <Link to="/rental">
             <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여</div>
             </div>
           </Link>
-          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
-            <button 
-            onClick={handleLogout}
-            className="text-primary text-sm font-bold font-['GyeonggiTitleM']">로그아웃</button>
-          </div>
+          <button onClick={handleLogout} className='h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8'>
+            <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">
+              로그아웃
+            </div>
+          </button>
         </div>
         <Footer/>
       </div>

@@ -10,8 +10,8 @@ const MyInfo = () => {
     const CollectingPuzzleColor = 'bg-[#FCFFE3] border-[#476832] text-[#476832]'; // 퍼즐조각 모으기 색상
     const RentalColor = 'bg-[#FCF3CD] border-[#CEB341] text-[#CEB341]'; // 대여사업 페이지 색상
     // 현재 경로에 맞는 색상 활성화
-    const ActiveColor = currentPath === '/user/myPage' ? myPageColor : currentPath === '/user/collectingpuzzle' ? CollectingPuzzleColor : RentalColor
-    const FixedInfo = currentPath === '/user/rental' || currentPath === '/user/collectingpuzzle';
+    const ActiveColor = currentPath === '/myPage' ? myPageColor : currentPath === '/collectingpuzzle' ? CollectingPuzzleColor : RentalColor
+    const FixedInfo = currentPath === '/rental' || currentPath === '/collectingpuzzle';
 
     // first show info
     const [myInfoData, setMyInfoData] = useState({
@@ -51,7 +51,7 @@ const MyInfo = () => {
         const show = result.data.length === 1 ? false : true
         setShowList(show);
       } catch (error) {
-        console.error(error);
+        console.log(error);
       }
     }
 
@@ -116,13 +116,16 @@ export default MyInfo;
 export const FixedMyInfo = ({loading, ActiveColor, myInfoData}) => {
   return (
     <div>
-      <div className={`flex justify-center gap-5 items-center w-9/12 mx-auto mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
-        <img src={myInfoData.logo} alt="동아리 로고" className='w-2/12' />
-        <div className='flex flex-col text-center'>
-          <div>{myInfoData.club}</div>
-          <div className='text-xl'>{myInfoData.name}</div>
-        </div>
-      </div>
+      {loading ? (
+      <div className='text-center text-gray-400'>데이터를 불러오는 중입니다...</div>
+      ) : 
+        <div className={`flex justify-center gap-5 items-center w-9/12 mx-auto mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
+          <img src={myInfoData.logo} alt="동아리 로고" className='w-2/12' />
+          <div className='flex flex-col text-center'>
+            <div>{myInfoData.club}</div>
+            <div className='text-xl'>{myInfoData.name}</div>
+          </div>
+        </div>}
     </div>
   )
 }

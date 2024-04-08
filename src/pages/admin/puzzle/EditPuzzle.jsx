@@ -37,6 +37,7 @@ const EditPuzzle = () => {
     formData.append('date', EditItemData.date); // 수량 추가 - 수정 후 주석 변경
     formData.append('image', EditItemData.image); // 이미지 파일 추가
 
+    console.log(formData)
     try {
       const result = await API().put('/admin/events/update', formData, { // 수정 API
         headers: {

@@ -71,7 +71,7 @@ const ClubSNS = () => {
                   isOpen={modalIsOpen}>
                   {clubModal.filter(i=>i.clubName === selectedClub).map((club)=>{
                     return (
-                      <div className='flex flex-col items-end h-[100%]'>
+                      <div className='flex flex-col items-end h-[100%] textFont'>
                         <button onClick={() => setModalIsOpen(false)}>X</button>
                         <div className='flex flex-col justify-center items-center grow w-full'>
                           <img src={club.clubImgUrl} alt="동아리 로고" className='w-[100px] mx-auto' />

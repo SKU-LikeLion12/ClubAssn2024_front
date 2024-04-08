@@ -40,7 +40,7 @@ const handleLogin = async () => {
   try {
     console.log(studentInfo)
     const result = await API().post('/login', studentInfo); // 로그인 성공
-    navigate('/user/myPage'); 
+    navigate('/myPage'); 
     localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken)
     setIsLoggedIn(true);
@@ -74,7 +74,7 @@ const handleLogin = async () => {
             <input type='button' value='로그인' className='mt-10 bg-[#AB7A67] p-2 px-6 rounded-lg text-white border-[#AB7A67]' onClick={handleLogin}/>
           </div>
         </div>
-        
+
         {modalOpen&&<AgreeModal studentInfo={studentInfo} handleLogin={handleLogin} setModalOpen={setModalOpen}/>} {/* 401 동의 */}
         {failModalOpen && <FailModal setFailModalOpen={setFailModalOpen}/>} {/* 400 실패 */}
         <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />

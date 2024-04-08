@@ -58,7 +58,7 @@ const handleLogin = async () => {
         </div>
       </div>
     </div>
-    {modalOpen && <AdminModal setModalOpen={setModalOpen}/>} {/* 400 실패 */}
+    {modalOpen && <AdminModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>} {/* 400 실패 */}
     </>
   );
 };

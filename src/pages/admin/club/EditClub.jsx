@@ -4,7 +4,7 @@ import AdminNav from '../../../components/AdminNav';
 import { API } from '../../../api/API';
 import { IoTrashOutline } from "react-icons/io5";
 import Modal from 'react-modal';
-import { confirmModalStyle } from '../../../css/customModal'; 
+import { confirmModalStyle } from '../../../css/customModal';
 
 const EditClub = () => {
   const navigate = useNavigate();
@@ -14,8 +14,7 @@ const EditClub = () => {
   const { name, description, logo} = location.state;
   const [addItemData, setAddItemData] = useState({
     name: name,
-    description: description,
-    logo: null,
+    description: description
   });
 
   const handleChangeValue = (e) => {
@@ -44,7 +43,9 @@ const EditClub = () => {
     const formData = new FormData();
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('description', addItemData.description); // 수량 추가
-    formData.append('logo', addItemData.logo); // 이미지 파일 추가
+    if (addItemData.logo !== undefined) {
+      formData.append('logo', addItemData.logo); // 이미지 파일 추가  
+    }
 
     try {
       const result = await API().put('/admin/club', formData, {

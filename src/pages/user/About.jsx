@@ -5,6 +5,7 @@ import person from '../../utils/person.json';
 import '../../css/style.css'
 import PageTitle from '../../components/PageTitle';
 import { MainNav, MenuNav} from '../../components/MainNav';
+import { Link } from 'react-router-dom';
 
 const About = () => {
   return (
@@ -56,6 +57,7 @@ export const PuzzlePerson = () => {
       <div className='w-10/12 mx-auto text-center mb-5'>
         <img src={images.puzzle} alt="puzzle" className='w-2/12 mx-auto mb-1'/>
         <p className='text-xs text-[#705441]'>성결대학교<br/>제40대 Puzzle 동아리연합회</p>
+        <Link to='https://www.instagram.com/sku_dongari40/' target='_blank' className='text-xs text-[#705441]'>@sku_dongari40</Link>
       </div>
 
       <div className='grid grid-cols-3 text-white'>
@@ -71,10 +73,11 @@ export const PuzzlePerson = () => {
 
 export const LikelionPerson = () => {
   return(
-    <div className='my-4'>
+    <div className='mt-4 pb-8'>
       <div className='w-10/12 mx-auto text-center mb-5'>
         <img src={images.likelion} alt="likelion" className='w-2/12 mx-auto mb-1'/>
         <p className='text-xs text-[#705441]'>성결대학교<br/>멋쟁이사자처럼 12기</p>
+        <Link to='https://www.instagram.com/likelion_sku/' target='_blank' className='text-xs text-[#705441]'>@likelion_sku</Link>
       </div>
 
       <div className='flex flex-wrap w-8/12 mx-auto text-white'>

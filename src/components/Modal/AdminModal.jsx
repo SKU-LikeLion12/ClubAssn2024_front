@@ -1,6 +1,6 @@
 import React from 'react'
 
-function AdminModal({setModalOpen}) {
+function AdminModal({modalOpen, setModalOpen}) {
     const closeModal =()=>{
       setModalOpen(false);
     };
@@ -21,6 +21,8 @@ function AdminModal({setModalOpen}) {
                     <div className='aboutEB text-[#12172B] mb-16'>
                         <p>관리자만 로그인 할 수 있습니다.</p>
                     </div>
+                    <div onClick={()=>setModalOpen(!modalOpen)}
+                    className='flex flex-end w-full'><button className='grow text-end'>확인</button></div>
                 </div>
             </div>
         </div>

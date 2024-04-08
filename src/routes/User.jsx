@@ -19,7 +19,7 @@ import RentalBookFail from '../pages/user/Rental/RentalBookFail.jsx';
 const User = () => {
   const location = useLocation();
   const path = location.pathname;  
-  const navPaths = ['/user/menu', '/user/sns', '/user/clubintro', '/user/about'];
+  const navPaths = ['/menu', '/sns', '/clubintro', '/about'];
   const isNavPath = navPaths.includes(path);
 
   return (
