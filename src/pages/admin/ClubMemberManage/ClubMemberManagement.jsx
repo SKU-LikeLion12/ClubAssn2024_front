@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import AdminNav from '../../components/AdminNav';
-import { API } from '../../api/API';
+import AdminNav from '../../../components/AdminNav';
+import { API } from '../../../api/API';
 
 const ClubMemberManagement = () => {
   const [searchTerm, setSearchTerm] = useState('');
@@ -8,12 +8,10 @@ const ClubMemberManagement = () => {
 
   const handleSearch = async () => {
     if (!searchTerm) return; // 검색어가 없으면 검색을 실행하지 않음
-
+  
     try {
-      // URL에 포함된 {keyword}를 실제 검색어로 교체해야 합니다.
-      // `encodeURI`를 사용하여 URL에서 사용할 수 있도록 검색어를 인코딩합니다.
-      const encodedKeyword = encodeURI(searchTerm);
-      const response = await API().get(`/admin/join-club/${encodedKeyword}`);
+      // API 요청에서 searchTerm을 keyword 쿼리 파라미터로 전송
+      const response = await API().get(`/admin/join-club/search?keyword=${encodeURIComponent(searchTerm)}`);
       setSearchResults(response.data); // 가정: 응답 데이터는 검색 결과의 배열
     } catch (error) {
       console.error('Search error:', error);
@@ -67,17 +65,21 @@ export const SearchResults = ({ results }) => {
     <div>
       {results.map((result, index) => (
         <div key={index} className="my-4 p-2 rounded shadow-sm hover:shadow-md transition-shadow">
-          <div className="flex justify-between items-center mb-2">
-            <div>
-              <span className="font-semibold">이름:</span> {result.studentName} <span className="font-semibold ml-4">학번:</span> {result.studentId}
+          <div className="flex justify-between items-center mb-4"> 
+            <div className="flex items-center font-semibold"> 
+              <span className="">이름 :</span> {/* 이름 라벨 */}
+              <span className="border-b border-black mx-2 ml-4">{result.studentName}</span>
+              <span className="ml-2">학번 :</span> {/* 학번 라벨 */}
+              <span className="border-b border-black ml-2 ml-5">{result.studentId}</span> 
             </div>
-            <button onClick={handlePuzzleClick} className="w-20 h-8 bg-blue-500 text-white rounded-lg">퍼즐 조각</button>
+            <button onClick={handlePuzzleClick} className="w-16 h-8 bg-zinc-300 rounded-lg">퍼즐 조각</button>
           </div>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mb-4"> 
             <div>
-              <span className="font-semibold">소속 동아리:</span> {result.clubName}
+              <span className="font-semibold">소속 동아리 :</span>
+              <span className='border-b border-black ml-7 font-semibold'>{result.clubName}</span>
             </div>
-            <button onClick={handleLeaveClick} className="w-20 h-8 bg-red-500 text-white rounded-lg">탈퇴</button>
+            <button onClick={handleLeaveClick} className="w-16 h-8 bg-zinc-300 rounded-lg">삭제</button>
           </div>
         </div>
       ))}
