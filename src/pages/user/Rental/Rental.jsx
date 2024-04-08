@@ -37,7 +37,7 @@ const Rental = () => {
         <div>
           <img src={images.LYP} alt="왼쪽퍼즐" className='w-[140px]' />
         </div>
-        <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[80%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">
+        <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">
           <div className="w-full grid grid-cols-2 my-4">
             {items.map((item) => (
               <Article key={item.id} article={item} />
