@@ -24,8 +24,8 @@ const Club = () => {
     handleGetItem();
   },[])
 
-  const handleEditNavigate = (itemName, itemDescription, itemLogo) => { 
-    navigate('editClub', { state: { name: itemName, description: itemDescription, logo: itemLogo } });
+  const handleEditNavigate = (itemId, itemName, itemDescription, itemLogo) => { 
+    navigate('editClub', { state: { id: itemId, name: itemName, description: itemDescription, logo: itemLogo } });
   };
 
   return (
@@ -54,7 +54,7 @@ const Club = () => {
             </div>
           </div>
         </div>
-        <button onClick={() => handleEditNavigate(item.name, item.description, item.logo)} className='text-[#898989]'><MdModeEditOutline size={20}/></button>
+        <button onClick={() => handleEditNavigate(item.id, item.name, item.description, item.logo)} className='text-[#898989]'><MdModeEditOutline size={20}/></button>
       </div>
       )
     })}

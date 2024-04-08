@@ -11,8 +11,9 @@ const EditClub = () => {
   const location = useLocation();
   const [confirmModal, setConfirmModal] = useState(false); // 수정 모달
   const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
-  const { name, description, logo} = location.state;
+  const { id, name, description, logo} = location.state;
   const [addItemData, setAddItemData] = useState({
+    id: id,
     name: name,
     description: description
   });
@@ -41,11 +42,13 @@ const EditClub = () => {
   
   const handleEditItem = async () => {
     const formData = new FormData();
+    formData.append('id', addItemData.id); // 이름 추가
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('description', addItemData.description); // 수량 추가
-    if (addItemData.logo !== undefined) {
-      formData.append('logo', addItemData.logo); // 이미지 파일 추가  
+    if (addItemData.logo !== undefined && addItemData.logo !== null) {
+      formData.append('logo', addItemData.logo); // 이미지 파일 추가
     }
+  
 
     try {
       const result = await API().put('/admin/club', formData, {

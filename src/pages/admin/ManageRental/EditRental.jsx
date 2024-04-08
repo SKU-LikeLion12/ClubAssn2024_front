@@ -15,8 +15,7 @@ const EditRental = () => {
   const [addItemData, setAddItemData] = useState({
     itemId: id,
     name: name,
-    count: count,
-    image: null,
+    count: count
   });
 
   const handleChangeValue = (e) => {
@@ -42,7 +41,11 @@ const EditRental = () => {
     formData.append('itemId', addItemData.itemId); // 이름 추가
     formData.append('name', addItemData.name); // 이름 추가
     formData.append('count', addItemData.count); // 수량 추가
-    formData.append('image', addItemData.image); // 이미지 파일 추가
+    if (addItemData.image !== undefined && addItemData.image !== null) {
+      formData.append('image', addItemData.image); // 이미지 파일 추가
+    }
+  
+  
 
     try {
       const result = await API().put('/admin/item', formData, {
