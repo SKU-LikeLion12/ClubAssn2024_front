@@ -11,7 +11,6 @@ const EditPuzzle = () => {
   const location = useLocation();
   const { id, name, date } = location.state; // 퍼즐 관리 페이지에서 넘겨준 데이터 받기
   const [confirmModal, setConfirmModal] = useState(false); // 수정 모달
-  const [deleteModal, setDeleteModal] = useState(false); // 삭제 모달
   const [EditItemData, setEditItemData] = useState({
     id: id,
     name: name,
@@ -53,16 +52,6 @@ const EditPuzzle = () => {
     }
   }
 
-  const handleDeleteItem = async (id) => { // 삭제 핸들러
-    try {
-      const result = await API().delete('/admin/events', {data: { id: id }}); // 삭제 API 
-      navigate('/admin/adminMain/PuzzlePieceManagement'); // 삭제 후 퍼즐 홈으로 이동
-      console.log(result);
-    } catch (error) {
-      console.error(error)
-    }
-  }
-
   return (
     <div className='min-h-screen'>
     <AdminNav />
@@ -87,9 +76,6 @@ const EditPuzzle = () => {
               <input type="file" className='text-xs grow ml-5' id='image' name='image' onChange={handleFileChange}/>
             </div>
           </div>
-          <button onClick={()=>{setDeleteModal(!deleteModal)}} className='text-[red] w-2/12 ml-4'>
-            <IoTrashOutline size={22}/>
-          </button>
         </div>
         <div className='flex justify-center'>
           <button type='submit' onClick={handleEditEvent}
@@ -97,7 +83,6 @@ const EditPuzzle = () => {
         </div>
       </div>
       {confirmModal && <ConfirmEditModal confirmModal={confirmModal} setConfirmModal={setConfirmModal} setEditItemData={setEditItemData} />}  
-      {deleteModal && <ConfirmDeleteModal id={EditItemData.id} deleteModal={deleteModal} setDeleteModal={setDeleteModal} Dfunc={handleDeleteItem} />}
       </div>
   </div>
   );
@@ -117,25 +102,6 @@ export const ConfirmEditModal = ({confirmModal, setConfirmModal, setEditItemData
         <div className='textFont flex flex-col items-center justify-center h-full'>
           <div className='text-2xl p-8'>행사 수정 완료</div>
           <button className='text-white bg-[#12172b] py-1 px-12 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/PuzzlePieceManagement')}}>확인</button>   
-        </div>
-    </Modal>
-  )
-}
-
-
-export const ConfirmDeleteModal = ({id, deleteModal, setDeleteModal, Dfunc}) => {
-  return (
-    <Modal
-      style={confirmModalStyle}
-      ariaHideApp={false}
-      onRequestClose={() => setDeleteModal(false)}
-      isOpen={deleteModal}>
-        <div className='textFont flex flex-col items-center justify-center h-full'>
-          <div className='text-2xl p-8'>정말 삭제하시겠습니까?</div>
-          <div>
-            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{setDeleteModal(!deleteModal)}}>취소</button>
-            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{Dfunc(id)}}>삭제</button>
-          </div> 
         </div>
     </Modal>
   )
