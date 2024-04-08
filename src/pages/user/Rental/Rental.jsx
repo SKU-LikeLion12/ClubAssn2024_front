@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import { Link, useLocation, useNavigate } from 'react-router-dom';
 import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
 import MyInfo from '../../../components/shared/MyInfo';
@@ -7,6 +7,7 @@ import { API } from '../../../api/API';
 
 const Rental = () => {
   const [items, setItems] = useState([]);
+  const location = useLocation();
   
   const fetchItems = async () => {
     try {
@@ -23,20 +24,20 @@ const Rental = () => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [location.state]); 
 
   return (
     <>
       <PageTitle title='물품대여' Tcolor='#B79A5F' />
       <MyInfo />
-      <div className="relative">
+      <div className="relative min-h-screen">
         <div className="flex justify-end">
           <img src={images.RYP} alt="오른쪽퍼즐" className='w-[140px]' />
         </div>
         <div>
           <img src={images.LYP} alt="왼쪽퍼즐" className='w-[140px]' />
         </div>
-        <div className="rentalBox absolute z-10 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pr-2 pl-4 overflow-y-scroll">
+        <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[80%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">
           <div className="w-full grid grid-cols-2 my-4">
             {items.map((item) => (
               <Article key={item.id} article={item} />
