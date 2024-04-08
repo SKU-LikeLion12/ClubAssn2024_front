@@ -13,7 +13,6 @@ const ManagePuzzle = () => {
       const result = await API().get('/admin/events/all');
       const items = result.data;
       setGetItems(items);
-      console.log(items)
     } catch (error) {
       console.error(error)
     }

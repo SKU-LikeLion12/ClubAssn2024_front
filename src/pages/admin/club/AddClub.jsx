@@ -26,7 +26,6 @@ const AddClub = () => {
     formData.append('clubName', isAdd.clubName); // 이름 추가
     formData.append('description', isAdd.description); // 수량 추가
     formData.append('logo', isAdd.logo); // 이미지 파일 추가
-    console.log(isAdd)
 
     try {
       const result = await API().post('/admin/club/add', formData, {
@@ -35,7 +34,6 @@ const AddClub = () => {
         }
       });
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

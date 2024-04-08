@@ -32,7 +32,6 @@ const AddRental = () => {
         }
       });
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

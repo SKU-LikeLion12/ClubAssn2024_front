@@ -4,7 +4,7 @@ import MyInfo from '../../components/shared/MyInfo';
 import Back from '../../components/shared/Back';
 import { images } from '../../utils/images';
 import { API } from '../../api/API';
-import PuzzleModal from '../../components/PuzzleModal';
+import PuzzleModal from '../../components/Modal/PuzzleModal';
 import PuzzleInfoModal from '../../components/PuzzleInfoModal';
 
 const CollectingPuzzle = () => {

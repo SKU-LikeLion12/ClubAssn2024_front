@@ -1,0 +1,11 @@
+.slide-in-tl{animation:slide-in-tl .5s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes slide-in-tl{0%{transform:translateY(-1000px) translateX(-1000px);opacity:0}100%{transform:translateY(0) translateX(0);opacity:1}}
+
+.slide-in-tr{animation:slide-in-tr 1s cubic-bezier(.25,.46,.45,.94) both}
+ @keyframes slide-in-tr{0%{transform:translateY(-1000px) translateX(1000px);opacity:0}100%{transform:translateY(0) translateX(0);opacity:1}}
+
+.slide-in-br{animation:slide-in-br 1.5s cubic-bezier(.25,.46,.45,.94) both}
+@keyframes slide-in-br{0%{transform:translateY(1000px) translateX(1000px);opacity:0}100%{transform:translateY(0) translateX(0);opacity:1}}
+
+.slide-in-bl{animation:slide-in-bl 2s cubic-bezier(.25,.46,.45,.94) both}
+ @keyframes slide-in-bl{0%{transform:translateY(1000px) translateX(-1000px);opacity:0}100%{transform:translateY(0) translateX(0);opacity:1}}

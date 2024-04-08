@@ -1,5 +1,5 @@
 import React from 'react';
-import { API } from '../api/API';
+import { API } from '../../api/API';
 
 function AgreeModal({setModalOpen, studentInfo, handleLogin}) {
     const closeModal =()=>{

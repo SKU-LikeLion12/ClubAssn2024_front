@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import Footer from "../../components/Footer";
-import AgreeModal from '../../components/AgreeModal';
-import FailModal from '../../components/FailModal';
 import Back from '../../components/shared/Back';
 import { API }from '../../api/API';
 import axios from 'axios';
-import { APIClient } from '../../api/Auth';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
+import AgreeModal from '../../components/Modal/AgreeModal';
+import FailModal from '../../components/Modal/FailModal';
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useLogin();
@@ -41,7 +40,7 @@ const handleLogin = async () => {
   try {
     console.log(studentInfo)
     const result = await API().post('/login', studentInfo); // 로그인 성공
-    navigate('/user'); // 사용자 메인으로 이동
+    navigate('/myPage'); 
     localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken)
     setIsLoggedIn(true);

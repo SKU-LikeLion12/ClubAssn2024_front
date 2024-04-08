@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import AdminMain from "../pages/admin/AdminMain.jsx";
 import ItemReservationStatus from "../pages/admin/ItemReservationStatus.jsx";
@@ -11,10 +11,13 @@ import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
+import { AuthProvider } from '../components/AuthContext.jsx';
+import ScrollToTop from '../components/shared/ScrollToTop.jsx';
 
 const Admin = () => {
   return (
-    <div>
+    <>
+    <AuthProvider>
       <Routes>
         <Route path='/adminLoginn' element={<AdminLogin/>} />
         <Route path='/adminLogin' element={<AdminLoginn />} />
@@ -27,7 +30,8 @@ const Admin = () => {
         <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
       </Routes>
-    </div>
+    </AuthProvider>
+    </>
 );
 };
 

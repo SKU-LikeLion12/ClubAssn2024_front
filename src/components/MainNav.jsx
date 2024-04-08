@@ -11,17 +11,10 @@ export const MainNav = ({color}) => {
   const { isLoggedIn, setIsLoggedIn } = useLogin();
   const navLink = isLoggedIn ? 'myPage' : 'login';
 
-  const handleLogout = () => {
-    localStorage.clear()
-    setIsLoggedIn(false);
-    console.log(isLoggedIn)
-  }
-
   return (
     <ul className='Nav flex justify-between items-center p-5 fixed top-0 w-full backdrop-blur-sm'>
-      <li><Link to='/user'><img src={images.puzzle} className='w-8' /></Link></li>
+      <li><Link to='/'><img src={images.puzzle} className='w-8' /></Link></li>
       <div className='flex items-center'>
-        <li className='mr-5' onClick={handleLogout}>임시 로그아웃</li>
         <li><Link to={navLink}><AiOutlineUser size={30} className='mr-2'/></Link></li>
         <li><Link to='menu'><BsList size={30} /></Link></li>
       </div>
@@ -37,10 +30,10 @@ export const MenuNav = ()=> {
     <li onClick={()=>{
       navigate(-1)
       if (window.history.length <= 1) {
-        navigate('/user'); // 홈으로 이동
+        navigate('/'); // 홈으로 이동
       }
     }}><FaArrowLeft size={30} /></li>
-    <li><Link to='/user'><img src={images.puzzle} className='w-8' /></Link></li>
+    <li><Link to='/'><img src={images.puzzle} className='w-8' /></Link></li>
   </ul>
   )
 }
