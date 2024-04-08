@@ -1,6 +1,4 @@
-import React, { useState, useEffect } from 'react';
-import AdminNav from './../../components/AdminNav';
-import {API} from '../../api/API';
+import React, { useState } from 'react';
 
 // const initialData  = {
 //   "results":[
@@ -24,7 +22,6 @@ import {API} from '../../api/API';
 //     }
 //   ]
 // }
-
 const ItemRentalStatus = () => {
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
@@ -39,8 +36,8 @@ const ItemRentalStatus = () => {
             'Authorization': `${token}`
           }
         };
-        const expirationTime = token.exp * 1000; // 만료 시간 (밀리초)
-        const currentTime = new Date().getTime(); // 현재 시간 (밀리초)
+        const expirationTime = token.exp * 1000;
+        const currentTime = new Date().getTime();
 
         if (currentTime >= expirationTime) {
           console.log('토큰이 만료되었습니다. 재로그인이 필요합니다.');
@@ -53,7 +50,7 @@ const ItemRentalStatus = () => {
         if (error.response && error.response.status === 401) {
           console.error('권한 없음. 관리자 토큰을 확인해주세요.');
         } else {
-          console.error('Error fetching data:', error);
+          console.error(error);
         }
         setError(error);
       }
@@ -63,12 +60,16 @@ const ItemRentalStatus = () => {
 
   const hasData = data?.results?.length > 0;
 
-  const handleReturn = (index) => {
-    const newData = { ...data };
-    newData.results.splice(index, 1);
-    setData(newData);
+  const handleReturn = async (itemRentId) => { //삭제 기능
+    try {
+      await API().delete(`/admin/item/${itemRentId}`); 
+      const newData = { ...data };
+      newData.results = newData.results.filter(item => item.id !== itemRentId);
+      setData(newData);
+    } catch (error) { 
+      console.error(error);
+    }
   };
-  
   return (
     <div>
       <AdminNav />
@@ -84,8 +85,8 @@ const ItemRentalStatus = () => {
             <p className='text-gray-400'>데이터를 불러오는 중입니다...</p>
           ) : hasData ? (
             <div>
-              {data.results.map((result, index) => (
-                <div key={index} className="mt-4">
+              {data.results.map((result) => (
+                <div key={result.itemRentId} className="mt-4">
                   <p>이름 : {result.name}</p>
                   <p>학번 : {result.studentId}</p>
                   <p>소속 동아리 : {result.iconClub}</p>
@@ -94,7 +95,7 @@ const ItemRentalStatus = () => {
                   <p>물품 수령 시간 : {result.rentTime}</p>
                   <p>현재 상태 : {result.status}</p>
                   <div className='flex justify-end'>
-                    <button className='bg-gray-200 p-1 px-3 rounded-lg' onClick={() => handleReturn(index)}>반납완료</button>
+                    <button className='bg-gray-200 p-1 px-3 rounded-lg' onClick={() => handleReturn(result.itemRentId)}>반납완료</button>
                   </div>
                   <div className='bg-gray-500 w-full h-[2px] rounded-xl mt-5' />
                 </div>
