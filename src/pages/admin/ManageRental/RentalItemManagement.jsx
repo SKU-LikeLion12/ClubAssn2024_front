@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Outlet, Route, Routes, useNavigate } from 'react-router-dom';
 import Modal from 'react-modal';
 import AddRental from './AddRental';
@@ -9,6 +9,10 @@ import AdminNav from '../../../components/AdminNav';
 import { customModalStyles } from '../../../css/customModal';
 
 const RentalItemManagement = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const navigate = useNavigate();
   const [addItemModal, setAddItemModal] = useState();
   const [editItemModal, setEditItemModal] = useState();

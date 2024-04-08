@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes } from "react-router-dom";
 import AdminMain from "../pages/admin/AdminMain.jsx";
 import ItemReservationStatus from "../pages/admin/ItemReservationStatus.jsx";
@@ -13,6 +13,10 @@ import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
 
 const Admin = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div>
       <Routes>

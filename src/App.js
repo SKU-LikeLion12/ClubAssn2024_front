@@ -4,8 +4,13 @@ import User from "./routes/User.jsx";
 import Admin from "./routes/Admin.jsx";
 import { AuthProvider } from './components/AuthContext.jsx';
 import { LoginProvider } from "./context/LoginContext.jsx";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <AuthProvider>
       <LoginProvider>

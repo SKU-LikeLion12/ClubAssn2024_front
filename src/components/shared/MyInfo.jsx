@@ -21,6 +21,7 @@ const MyInfo = () => {
     });
     const [isOpen, setIsOpen] = useState(false)
     const [showClubList, setShowClubList] = useState([]);
+    const [showList, setShowList] = useState() // 동아리가 1개일 때 false, true
 
     // mypage API -> 맨 처음 대표 동아리 
     const getMyInfo = async () => {
@@ -44,6 +45,8 @@ const MyInfo = () => {
       try {
         const result = await API().get('/joined-list');
         setShowClubList(result.data);
+        const show = result.data.length === 1 ? false : true
+        setShowList(show);
       } catch (error) {
         console.log(error);
       }
@@ -70,7 +73,7 @@ const MyInfo = () => {
   return (
     <>
     {/* 대표 동아리만 보이기 */}
-    {!FixedInfo && !isOpen &&
+    {showList && !FixedInfo && !isOpen &&
     <div onClick={handleShowList} className=' w-9/12 mx-auto '>
       <div className={`flex justify-center gap-5 items-center mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
         <img src={myInfoData.logo} alt="동아리 로고" className='w-2/12' />
@@ -96,8 +99,8 @@ const MyInfo = () => {
         )})}
     </div>}
       
-    {/* FixedInfo 보이기 */}
-    {FixedInfo && <FixedMyInfo ActiveColor={ActiveColor} myInfoData={myInfoData} />}
+    {/* 동아리가 1개거나 마이페이지가 아닐 때는 FixedMyInfo 보이기 */}
+    {(FixedInfo || !showList) && <FixedMyInfo ActiveColor={ActiveColor} myInfoData={myInfoData} />}
     </>
   );
 };

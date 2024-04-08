@@ -4,9 +4,19 @@ import Footer from '../../components/Footer';
 import MyInfo from '../../components/shared/MyInfo';
 import { API } from '../../api/API';
 import { Link } from 'react-router-dom';
+import { useLogin } from '../../context/LoginContext';
 
 
 const Mypage = () => {
+  const { isLoggedIn, setIsLoggedIn } = useLogin();
+  const navLink = isLoggedIn ? 'myPage' : 'login';
+
+  const handleLogout = () => {
+    localStorage.clear()
+    setIsLoggedIn(false);
+    console.log(isLoggedIn)
+  }
+
   return (
     <div>
       <div className="relative -z-10">
@@ -19,14 +29,21 @@ const Mypage = () => {
         <div className="flex flex-col mt-7">
           <RentalStatus/>
           <ReserveStatus/>
-          <Link to="/collectingpuzzle">
+          <Link to="/user/collectingpuzzle">
             <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8 cursor-pointer">
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">퍼즐 조각 모으기</div>
             </div>
           </Link>
-          <Link to="/rental">
+          <Link to="/user/rental">
             <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여</div>
+            </div>
+          </Link>
+          <Link to="/user">
+            <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
+              <button 
+              onClick={handleLogout}
+              className="text-primary text-sm font-bold font-['GyeonggiTitleM']">로그아웃</button>
             </div>
           </Link>
         </div>

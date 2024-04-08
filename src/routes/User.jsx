@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import Main from '../pages/user/Main.jsx';
 import Login from "../pages/user/Login.jsx";
@@ -17,6 +17,10 @@ import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
 import RentalBookFail from '../pages/user/Rental/RentalBookFail.jsx';
 
 const User = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
+
   const location = useLocation();
   const path = location.pathname;  
   const navPaths = ['/user/menu', '/user/sns', '/user/clubintro', '/user/about'];
