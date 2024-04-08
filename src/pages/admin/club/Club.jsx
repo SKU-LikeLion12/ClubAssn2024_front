@@ -49,7 +49,7 @@ const Club = () => {
             </div>
           </div>
         </div>
-        {/* 파라미터에 로고 추가 1 */}
+
         <button onClick={() => handleEditNavigate(item.name, item.description, item.logo)} className='text-[#898989]'><MdModeEditOutline size={20}/></button>
       </div>
       )
