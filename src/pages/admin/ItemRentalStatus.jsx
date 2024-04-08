@@ -30,7 +30,7 @@ const ItemRentalStatus = () => {
   const handleReturn = async (itemRentId) => {
     // 반납 기능
     try {
-      await API().delete(`/admin/item/${itemRentId}`);
+      await API().put(`/admin/item-rent`,{itemRentId});
       setData(data.filter((item) => item.itemRentId !== itemRentId));
     } catch (err) {
       console.error(err);
