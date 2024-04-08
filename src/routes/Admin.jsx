@@ -5,7 +5,7 @@ import ItemReservationStatus from "../pages/admin/ItemReservationStatus.jsx";
 import ItemRentalStatus from "../pages/admin/ItemRentalStatus.jsx";
 import RentalItemManagement from "../pages/admin/ManageRental/RentalItemManagement.jsx";
 import PuzzlePieceManagement from "../pages/admin/puzzle/PuzzlePieceManagement.jsx";
-import ClubMemberManagement from "../pages/admin/ClubMemberManage/ClubMemberManagement.jsx";
+import ClubMemberManagement from "../pages/admin/Clubmember/ClubMemberManagement.jsx";
 import ClubManagement from "../pages/admin/club/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
@@ -26,7 +26,7 @@ const Admin = () => {
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/RentalItemManagement/*" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>} />
         <Route path="/adminMain/PuzzlePieceManagement/*" element={<PuzzlePieceManagement/>}/>
-        <Route path="/adminMain/ClubMemberManagement" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
       </Routes>
