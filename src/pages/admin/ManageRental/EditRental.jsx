@@ -32,7 +32,6 @@ const EditRental = () => {
     try {
       const result = await API().delete(`/admin/item/${id}`, id);
       navigate('/admin/adminMain/RentalItemManagement');
-      console.log(result);
     } catch (error) {
       console.error(error)
     }
@@ -52,7 +51,6 @@ const EditRental = () => {
         }
       })
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

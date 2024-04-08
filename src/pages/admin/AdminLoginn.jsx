@@ -5,10 +5,12 @@ import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
 import AdminNav from '../../components/AdminNav';
 import { useAuth } from '../../components/AuthContext';
+import AdminModal from '../../components/Modal/AdminModal';
 
 const AdminLoginn = () => {
-  const { setIsAuthenticated } = useAuth(); 
-  const { isLoggedIn, setIsLoggedIn } = useLogin();
+  const { setIsAuthenticated } = useAuth();
+  const { setIsLoggedIn } = useLogin();
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
   const [studentInfo, setStudentInfo] = useState({
     studentId: '',
@@ -27,14 +29,15 @@ const handleInputChange = (e) => {
 const handleLogin = async () => {
   try {
     const result = await API().post('/login', studentInfo); // 로그인 성공
-    console.log(result.data)
+    console.log(result)
     localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken)
-    navigate('/admin/adminMain'); // 관리자 메인으로 이동
     setIsLoggedIn(true);
     setIsAuthenticated(true);
+    navigate('/admin/adminMain'); // 관리자 메인으로 이동
   } catch (error) {
     console.error(error)
+    setModalOpen(!modalOpen);
   }
 };
 
@@ -55,6 +58,7 @@ const handleLogin = async () => {
         </div>
       </div>
     </div>
+    {modalOpen && <AdminModal setModalOpen={setModalOpen}/>} {/* 400 실패 */}
     </>
   );
 };

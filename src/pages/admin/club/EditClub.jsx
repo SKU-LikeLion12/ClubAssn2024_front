@@ -35,7 +35,6 @@ const EditClub = () => {
         }
       });
       navigate('/admin/adminMain/ClubManagement');
-      console.log(result);
     } catch (error) {
       console.error(error)
     }
@@ -54,7 +53,6 @@ const EditClub = () => {
         }
       })
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

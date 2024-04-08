@@ -6,14 +6,17 @@ import { API } from '../../../api/API';
 const ManageRental = () => {
   const navigate = useNavigate();
   const [getItems, setGetItems] = useState([]);
+  const [loading, setLoading] = useState(true);
 
   const handleGetItem = async () => {
     try {
       const result = await API().get('/admin/item/all')
       const items = result.data;
       setGetItems(items);
+      setLoading(false); 
     } catch (error) {
       console.error(error)
+      setLoading(false);
     }
   }
   useEffect(()=> {
@@ -32,7 +35,9 @@ const ManageRental = () => {
       <button className='bg-[#12172B] text-white py-1 px-4 rounded-xl' onClick={()=>navigate('addRental')}>추가</button>
     </div>
 
-    {getItems.map((item)=>{
+    {loading ? ( 
+      <div className='w-10/12 mx-auto text-gray-400'>데이터를 불러오는 중입니다...</div>
+    ) : getItems.map((item)=>{
       return (
       <div key={item.id} className='flex w-10/12 mx-auto border-y py-3 px-1 gap-2 border-[#12172B]'>
         <div className='flex flex-col grow gap-1'>

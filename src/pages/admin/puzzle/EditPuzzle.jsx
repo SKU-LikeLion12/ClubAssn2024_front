@@ -34,10 +34,8 @@ const EditPuzzle = () => {
     const formData = new FormData();
     formData.append('id', EditItemData.id); // id
     formData.append('name', EditItemData.name); // 행사명
-    formData.append('date', '2024-04-06T11:14:51.572'); // 날짜
-    // formData.append('date', isEdit.date); // 수량 추가 - 수정 후 주석 변경
+    formData.append('date', EditItemData.date); // 수량 추가 - 수정 후 주석 변경
     formData.append('image', EditItemData.image); // 이미지 파일 추가
-    console.log(EditItemData)
 
     try {
       const result = await API().put('/admin/events/update', formData, { // 수정 API
@@ -46,7 +44,6 @@ const EditPuzzle = () => {
         }
       });
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

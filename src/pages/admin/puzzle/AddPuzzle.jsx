@@ -27,7 +27,6 @@ const AddPuzzle = () => {
     formData.append('date', '2024-04-06T11:14:51.572'); // 수량 추가 
     // formData.append('date', isAdd.date); // 수량 추가 - 수정 후 주석 변경
     formData.append('image', isAdd.image); // 이미지 파일 추가
-    console.log(isAdd)
 
     try {
       const result = await API().post('/admin/events/add', formData, {
@@ -36,7 +35,6 @@ const AddPuzzle = () => {
         }
       });
       setConfirmModal(!confirmModal);
-      console.log(result);
     } catch (error) {
       console.error(error)
     }

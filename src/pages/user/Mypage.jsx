@@ -3,18 +3,19 @@ import PageTitle from '../../components/PageTitle';
 import Footer from '../../components/Footer';
 import MyInfo from '../../components/shared/MyInfo';
 import { API } from '../../api/API';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
 
 
 const Mypage = () => {
+  const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useLogin();
   const navLink = isLoggedIn ? 'myPage' : 'login';
 
   const handleLogout = () => {
     localStorage.clear()
     setIsLoggedIn(false);
-    console.log(isLoggedIn)
+    navigate('/user')
   }
 
   return (
@@ -39,13 +40,11 @@ const Mypage = () => {
               <div className="text-primary text-sm font-bold font-['GyeonggiTitleM']">물품 대여</div>
             </div>
           </Link>
-          <Link to="/user">
-            <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
-              <button 
-              onClick={handleLogout}
-              className="text-primary text-sm font-bold font-['GyeonggiTitleM']">로그아웃</button>
-            </div>
-          </Link>
+          <div className="h-9 bg-white rounded-full border-2 border-primary flex justify-center items-center mb-8">
+            <button 
+            onClick={handleLogout}
+            className="text-primary text-sm font-bold font-['GyeonggiTitleM']">로그아웃</button>
+          </div>
         </div>
         <Footer/>
       </div>

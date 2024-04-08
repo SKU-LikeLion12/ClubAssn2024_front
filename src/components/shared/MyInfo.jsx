@@ -22,6 +22,7 @@ const MyInfo = () => {
     const [isOpen, setIsOpen] = useState(false)
     const [showClubList, setShowClubList] = useState([]);
     const [showList, setShowList] = useState() // 동아리가 1개일 때 false, true
+    const [loading, setLoading] = useState(true);
 
     // mypage API -> 맨 처음 대표 동아리 
     const getMyInfo = async () => {
@@ -34,8 +35,10 @@ const MyInfo = () => {
           name: result.data.name,
           club: result.data.clubName,
         });
+        setLoading(false);
       } catch (error) {
         console.error(error)
+        setLoading(false);
       }
     }
 
@@ -48,7 +51,7 @@ const MyInfo = () => {
         const show = result.data.length === 1 ? false : true
         setShowList(show);
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
@@ -73,7 +76,10 @@ const MyInfo = () => {
   return (
     <>
     {/* 대표 동아리만 보이기 */}
-    {showList && !FixedInfo && !isOpen &&
+    {loading ? (
+      <div className='text-center text-gray-400'>데이터를 불러오는 중입니다...</div>
+    ) : 
+    showList && !FixedInfo && !isOpen &&
     <div onClick={handleShowList} className=' w-9/12 mx-auto '>
       <div className={`flex justify-center gap-5 items-center mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>
         <img src={myInfoData.logo} alt="동아리 로고" className='w-2/12' />
@@ -100,14 +106,14 @@ const MyInfo = () => {
     </div>}
       
     {/* 동아리가 1개거나 마이페이지가 아닐 때는 FixedMyInfo 보이기 */}
-    {(FixedInfo || !showList) && <FixedMyInfo ActiveColor={ActiveColor} myInfoData={myInfoData} />}
+    {(FixedInfo || !showList) && <FixedMyInfo loading={loading} ActiveColor={ActiveColor} myInfoData={myInfoData} />}
     </>
   );
 };
 
 export default MyInfo;
 
-export const FixedMyInfo = ({ActiveColor, myInfoData}) => {
+export const FixedMyInfo = ({loading, ActiveColor, myInfoData}) => {
   return (
     <div>
       <div className={`flex justify-center gap-5 items-center w-9/12 mx-auto mb-3 p-2 rounded-xl border-[2px] ${ActiveColor}`}>

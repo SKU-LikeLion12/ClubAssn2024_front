@@ -17,42 +17,38 @@ import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
 import RentalBookFail from '../pages/user/Rental/RentalBookFail.jsx';
 
 const User = () => {
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
-
   const location = useLocation();
   const path = location.pathname;  
   const navPaths = ['/user/menu', '/user/sns', '/user/clubintro', '/user/about'];
   const isNavPath = navPaths.includes(path);
 
   return (
-      <div>
-        {isNavPath ? <MenuNav /> : <MainNav />}
-        <Routes>
-          <Route path="/" element={<Main/>}/>
-          <Route path="/login" element={<Login/>}/>
-          <Route path="/myPage" element={<Mypage/>}/>
+    <div>
+      {isNavPath ? <MenuNav /> : <MainNav />}
+      <Routes>
+        <Route path="/" element={<Main/>}/>
+        <Route path="/login" element={<Login/>}/>
+        <Route path="/myPage" element={<Mypage/>}/>
 
-          <Route path="/rental" element={<Rental/>}/>
-          <Route path="/rentalBook" element={<RentalBook/>} />
-          <Route path="/rentalConfirm" element={<RentalConfirm/>} />
-          <Route path="/rentalBookFail" element={<RentalBookFail/>} />
+        <Route path="/rental" element={<Rental/>}/>
+        <Route path="/rentalBook" element={<RentalBook/>} />
+        <Route path="/rentalConfirm" element={<RentalConfirm/>} />
+        <Route path="/rentalBookFail" element={<RentalBookFail/>} />
 
-          <Route path="/map/*" element={<Map />}>
-            <Route index element={<StudentUnion />} />
-            <Route index path="studentUnion" element={<StudentUnion />} />  
-            <Route path="studentCenter" element={<StudentCenter />} />
-            <Route path="clubSNS" element={<ClubSNS />} />
-          </Route>
+        <Route path="/map/*" element={<Map />}>
+          <Route index element={<StudentUnion />} />
+          <Route index path="studentUnion" element={<StudentUnion />} />  
+          <Route path="studentCenter" element={<StudentCenter />} />
+          <Route path="clubSNS" element={<ClubSNS />} />
+        </Route>
 
-          <Route path="/menu" element={<Menu/>}/>
-          <Route path="/sns" element={<Sns/>}/>
-          <Route path="/clubIntro" element={<ClubIntro/>}/>
-          <Route path="/about" element={<About/>}/>
-          <Route path="/collectingpuzzle" element={<CollectingPuzzle />}/>
-        </Routes>
-      </div>
+        <Route path="/menu" element={<Menu/>}/>
+        <Route path="/sns" element={<Sns/>}/>
+        <Route path="/clubIntro" element={<ClubIntro/>}/>
+        <Route path="/about" element={<About/>}/>
+        <Route path="/collectingpuzzle" element={<CollectingPuzzle />}/>
+      </Routes>
+    </div>
   );
 };
 

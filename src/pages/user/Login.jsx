@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import PageTitle from '../../components/PageTitle';
 import Footer from "../../components/Footer";
-import AgreeModal from '../../components/AgreeModal';
-import FailModal from '../../components/FailModal';
 import Back from '../../components/shared/Back';
 import { API }from '../../api/API';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
+import AgreeModal from '../../components/Modal/AgreeModal';
+import FailModal from '../../components/Modal/FailModal';
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useLogin();
@@ -74,7 +74,7 @@ const handleLogin = async () => {
             <input type='button' value='로그인' className='mt-10 bg-[#AB7A67] p-2 px-6 rounded-lg text-white border-[#AB7A67]' onClick={handleLogin}/>
           </div>
         </div>
-
+        
         {modalOpen&&<AgreeModal studentInfo={studentInfo} handleLogin={handleLogin} setModalOpen={setModalOpen}/>} {/* 401 동의 */}
         {failModalOpen && <FailModal setFailModalOpen={setFailModalOpen}/>} {/* 400 실패 */}
         <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />

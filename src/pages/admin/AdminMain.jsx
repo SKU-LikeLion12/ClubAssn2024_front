@@ -11,7 +11,7 @@ const AdminMain = () => {
       <Link to='PuzzlePieceManagement'><div className='adminMainBtn textSkyBlue'>퍼즐 조각 관리</div></Link>
       <Link to='ClubMemberManagement'><div className='adminMainBtn textDeepBlue'>동아리원 관리</div></Link>
       <Link to='ClubManagement'><div className='adminMainBtn textSkyBlue'>동아리 관리</div></Link>
-      <Link to='TimetableManagement'><div className='adminMainBtn textDeepBlue'>시간표 관리</div></Link>
+      {/* <Link to='TimetableManagement'><div className='adminMainBtn textDeepBlue'>시간표 관리</div></Link> */}
     </div>
   );
 };
