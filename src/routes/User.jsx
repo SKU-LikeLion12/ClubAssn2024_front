@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import Main from '../pages/user/Main.jsx';
 import Login from "../pages/user/Login.jsx";
@@ -14,7 +14,7 @@ import RentalBook from "../pages/user/Rental/RentalBook.jsx";
 import RentalConfirm from "../pages/user/Rental/RentalConfirm.jsx";
 import ClubSNS from "../components/ClubSNS.jsx";
 import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
-import { API } from '../api/API.jsx';
+import RentalBookFail from '../pages/user/Rental/RentalBookFail.jsx';
 
 const User = () => {
   const location = useLocation();
@@ -33,6 +33,7 @@ const User = () => {
           <Route path="/rental" element={<Rental/>}/>
           <Route path="/rentalBook" element={<RentalBook/>} />
           <Route path="/rentalConfirm" element={<RentalConfirm/>} />
+          <Route path="/rentalBookFail" element={<RentalBookFail/>} />
 
           <Route path="/map/*" element={<Map />}>
             <Route index element={<StudentUnion />} />
