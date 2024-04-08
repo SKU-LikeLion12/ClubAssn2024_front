@@ -6,22 +6,7 @@ const ItemReservationStatus = () => {
   const [reserveStatus, setReserveStatus] = useState([]);
   const fetchReserveStatus = async () => {
     try {
-      const token = localStorage.getItem('Token');
-      console.log(token);
-      const config = {
-        headers: {
-          'Authorization': `${token}`
-        }
-      };
-      const expirationTime = token.exp * 1000; // 만료 시간 (밀리초)
-      const currentTime = new Date().getTime(); // 현재 시간 (밀리초)
-
-      if (currentTime >= expirationTime) {
-        console.log('토큰이 만료되었습니다. 재로그인이 필요합니다.');
-      } else {
-        console.log('토큰이 유효합니다.');
-      }
-      const response = await API().get('/admin/item-rent/book-list', config);
+      const response = await API().get('/admin/item-rent/book-list');
       if (response.status === 200) {
         setReserveStatus(response.data); 
       }
@@ -77,40 +62,25 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
   });
   const handleReceiveClick = async () => {
     try {
-      const token = localStorage.getItem('Token');
-      const config = {
-        headers: {
-          'Authorization': `${token}`
-        }
-      };
-      const body = {
-        itemRentId: reservationStatus.itemRentId,
-      };
-      const response = await API().post('/admin/item-rent', body, config);
+      const body = { itemRentId: reservationStatus.itemRentId };
+      const response = await API().post('/admin/item-rent', body);
       if (response.status === 200) {
-        alert('수령 처리가 완료되었습니다.');
-        onReceiveSuccess(); // 상위 컴포넌트의 함수 호출
+        alert('수령완료 처리되었습니다.');
+        onReceiveSuccess();
       }
     } catch (error) {
       console.error('수령 처리 실패', error);
       alert('수령 처리에 실패하였습니다.');
     }
   };
+
   const handleCancelClick = async () => {
     try {
-      const token = localStorage.getItem('Token');
-      const config = {
-        headers: {
-          'Authorization': `${token}`
-        }
-      };
-      const body = {
-        itemRentId: reservationStatus.itemRentId,
-      };
-      const response = await API().delete('/admin/item-rent', { data: body, ...config });
+      const body = { itemRentId: reservationStatus.itemRentId };
+      const response = await API().delete('/admin/item-rent', { data: body });
       if (response.status === 200) {
-        alert('예약 취소 처리가 완료되었습니다.');
-        onCancelSuccess(reservationStatus.itemRentId); // 상위 컴포넌트의 함수 호출
+        alert('예약이 취소되었습니다.');
+        onCancelSuccess();
       }
     } catch (error) {
       console.error('예약 취소 처리 실패', error);
