@@ -5,7 +5,7 @@ import ItemReservationStatus from "../pages/admin/ItemReservationStatus.jsx";
 import ItemRentalStatus from "../pages/admin/ItemRentalStatus.jsx";
 import RentalItemManagement from "../pages/admin/ManageRental/RentalItemManagement.jsx";
 import PuzzlePieceManagement from "../pages/admin/puzzle/PuzzlePieceManagement.jsx";
-import ClubMemberManagement from "../pages/admin/ClubMemberManagement.jsx";
+import ClubMemberManagement from "../pages/admin/ClubMemberManage/ClubMemberManagement.jsx";
 import ClubManagement from "../pages/admin/club/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
