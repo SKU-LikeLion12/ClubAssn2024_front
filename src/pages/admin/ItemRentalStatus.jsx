@@ -10,7 +10,12 @@ const ItemRentalStatus = () => {
     const fetchData = async () => {
       try {
         const result = await API().get('/admin/item-rent/rent-list');
-        const items = result.data.map((item) => ({ ...item }));
+        const items = result.data.map((item) => {
+          // 년/월/일 형식으로 rentTime 변환
+          const rentDate = new Date(item.rentTime);
+          const formattedRentTime = rentDate.toLocaleDateString('ko-KR');
+          return { ...item, rentTime: formattedRentTime };
+        });
         setData(items);
       } catch (err) {
         if (err.response && err.response.status === 401) {

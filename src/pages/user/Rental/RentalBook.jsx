@@ -9,7 +9,7 @@ const RentalBook = () => {
   return (
     <>
       <PageTitle title='물품대여' Tcolor='#B79A5F' />
-      <div className="textFont relative">
+      <div className="textFont relative min-h-screen">
         <div className="flex justify-end">
           <img src={images.RYP} alt="오른쪽퍼즐" className='w-[140px]' />
         </div>
@@ -49,8 +49,14 @@ export const BookContent = () => {
   
       if (response && response.data) {
         // 응답이 성공적이며, 데이터가 유효한 경우
-        navigate("/user/rentalConfirm", { state: { ...response.data } });
-      } else {
+        navigate("/rentalConfirm", { 
+          state: { 
+            ...response.data,
+            image: image, 
+            name: name, 
+          } 
+        });
+        } else {
         // 응답은 있으나, 데이터가 유효하지 않은 경우
         alert("대여 예약에 실패했습니다.");
       }
@@ -61,7 +67,7 @@ export const BookContent = () => {
         const errorMessage = error.response.data?.message || "알 수 없는 오류가 발생했습니다.";
         // 상태 코드에 따라 다른 페이지로 네비게이션할 수 있음
         if (error.response.status === 403) {
-          navigate("/user/rentalBookFail", { state: { errorMessage } });
+          navigate("/rentalBookFail", { state: { errorMessage } });
         } else {
           // 다른 에러 코드 처리
         }
@@ -102,7 +108,7 @@ export const BookContent = () => {
 
   return (
     <>
-      <div className="rentalBox absolute z-10 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-2 pr-2 pl-4 overflow-y-scroll">
+      <div className="rentalBox absolute z-1 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-2 pr-2 pl-4 overflow-y-scroll">
         <div className='flex justify-end' onClick={moveBack}><IoCloseSharp size="25" color="#ceb421" /></div>
         <img className='w-4/12 mx-auto my-2 object-cover border-4 border-[#ceb341] rounded-md' src={image} alt="물품사진" />
         <div className='text-[20px] text-center font-bold'>{name}</div>
