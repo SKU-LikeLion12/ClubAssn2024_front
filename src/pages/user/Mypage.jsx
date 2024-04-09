@@ -6,7 +6,6 @@ import { API } from '../../api/API';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
 
-
 const Mypage = () => {
   const navigate = useNavigate();
   const { isLoggedIn, setIsLoggedIn } = useLogin();
@@ -27,6 +26,7 @@ const Mypage = () => {
       <div className="flex flex-col justify-center items-center h-full">
         <PageTitle title={"Puzzle"} Tcolor="#AB7A67"/>
         <MyInfo />
+        {/* <MyInfoRe /> */}
         <div className="flex flex-col mt-7">
           <RentalStatus/>
           <ReserveStatus/>
