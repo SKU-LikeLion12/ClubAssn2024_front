@@ -1,4 +1,4 @@
-# 📌 성결대학교 졸업학점계산기
+# 📌 성결대학교 동아리연합회 Puzzle
 
 <div align="center">
  <img src="" width="700" height="auto">
