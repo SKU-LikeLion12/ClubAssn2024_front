@@ -12,6 +12,7 @@ const CollectingPuzzle = () => {
   const [modalOpen, setModalOpen] = useState(false); //이벤트 상세 모달
   const [infoModalOpen, setInfoModalOpen] = useState(false); //이벤트 설명 모달
   const [puzzleData, setPuzzleData] = useState([]);
+  const [selectedPuzzle, setSelectedPuzzle] = useState(null);
 
   useEffect(() => {
     fetchData();
@@ -19,38 +20,63 @@ const CollectingPuzzle = () => {
 
   const fetchData = async () => {
     try {
-      const token = localStorage.getItem('Token');
-      console.log(token);
-      const config = {
-        headers: {
-          'Authorization': `${token}`
-        }
-      };
-      const result = await API().post('/puzzle',config);
+      // const dummyPuzzleData = [
+      //   {
+      //     id: '1',
+      //     name: "홍길동",
+      //     image: images.emptyPuzzle,
+      //     date: "02/08",
+      //     joined: true,
+      //   },
+      //   {
+      //     id: '2',
+      //     name: "홍길동",
+      //     image: images.emptyPuzzle,
+      //     date: "04/08",
+      //     joined: true,
+      //   },
+      //   {
+      //     id: '3',
+      //     name: "홍길동",
+      //     image: images.emptyPuzzle,
+      //     date: "03/08",
+      //     joined: true,
+      //   },
+      //   {
+      //     id: '4',
+      //     name: "홍길동",
+      //     image: images.emptyPuzzle,
+      //     date: "05/08",
+      //     joined: true,
+      //   }
+      // ];
+      // setPuzzleData([...dummyPuzzleData]);
+      const result = await API().post('/puzzle');
       const base64String = result.data.image;
-      const imageDataURI = `data:image/jpeg;base64, ${base64String}`;
       const puzzleDataArray = result.data.map((item) => ({
         id: item.id,
         name: item.name,
-        image: imageDataURI,
+        image: `data:image/jpeg;base64,${item.image}`,
         date: item.date,
         joined: item.joined
       }));
-      console.log('성공');
+      console.log(puzzleDataArray);
       setPuzzleData(puzzleDataArray);
     } catch (error) {
       console.error(error);
+      
     }
   };
 
-  const handleCode = () => {
-    // 서버로 보내고
-    setCode('') // input value 초기화
-  }
+  // const handleCode = () => {
+  //   // 서버로 보내고
+  //   setCode('') // input value 초기화
+  // }
 
   const showModal = (id) => {
     setModalOpen(true);
-    setPuzzleData(puzzleData.find((data) => data.id === id));
+    const puzzleItem = puzzleData.find((data) => data.id === id);
+    setSelectedPuzzle(puzzleItem);
   };
   const showInfoModal=()=>{
     setInfoModalOpen(true);
@@ -75,19 +101,19 @@ const CollectingPuzzle = () => {
         </div>
         <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] mb-10'>
           <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
-          <button onClick={() => showModal('1')} style={{ display: isJoined('1') ? 'block' : 'none' }}>
+          <button onClick={() => showModal(1)} style={{ display: isJoined(1) ? 'block' : 'none' }}>
             <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal('2')} style={{ display: isJoined('2') ? 'block' : 'none' }}>
+          <button onClick={() => showModal(2)} style={{ display: isJoined(2) ? 'block' : 'none' }}>
             <img src={images.puzzle2} alt="" className='w-[64%] absolute top-0 right-0 z-[2]' />
           </button>
-          <button onClick={() => showModal('3')} style={{ display: isJoined('3') ? 'block' : 'none' }}>
-            <img src={images.puzzle3} alt="" className='w-[63%] absolute top-[45%] left-0 z-[3]'/>
+          <button onClick={() => showModal(3)} style={{ display: isJoined(3) ? 'block' : 'none' }}>
+            <img src={images.puzzle3} alt="" className='w-[63%] absolute top-[49%] left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal('4')} style={{ display: isJoined('4') ? 'block' : 'none' }}>
-            <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[34%] right-0 z-[2]'/>
+          <button onClick={() => showModal(4)} style={{ display: isJoined(4) ? 'block' : 'none' }}>
+            <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[37%] right-0 z-[2]'/>
           </button>
-          {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={puzzleData}/>}
+          {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
           {infoModalOpen&&<PuzzleInfoModal setModalOpen={setInfoModalOpen}/>}
         </div>
       
