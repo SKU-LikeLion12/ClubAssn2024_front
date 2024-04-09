@@ -4,6 +4,7 @@ import ClubMemberManagement from './ClubMemberManagement';
 import ClubmemberPuzzle from './ClubMemberPuzzle';
 import AddClubMember from './AddClubMember';
 import AddMember from './AddMember';
+import AddmemberPuzzle from './AddmemberPuzzle';
 
 const Clubmember = () => {
   return (
@@ -11,6 +12,7 @@ const Clubmember = () => {
       <Route path="/" element={<ClubMemberManagement />} />
       <Route path="/EditPuzzle" element={<ClubmemberPuzzle/>} />
       <Route path="/AddClubMember" element={<AddClubMember/>} />
+      <Route path="/EditPuzzle/AddmemberPuzzle" element={<AddmemberPuzzle />} />
       <Route path="/AddClubMember/AddMember" element={<AddMember />} />
     </Routes>
   );
