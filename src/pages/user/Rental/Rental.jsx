@@ -72,7 +72,7 @@ export const Article = ({ article }) => {
           <div>{article.bookingCount}</div>
         </div>
       </div>
-      <Link to={`/user/rentalBook?image=${encodeURIComponent(article.image)}&name=${encodeURIComponent(article.name)}&itemId=${article.id}`}>
+      <Link to={`/rentalBook?image=${encodeURIComponent(article.image)}&name=${encodeURIComponent(article.name)}&itemId=${article.id}`}>
         <div className='text-center text-white bg-[#ceb341] mt-2 mx-4 rounded py-1'>
           예약하기
         </div>

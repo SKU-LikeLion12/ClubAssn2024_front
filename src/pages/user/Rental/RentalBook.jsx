@@ -49,7 +49,7 @@ export const BookContent = () => {
   
       if (response && response.data) {
         // 응답이 성공적이며, 데이터가 유효한 경우
-        navigate("/user/rentalConfirm", { 
+        navigate("/rentalConfirm", { 
           state: { 
             ...response.data,
             image: image, 
@@ -67,7 +67,7 @@ export const BookContent = () => {
         const errorMessage = error.response.data?.message || "알 수 없는 오류가 발생했습니다.";
         // 상태 코드에 따라 다른 페이지로 네비게이션할 수 있음
         if (error.response.status === 403) {
-          navigate("/user/rentalBookFail", { state: { errorMessage } });
+          navigate("/rentalBookFail", { state: { errorMessage } });
         } else {
           // 다른 에러 코드 처리
         }

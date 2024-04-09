@@ -28,7 +28,7 @@ export const FailContent = () => {
   const location = useLocation();
   
   const onClickBtn = () => {
-    navigate('/user');
+    navigate('/');
   };
   
   const errorMessage = location.state?.errorMessage || "알 수 없는 오류가 발생했습니다.";

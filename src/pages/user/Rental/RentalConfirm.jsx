@@ -29,7 +29,7 @@ export const ConfirmContent = () => {
   const { image, name } = location.state || { image: '', name: '' }; // 기본값 설정
 
   const onClickBtn = () => {
-    navigate('/user');
+    navigate('/');
   };
 
   const [date, setDate] = useState('');
