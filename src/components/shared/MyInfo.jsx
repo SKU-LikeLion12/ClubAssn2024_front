@@ -43,11 +43,20 @@ const MyInfo = () => {
     }
 
     // joined-list API -> 모든 동아리 리스트 보여주기
-    const handleisOne = async () => {
+    const handleShowList = async () => {
       setIsOpen(!isOpen);
       try {
         const result = await API().get('/joined-list');
         setShowClubList(result.data);
+      } catch (error) {
+        console.log(error);
+      }
+    }
+
+    // 전체 동아리 개수세기 위한 함수, 맨 처음 렌더링될 때 한 번 실행
+    const handleisOneCheck = async () => {
+      try {
+        const result = await API().get('/joined-list');
         const show = result.data.length === 1 ? true : false
         setIsOne(show);
       } catch (error) {
@@ -71,6 +80,7 @@ const MyInfo = () => {
     }
     useEffect(()=> {
       getMyInfo();
+      handleisOneCheck();
     }, [isOpen])
 
   return (
@@ -87,10 +97,14 @@ const MyInfo = () => {
             <div>{myInfoData.club}</div>
             <div className='text-xl'>{myInfoData.name}</div>
           </div>
-          {!(FixedInfo || isOne) && <button 
-            onClick={handleisOne}
-            className='absolute right-2 -bottom-2 text-xs'>대표 동아리 변경</button>}
-        </div>
+          {!(FixedInfo || isOne) && (
+            <button 
+              onClick={handleShowList}
+              className='absolute right-2 -bottom-2 text-xs'>
+              대표 동아리 변경
+            </button>
+          )}
+          </div>
       </div>
     ) : null
   )}
@@ -102,14 +116,13 @@ const MyInfo = () => {
         return (
           <>
             <button key={item.index} onClick={() => { handleSelectList(item.name) }}
-              className='flex items-center justify-center gap-5 py-2 shadow-black h-[70px] w-full'>
-              <img src={`data:image/jpeg;base64, ${item.logo}`} alt="동아리 로고" className='w-1/5' />
+              className='flex items-center justify-center py-2 shadow-black h-[65px] w-full'>
+              <img src={`data:image/jpeg;base64, ${item.logo}`} alt="동아리 로고" className='w-1/6' />
               <div className='w-1/2'>{item.name}</div>
             </button>
-            {index !== showClubList.length - 1 && <hr className={`${ActiveColor} w-11/12 mx-auto opacity-[0.5px]`} />}
+            {index !== showClubList.length - 1 && <hr className={`${ActiveColor} w-full mx-auto opacity-[0.5px] border-[1px]`} />}
           </>
-        )
-      })}
+        )})}
     </div>
     )}
 

@@ -46,13 +46,12 @@ const ItemReservationStatus = () => {
   return (
     <>
       <AdminNav />
-      <div className='mt-20 p-5'>
-        <div className='text-3xl pb-4'>
-          물품 예약 현황
+      <div className='min-h-screen'>
+        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
+          <div className='text-3xl'>물품 예약 현황</div>
         </div>
-        <div className="bg-[#000000] h-0.5"></div>
         {reserveStatus.length === 0 ? (
-          <div className="text-center py-10 text-gray-400">예약 정보가 없습니다.</div>
+          <div className='text-gray-400 mx-auto w-10/12 mt-4'>예약 정보가 없습니다.</div>
         ) : (
           reserveStatus.map((reservation) => (
             <ReserveStatus 

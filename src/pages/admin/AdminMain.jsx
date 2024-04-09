@@ -5,6 +5,7 @@ import '../../css/admin.css';
 const AdminMain = () => {
   return (
     <div className='min-h-screen flex flex-col justify-center mt-6'>
+      <Link to='/'><div className='adminMainBtn textSkyBlue'>PUZZLE HOME</div></Link>
       <Link to='ItemReservationStatus'><div className='adminMainBtn textDeepBlue'>물품 예약 현황</div></Link>
       <Link to='ItemRentalStatus'><div className='adminMainBtn textSkyBlue'>물품 대여 현황</div></Link>
       <Link to='RentalItemManagement'><div className='adminMainBtn textDeepBlue'>대여 물품 관리</div></Link>

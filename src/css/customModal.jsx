@@ -21,6 +21,7 @@ export const customModalStyles = {
     backgroundColor: "#FCD1C8",
     justifyContent: "center",
     overflow: "auto",
+    border: "3px solid #B45C4B"
   },
 };
 

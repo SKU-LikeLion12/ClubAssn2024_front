@@ -14,8 +14,8 @@ function App() {
           <Route path="/*" element={<User/>} />
           <Route path="/admin/*" element={<Admin/>} />
         </Routes>
-      </div>
       <ScrollToTop />
+      </div>
     </LoginProvider>
   );
 }

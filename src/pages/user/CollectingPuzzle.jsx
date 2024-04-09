@@ -73,7 +73,7 @@ const CollectingPuzzle = () => {
             </svg></button>
           </div>
         </div>
-        <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832]'>
+        <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] mb-10'>
           <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
           <button onClick={() => showModal('1')} style={{ display: isJoined('1') ? 'block' : 'none' }}>
             <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
