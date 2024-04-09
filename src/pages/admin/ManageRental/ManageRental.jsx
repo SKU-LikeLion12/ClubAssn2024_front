@@ -30,7 +30,7 @@ const ManageRental = () => {
   return (
     <div className='min-h-screen'>
     <AdminNav />
-    <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6'>
+    <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
       <div className='text-3xl'>물품 대여 관리</div>
       <button className='bg-[#12172B] text-white py-1 px-4 rounded-xl' onClick={()=>navigate('addRental')}>추가</button>
     </div>
@@ -39,7 +39,7 @@ const ManageRental = () => {
       <div className='w-10/12 mx-auto text-gray-400'>데이터를 불러오는 중입니다...</div>
     ) : getItems.map((item)=>{
       return (
-      <div key={item.id} className='flex w-10/12 mx-auto border-y py-3 px-1 gap-2 border-[#12172B]'>
+      <div key={item.id} className='flex w-10/12 mx-auto border-b py-3 px-1 gap-2 border-[#12172B]'>
         <div className='flex flex-col grow gap-1'>
           <div>
             <label htmlFor="name">물품명 :  </label>

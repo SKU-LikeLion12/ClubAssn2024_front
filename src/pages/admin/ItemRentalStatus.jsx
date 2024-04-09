@@ -45,16 +45,16 @@ const ItemRentalStatus = () => {
   return (
     <div>
       <AdminNav />
-      <div className='mt-32 mx-8'>
-        <div className='title mb-4'>
-          <p className='text-2xl'>물품 대여 현황</p>
+      <div className='min-h-screen'>
+        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
+          <div className='text-3xl'>물품 대여 현황</div>
         </div>
-        <div className='bg-gray-500 w-full h-[2px] rounded-xl' />
+        {/* <div className='bg-gray-500 w-full h-[2px] rounded-xl' /> */}
         <div className='mt-4 mx-1'>
           {error ? (
-            <p className='text-gray-400'>에러가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
+            <p className='text-gray-400 mx-auto w-10/12'>에러가 발생했습니다. 잠시 후 다시 시도해주세요.</p>
           ) : data === null ? (
-            <p className='text-gray-400'>데이터를 불러오는 중입니다...</p>
+            <p className='text-gray-400 mx-auto w-10/12'>데이터를 불러오는 중입니다...</p>
           ) : hasData ? (
             data.map((result) => (
               <div key={result.itemRentId} className="mt-4">
@@ -74,7 +74,7 @@ const ItemRentalStatus = () => {
               </div>
             ))
           ) : (
-            <p className='text-gray-400'>대여 정보가 없습니다.</p>
+            <p className='text-gray-400 mx-auto w-10/12'>대여 정보가 없습니다.</p>
           )}
         </div>
       </div>

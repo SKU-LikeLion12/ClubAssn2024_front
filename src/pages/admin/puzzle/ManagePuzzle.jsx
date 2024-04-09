@@ -30,13 +30,13 @@ const ManagePuzzle = () => {
   return (
     <div className='min-h-screen'>
     <AdminNav />
-    <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6'>
+    <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
       <div className='text-3xl'>퍼즐 조각 관리</div>
     </div>
 
     {getItems.sort((a, b) => a.id - b.id).map((item)=>{
       return (
-      <div key={item.id} className='flex justify-between w-10/12 mx-auto border-y py-3 px-1 gap-2 border-[#12172B]'>
+      <div key={item.id} className='flex justify-between w-10/12 mx-auto border-b py-3 px-1 gap-2 border-[#12172B]'>
         <div className='flex items-center justify-center gap-3'>
           <div className='flex flex-col grow gap-1'>
             <div>

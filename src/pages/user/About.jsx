@@ -96,7 +96,7 @@ export const Person = ({person}) => {
     <>
     <div className='text-[10px] text-center py-3 bg-[#654F40] rounded-xl w-[110px] mx-auto mb-3'>
       <div className='h-[75px] w-[75px] flex items-center mx-auto text-center'>
-        <img src={person.image} className='h-full mx-auto'/>
+        <img src={person.image} className={`h-full mx-auto ${person.name === '정택원' && 'p-2'}`}/>
       </div>
       <div className='flex items-center justify-center p-1'>
         <img src={person.logo} width={20}/>
