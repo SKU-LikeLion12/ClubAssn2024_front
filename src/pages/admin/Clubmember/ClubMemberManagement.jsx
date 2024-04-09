@@ -4,7 +4,7 @@ import { API } from '../../../api/API';
 import { useNavigate } from 'react-router-dom';
 
 const ClubMemberManagement = () => {
-
+  const navigate = useNavigate()
   const [searchTerm, setSearchTerm] = useState('');
   const [searchResults, setSearchResults] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -38,7 +38,7 @@ const ClubMemberManagement = () => {
       <div className='mt-20 p-5'>
         <div className='text-3xl pb-4'>동아리원 관리</div>
         <div className='text-right'>
-          <button className='w-16 h-8 bg-zinc-300 rounded-lg'>추가</button>
+          <button onClick={()=>{navigate('AddClubMember')}} className='w-16 h-8 bg-zinc-300 rounded-lg'>추가</button>
         </div>
         <div className="w-full mt-2 border border-black"></div>
         <SearchBox searchTerm={searchTerm} setSearchTerm={setSearchTerm} onSearch={handleSearch} />

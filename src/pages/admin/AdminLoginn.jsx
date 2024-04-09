@@ -34,7 +34,12 @@ const handleLogin = async () => {
     localStorage.setItem('Token', result.data.accessToken)
     setIsLoggedIn(true);
     setIsAuthenticated(true);
-    navigate('/admin/adminMain'); // 관리자 메인으로 이동
+
+    if (result.data.role === "ROLE_ADMIN") { // 관리자 권한이면
+      navigate('/admin/adminMain'); // 관리자 메인으로 이동
+    } else {
+      setModalOpen(!modalOpen);
+    }
   } catch (error) {
     console.error(error)
     setModalOpen(!modalOpen);

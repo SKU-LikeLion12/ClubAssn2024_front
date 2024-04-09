@@ -13,6 +13,7 @@ import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
 import { AuthProvider } from '../components/AuthContext.jsx';
 import ScrollToTop from '../components/shared/ScrollToTop.jsx';
+import Clubmember from '../pages/admin/Clubmember/Clubmember.jsx';
 
 const Admin = () => {
   return (
@@ -26,7 +27,7 @@ const Admin = () => {
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/RentalItemManagement/*" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>} />
         <Route path="/adminMain/PuzzlePieceManagement/*" element={<PuzzlePieceManagement/>}/>
-        <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><ClubMemberManagement/></ProtectedRoute>}/>
+        <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><Clubmember /></ProtectedRoute>}/>
         <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
       </Routes>
