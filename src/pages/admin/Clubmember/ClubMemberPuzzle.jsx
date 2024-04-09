@@ -74,20 +74,20 @@ export const EventOfDate =  () => {
     setIsModalOpen(true); // 모달창 열기
   };
 
-  const handleDeleteEvent = async (eventId, studentId) => {
+  const handleDeleteEvent = async () => {
     try {
       // 이벤트 삭제 요청을 보내면서, 'data' 속성에 필요한 정보를 포함시킵니다.
       const response = await API().delete('/admin/join-events', {
         data: {
-          studentId: studentId,
-          id: eventId
+          studentId: studentId, // 여기에서 studentId를 전달
+          id: selectedEvent.id, // 추가: 삭제하려는 이벤트의 ID도 전달합니다.
         }
       });
   
-      // 요청이 성공하면, 이벤트 목록에서 해당 이벤트를 제거합니다.
-      setEvents(currentEvents => currentEvents.filter(event => event.id !== eventId));
-  
       console.log("Deleted event:", response.data);
+      // 삭제 후 이벤트 목록 갱신을 위해 삭제된 이벤트를 목록에서 제거합니다.
+      setEvents(currentEvents => currentEvents.filter(event => event.id !== selectedEvent.id));
+  
     } catch (error) {
       console.error("이벤트 삭제 중 오류 발생:", error);
     }
@@ -95,7 +95,11 @@ export const EventOfDate =  () => {
     // 모달창 닫기
     setIsModalOpen(false);
   };
-
+  const navigate = useNavigate();
+  
+  const handleAddButtonClick = () => {
+    navigate("AddmemberPuzzle"); // Use navigate to change the route
+  };
 
   return (
     <>
@@ -121,7 +125,7 @@ export const EventOfDate =  () => {
             </div>
           ))}
           <div className="flex justify-end mt-2">
-            <button className="w-20 h-8 bg-zinc-300 rounded-lg font-bold">추가</button>
+            <button onClick={handleAddButtonClick} className="w-20 h-8 bg-zinc-300 rounded-lg font-bold">추가</button>
           </div>
         </>
       ) : (
@@ -156,7 +160,7 @@ export const DeleteEventModal = ({ isOpen, onClose, event, onDeleteEvent }) => {
         <p className="text-center font-bold">날짜 : {new Date(event.addedTime).toLocaleDateString()}</p>
         </div>
         <p className="text-center text-2xl font-bold mt-8">삭제하시겠습니까?</p>
-        <div className="flex justify-center w-full mt-4">
+        <div className="flex justify-center w-full mt-8">
           <button
             className="bg-white text-black h-7 w-24 rounded mx-2 border-2 border-black rounded-lg font-bold"
             onClick={() => onDeleteEvent(event.id)}
