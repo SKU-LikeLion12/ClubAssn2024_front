@@ -31,7 +31,8 @@ export const FailContent = () => {
     navigate('/');
   };
   
-  const errorMessage = location.state?.errorMessage || "알 수 없는 오류가 발생했습니다.";
+  const errorMessage = location.state?.errorMessage;
+  const errorMessageLines = errorMessage.split('\n');
 
   return (
     <>
@@ -39,7 +40,11 @@ export const FailContent = () => {
         <div className='flex justify-end' onClick={onClickBtn}><IoCloseSharp size="25" color="#ceb421" /></div>
           <div className='text-center my-auto font-bold'>
             <div className='-mt-6'>
-              {errorMessage}
+            {errorMessageLines.map((line, index) => (
+              <React.Fragment key={index}>
+                {line}<br />
+              </React.Fragment>
+            ))}
             </div>
           </div>
       </div>
