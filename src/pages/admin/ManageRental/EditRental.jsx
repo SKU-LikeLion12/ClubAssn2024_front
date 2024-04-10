@@ -44,8 +44,6 @@ const EditRental = () => {
     if (addItemData.image !== undefined && addItemData.image !== null) {
       formData.append('image', addItemData.image); // 이미지 파일 추가
     }
-  
-  
 
     try {
       const result = await API().put('/admin/item', formData, {

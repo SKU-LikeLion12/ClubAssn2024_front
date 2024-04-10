@@ -53,9 +53,8 @@ const MyInfo = () => {
         const one = result.data.length === 1 ? true : false;
         setShowClubList(result.data); // 모든 동아리 받아와서 저장
         setIsOne(one); // 한개면 true >> "대표 동아리 변경" 문구 안 보임
-        console.log(showClubList)
       } catch (error) {
-        console.log(error);
+        console.error(error);
       }
     }
 
