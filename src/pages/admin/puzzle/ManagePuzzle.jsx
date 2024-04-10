@@ -7,12 +7,15 @@ import { MdModeEditOutline } from "react-icons/md";
 const ManagePuzzle = () => {
   const navigate = useNavigate();
   const [getItems, setGetItems] = useState([]);
+  const [maxEvent, setMaxEvent] = useState();
 
   const handleGetItem = async () => {
     try {
       const result = await API().get('/admin/events/all');
       const items = result.data;
       setGetItems(items);
+      const MAX = items.length >= 4 ? true : false
+      setMaxEvent(MAX);
     } catch (error) {
       console.error(error)
     }
@@ -32,6 +35,7 @@ const ManagePuzzle = () => {
     <AdminNav />
     <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
       <div className='text-3xl'>퍼즐 조각 관리</div>
+      {!maxEvent && <button className='bg-[#12172B] text-white py-1 px-4 rounded-xl' onClick={()=>navigate('addPuzzle')}>추가</button>}
     </div>
 
     {getItems.sort((a, b) => a.id - b.id).map((item)=>{

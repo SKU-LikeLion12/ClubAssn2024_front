@@ -48,8 +48,7 @@ const EditClub = () => {
     if (addItemData.logo !== undefined && addItemData.logo !== null) {
       formData.append('logo', addItemData.logo); // 이미지 파일 추가
     }
-  
-
+    
     try {
       const result = await API().put('/admin/club', formData, {
         headers: {
