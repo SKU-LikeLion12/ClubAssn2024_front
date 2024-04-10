@@ -22,27 +22,20 @@ const Main = () => {
   return (
     <div>
       <div className='relative min-h-screen'>
-      <div className='relative'>
+        <div className='relative'>
           <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
-          <div className='textFont text-white text-lg mt-20'>
-            <div className='grid grid-rows-1 grid-flow-col justify-center relative mb-[-68px] z-10'>
-              <Link to={linkPuzzle}>
-              <img src="assets/images/puzzlePiece/puzzleG.png" className='w-auto h-32 ml-16 mr-1 slide-in-tl'/>
-              <a className='absolute text-center top-8 left-[5.5rem] slide-in-tl'>퍼즐 조각 <br/> 모으기</a></Link>
-              <Link to={linkRental}>
-              <img src="assets/images/puzzlePiece/puzzleY.png" className='w-32 h-auto mr-20 ml-1 slide-in-tr'/>
-              <a className='absolute text-center top-8 left-60 slide-in-tr'>물품<br/>대여</a></Link>
+          <div className='textFont text-white text-lg mt-16'>
+            <div className='flex justify-center mb-10 relative'>
+              <img src={images.mainPuzzle} className='absolute -z-10 w-2/3'/>
+              <div className='grid grid-cols-2 mt-8 gap-9'>
+                <Link to={linkPuzzle}><div className='flex w-[100px] h-[100px] text-center justify-center'>퍼즐 조각 <br/> 모으기</div></Link>
+                <Link to={linkRental}><div className='flex w-[100px] h-[100px] text-center justify-center'>물품<br/>대여</div></Link>
+                <Link to='map'><div className='flex w-[100px] h-[100px] text-center justify-center'>동아리<br/>미니맵</div></Link>
+                <button onClick={moveCS}><div className='flex w-[100px] h-[100px] justify-center'>강의실<br/>시간표</div></button>
+              </div>
             </div>
-            <div className='grid grid-rows-1 grid-flow-col justify-center relative z-10'>
-              <Link to='map'>
-              <img src="assets/images/puzzlePiece/puzzleR.png" className='w-32 h-auto ml-16 mb-20 slide-in-bl'/>
-              <a className='absolute text-center top-[4.5rem] left-[5.5rem] slide-in-bl'>동아리<br/>미니맵</a></Link>
-              <img onClick={moveCS}
-              src="assets/images/puzzlePiece/puzzleB.png" className='w-auto h-32 mr-36 ml-3 mt-[30px] slide-in-br cursor-pointer'/>
-              <a className='absolute text-center top-[4.5rem] left-56 slide-in-br cursor-pointer' onClick={moveCS}>강의실<br/>시간표</a>
-            </div>
+          </div>
         </div>
-      </div>
         <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
         <Footer/>
       </div>

@@ -45,4 +45,7 @@ export const images = {
     puzzle1svg: PATH + '/assets/images/collectPuzzle/puzzle1.svg',
     puzzle2svg: PATH + '/assets/images/collectPuzzle/puzzle2.svg',
 
+    // 마이페이지 
+    myPageRightBack : PATH + '/assets/images/Bgpuzzle/rightPinkPuzzle.png',
+    myPageLeftBack : PATH + '/assets/images/Bgpuzzle/leftPinkPuzzle.png',
 }
