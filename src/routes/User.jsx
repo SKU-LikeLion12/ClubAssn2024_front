@@ -15,6 +15,7 @@ import RentalConfirm from "../pages/user/Rental/RentalConfirm.jsx";
 import ClubSNS from "../components/ClubSNS.jsx";
 import CollectingPuzzle from '../pages/user/CollectingPuzzle.jsx';
 import RentalBookFail from '../pages/user/Rental/RentalBookFail.jsx';
+import ClassroomSchedule from '../pages/user/ClassroomSchedule.jsx';
 
 const User = () => {
   const location = useLocation();
@@ -47,6 +48,7 @@ const User = () => {
         <Route path="/clubIntro" element={<ClubIntro/>}/>
         <Route path="/about" element={<About/>}/>
         <Route path="/collectingpuzzle" element={<CollectingPuzzle />}/>
+        <Route path='/classroomSchedule' element={<ClassroomSchedule/>}/>
       </Routes>
     </div>
   );
