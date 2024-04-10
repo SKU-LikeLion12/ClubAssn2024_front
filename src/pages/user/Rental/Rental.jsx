@@ -4,6 +4,7 @@ import PageTitle from '../../../components/PageTitle';
 import { images } from '../../../utils/images';
 import MyInfo from '../../../components/shared/MyInfo';
 import { API } from '../../../api/API';
+import Back from '../../../components/shared/Back';
 
 const Rental = () => {
   const [items, setItems] = useState([]);
@@ -28,15 +29,11 @@ const Rental = () => {
 
   return (
     <>
+    <div className='relative min-h-screen'>
+      <Back left={'LYP'} right={'RYP'} />
       <PageTitle title='물품대여' Tcolor='#B79A5F' />
       <MyInfo />
       <div className="relative min-h-screen">
-        <div className="flex justify-end">
-          <img src={images.RYP} alt="오른쪽퍼즐" className='w-[140px]' />
-        </div>
-        <div>
-          <img src={images.LYP} alt="왼쪽퍼즐" className='w-[140px]' />
-        </div>
         <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">
           <div className="w-full grid grid-cols-2 my-4">
             {items.map((item) => (
@@ -45,6 +42,7 @@ const Rental = () => {
           </div>
         </div>
       </div>
+    </div>
     </>
   );  
 };

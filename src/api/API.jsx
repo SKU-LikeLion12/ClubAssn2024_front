@@ -11,6 +11,5 @@ export const API = () => {
   if (token) {
     instance.defaults.headers.common['Authorization'] = token;
   }
-
   return instance;
 };

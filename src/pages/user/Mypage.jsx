@@ -5,6 +5,7 @@ import MyInfo from '../../components/shared/MyInfo';
 import { API } from '../../api/API';
 import { Link, useNavigate } from 'react-router-dom';
 import { useLogin } from '../../context/LoginContext';
+import Back from '../../components/shared/Back';
 
 const Mypage = () => {
   const navigate = useNavigate();
@@ -19,14 +20,9 @@ const Mypage = () => {
 
   return (
     <div>
-      <div className="relative -z-10">
-        <img className="w-32 h-[20rem] absolute top-32 right-0" src='../assets/images/Bgpuzzle/rightPinkPuzzle.png' alt='puzzleT'/>
-        <img className="w-32 h-[22rem] absolute top-[21rem]" src='../assets/images/Bgpuzzle/leftPinkPuzzle.png' alt='puzzleB'/>
-      </div>
-      <div className="flex flex-col justify-center items-center h-full">
+      <div className="flex flex-col justify-center items-center h-full relative">
         <PageTitle title={"Puzzle"} Tcolor="#AB7A67"/>
         <MyInfo />
-        {/* <MyInfoRe /> */}
         <div className="flex flex-col mt-7">
           <RentalStatus/>
           <ReserveStatus/>
@@ -45,6 +41,7 @@ const Mypage = () => {
               로그아웃
             </div>
           </button>
+          <Back left={'myPageLeftBack'} right={'myPageRightBack'} />
         </div>
         <Footer/>
       </div>
