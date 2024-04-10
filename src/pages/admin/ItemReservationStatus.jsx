@@ -32,7 +32,7 @@ const ItemReservationStatus = () => {
     <>
       <AdminNav />
       <div className='min-h-screen'>
-        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
+        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b-2 border-[#12172B]'>
           <div className='text-3xl'>물품 예약 현황</div>
         </div>
         {reserveStatus.length === 0 ? (
@@ -89,18 +89,18 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
 
   return (
     <div className='w-full'>
-      <div key={reservationStatus.id}>
-        <div className='flex justify-between'>
+      <div key={reservationStatus.id} className='w-10/12 mx-auto border-b border-[#000000]'>
+        <div className='flex justify-between px-1'>
           <div className="my-4">
             <div>예약날짜 : {formattedBookTime}</div>
             <div>이름 : {reservationStatus.name}</div>
             <div>학번 : {reservationStatus.studentId}</div>
-            <div>소속 동아리 : {reservationStatus.iconClub}</div>
+            <div>동아리 : {reservationStatus.iconClub}</div>
             <div>예약 물품 : {reservationStatus.itemName}</div>
             <div>수량 : {reservationStatus.count}</div>
           </div>
           <div className='flex text-xs items-end mb-4'>
-            <div className='bg-[#d9d9d9] p-1 mx-1 rounded-md cursor-pointer ' onClick={handleReceiveClick}>
+            <div className='bg-[#12172B] text-[#ffffff] p-1 mx-1 rounded-md cursor-pointer ' onClick={handleReceiveClick}>
               수령 확인
             </div>
             <div className='bg-[#d9d9d9] p-1 mx-1 rounded-md cursor-pointer' onClick={handleCancelClick}>
@@ -108,7 +108,6 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
             </div>
           </div>
         </div>
-        <div className="bg-[#000000] h-0.5"></div>
       </div>
     </div>
   )

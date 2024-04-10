@@ -300,18 +300,21 @@ export const ReserveStatus = () => {
               <div className="text-primary font-medium text-[14px]">{formatDate(current.needReceiveTime)}까지<br/>동아리 연합회실로 방문해주세요.</div>
               {confirmVisible && cancelId === current.itemRentId ? (
                 // 예약 취소 확인 버튼
-                <div className="flex justify-center mt-3">
-                  <div className='border-primary rounded-2xl border-2 w-[5rem] m-4'>
-                    <button onClick={confirmCancel} className="text-primary font-medium text-[0.9rem] w-full">예</button>
-                  </div>
-                  <div className='border-primary rounded-2xl border-2 w-[5rem] m-4'>
-                    <button onClick={denyCancel} className="text-primary font-medium text-[0.9rem] w-full">아니오</button>
+                <div className="flex flex-col justify-center mt-3">
+                  <div className='text-center text-primary'>예약을 취소하시겠습니까?</div>
+                  <div className='flex justify-center'>
+                    <div className='bg-primary rounded-2xl w-[5rem] m-2'>
+                      <button onClick={confirmCancel} className="text-white pt-1 font-medium text-[0.9rem] w-full">예</button>
+                    </div>
+                    <div className='border-primary rounded-2xl border-2 w-[5rem] m-2'>
+                      <button onClick={denyCancel} className="text-primary font-medium text-[0.9rem] w-full">아니오</button>
+                    </div>
                   </div>
                 </div>
               ) : (
                 // 예약 취소 버튼
-                <div className="border-2 border-primary rounded-2xl w-[7rem] h-[2rem] mt-2">
-                  <button onClick={() => cancelReservation(current.itemRentId)} className="mt-[3px] text-primary font-medium text-[0.9rem]">예약 취소</button>
+                <div className="border-2 border-primary rounded-2xl w-[7rem] h-[2rem] hover:bg-primary mt-3 mb-2 text-primary font-medium text-[0.9rem] pt-1 hover:text-white" onClick={() => cancelReservation(current.itemRentId)}>
+                  예약 취소
                 </div>
               )}
               <div className="flex justify-center mt-3">
