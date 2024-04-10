@@ -100,7 +100,7 @@ export const BookContent = () => {
         <img className='w-4/12 mx-auto my-2 object-cover border-4 border-[#ceb341] rounded-md' src={image} alt="물품사진" />
         <div className='text-[20px] text-center font-bold'>{name}</div>
         <div className='my-3 w-5/12 flex justify-between mx-auto font-bold'>
-          <button className='border-solid border-2 border-[#ceb421] rounded text-[#ceb421] w-[27px] bg-[#FFF0B3]' onClick={decreaseCount} disabled={count === 0}>-</button>
+          <button className='border-solid border-2 border-[#ceb421] rounded text-[#ceb421] w-[27px] bg-[#FFF0B3]' onClick={decreaseCount} disabled={count === 1}>-</button>
           <div className='pt-[2px]'>{count} 개</div>
           <button className='border-solid border-2 border-[#ceb421] rounded text-[#ceb421] w-[27px] bg-[#FFF0B3]' onClick={increaseCount}>+</button>
         </div>
@@ -143,11 +143,13 @@ export const BookContent = () => {
           예약하시겠습니까?
         </div>
         <div className="flex justify-evenly mb-8">
-          <button className='w-4/12 border-solid border-[3px] border-[#ceb421] rounded text-[#ceb421] bg-[#FFF0B3] font-bold' 
-                  onClick={moveRC}>
+          <button className='w-4/12 border-solid border-[3px] border-[#ceb421] rounded text-[#ceb421] bg-[#FFF0B3] font-bold
+                             disabled:bg-gray-200 disabled:text-gray-400 disabled:border-gray-400' 
+                  onClick={moveRC}
+                  disabled={count===0}>
             예
           </button>
-          <button className='w-4/12 border-solid border-[3px] border-[#ceb421] rounded text-[#ceb421] bg-[#FFF0B3] font-bold' 
+          <button className='w-4/12 border-solid border-[3px] border-gray-400 rounded text-gray-400 bg-gray-200 font-bold' 
                   onClick={moveBack}>
             아니오
           </button>

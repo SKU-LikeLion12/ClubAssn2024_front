@@ -1,7 +1,7 @@
 import React from 'react';
 import { MainNav } from '../../components/MainNav';
 import Footer from "../../components/Footer";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import PageTitle from '../../components/PageTitle';
 import { images } from '../../utils/images';
 import Back from '../../components/shared/Back';
@@ -13,8 +13,10 @@ const Main = () => {
   const linkPuzzle = isLoggedIn ? 'collectingpuzzle' : 'login';
   const linkRental = isLoggedIn ? 'rental' : 'login';
   
-  const showAlert = () => {
-    alert("서비스 준비 중입니다...");
+  const navigate = useNavigate()
+  
+  const moveCS = () => {
+    navigate('/classroomSchedule');
   }
 
   return (
@@ -35,9 +37,9 @@ const Main = () => {
               <Link to='map'>
               <img src="assets/images/puzzlePiece/puzzleR.png" className='w-32 h-auto ml-16 mb-20 slide-in-bl'/>
               <a className='absolute text-center top-[4.5rem] left-[5.5rem] slide-in-bl'>동아리<br/>미니맵</a></Link>
-              <img onClick={showAlert}
+              <img onClick={moveCS}
               src="assets/images/puzzlePiece/puzzleB.png" className='w-auto h-32 mr-36 ml-3 mt-[30px] slide-in-br cursor-pointer'/>
-              <a className='absolute text-center top-[4.5rem] left-56 slide-in-br'>강의실<br/>시간표</a>
+              <a className='absolute text-center top-[4.5rem] left-56 slide-in-br cursor-pointer' onClick={moveCS}>강의실<br/>시간표</a>
             </div>
         </div>
       </div>
