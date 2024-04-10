@@ -57,25 +57,12 @@ export const BookContent = () => {
           } 
         });
         } else {
-        // 응답은 있으나, 데이터가 유효하지 않은 경우
-        alert("대여 예약에 실패했습니다.");
       }
     } catch (error) {
-      // 에러 처리를 더 명확하게 구분
       if (error.response) {
-        // 서버로부터 응답이 있는 경우
-        const errorMessage = error.response.data?.message || "알 수 없는 오류가 발생했습니다.";
-        // 상태 코드에 따라 다른 페이지로 네비게이션할 수 있음
-        if (error.response.status === 403) {
-          navigate("/rentalBookFail", { state: { errorMessage } });
-        } else {
-          // 다른 에러 코드 처리
-        }
-      } else if (error.request) {
-        // 요청은 보냈으나 응답을 받지 못한 경우
-        console.error("대여 예약 중 응답을 받지 못함:", error);
+        const errorMessage = error.response.data?.message || "예약에 실패하셨습니다. \n 물품대여 유의사항을 다시 확인하시고, \n 문의사항은 동아리 연합회에 문의해주세요.";
+        navigate("/rentalBookFail", { state: { errorMessage } });
       } else {
-        // 요청 설정 중 발생한 에러
         console.error("대여 예약 요청 중 오류 발생:", error.message);
       }
     }
@@ -129,6 +116,7 @@ export const BookContent = () => {
             - 대여 기간은 대여일 포함 7일입니다. (주말 및 공휴일 포함)<br/>
             - 대여 물품은 1인당 최대 3가지의 종류와 최대 5개의 물품만 대여 가능합니다.<br/>
             - 대여 물품은 1인당 최대 3가지의 종류와 최대 5개의 물품만 대여 가능합니다. <br/>
+            - 물품 예약 시 잔여 수량을 꼭 확인해주세요.
             - 연체 3회 및 미반남 1회 시 물품 대여가 제한됩니다.<br/>
             <div className="text-[8px]">
               * 연체: 반납일 기준으로 7일 이내 반납 / 미반납: 반납일 기준으로 7일 이후 반납
