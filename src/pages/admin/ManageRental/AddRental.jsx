@@ -93,10 +93,10 @@ export const ConfirmAddModal = ({confirmModal, setConfirmModal, setAddItemData})
       onRequestClose={() => setConfirmModal(false)}
       isOpen={confirmModal}>
         <div className='textFont flex flex-col items-center justify-center h-full'>
-          <div className='text-2xl p-8'>물품 추가 완료</div>
-          <div>
-            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>물품 추가</button>
-            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>관리 홈으로</button>
+          <div className='text-xl p-8'>물품 추가가 완료되었습니다.</div>
+          <div className='flex w-10/12'>
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl w-6/12' onClick={closeModal}>물품 추가</button>
+            <button className='bg-gray-200 py-1 px-4 mx-2 rounded-xl w-6/12' onClick={()=>{navigate('/admin/adminMain/RentalItemManagement')}}>닫기</button>
           </div>
         </div>
     </Modal>

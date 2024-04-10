@@ -134,10 +134,10 @@ export const ConfirmDeleteModal = ({id, deleteModal, setDeleteModal, Dfunc}) => 
       onRequestClose={() => setDeleteModal(false)}
       isOpen={deleteModal}>
         <div className='textFont flex flex-col items-center justify-center h-full'>
-          <div className='text-2xl p-8'>정말 삭제하시겠습니까?</div>
-          <div>
-            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{setDeleteModal(!deleteModal)}}>취소</button>
-            <button className='text-white bg-[#12172b] py-1 px-10 mx-2 rounded-xl' onClick={()=>{Dfunc(id)}}>삭제</button>
+          <div className='text-xl p-8'>물품을 삭제하시겠습니까?</div>
+          <div className='flex w-10/12'>
+            <button className='text-white bg-[#12172b] py-1 mx-2 rounded-xl w-6/12' onClick={()=>{Dfunc(id)}}>삭제</button>
+            <button className='bg-gray-200 py-1 mx-2 rounded-xl w-6/12' onClick={()=>{setDeleteModal(!deleteModal)}}>취소</button>
           </div> 
         </div>
     </Modal>

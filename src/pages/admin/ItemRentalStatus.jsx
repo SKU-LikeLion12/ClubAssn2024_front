@@ -46,7 +46,7 @@ const ItemRentalStatus = () => {
     <div>
       <AdminNav />
       <div className='min-h-screen'>
-        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b border-[#12172B]'>
+        <div className='mt-20 flex justify-between items-center w-10/12 mx-auto pt-4 pb-6 border-b-2 border-[#12172B]'>
           <div className='text-3xl'>물품 대여 현황</div>
         </div>
         {/* <div className='bg-gray-500 w-full h-[2px] rounded-xl' /> */}
@@ -57,20 +57,23 @@ const ItemRentalStatus = () => {
             <p className='text-gray-400 mx-auto w-10/12'>데이터를 불러오는 중입니다...</p>
           ) : hasData ? (
             data.map((result) => (
-              <div key={result.itemRentId} className="mt-4">
-                <p>이름 : {result.name}</p>
-                <p>학번 : {result.studentId}</p>
-                <p>소속 동아리 : {result.iconClub}</p>
-                <p>대여 물품 : {result.itemName}</p>
-                <p>수량 : {result.count}</p>
-                <p>물품 수령 시간 : {result.rentTime}</p>
-                <p>현재 상태 : {result.status}</p>
-                <div className='flex justify-end'>
-                  <button className='bg-gray-200 p-1 px-3 rounded-lg' onClick={() => handleReturn(result.itemRentId)}>
-                    반납완료
-                  </button>
+              <div className='w-10/12 mx-auto border-b border-[#000000]'>
+                <div key={result.itemRentId} className="my-4 flex justify-between px-1">
+                  <div>
+                    <p>이름 : {result.name}</p>
+                    <p>학번 : {result.studentId}</p>
+                    <p>동아리 : {result.iconClub}</p>
+                    <p>대여 물품 : {result.itemName}</p>
+                    <p>수량 : {result.count}</p>
+                    <p>수령 날짜 : {result.rentTime}</p>
+                    <p>연체 현황 : {result.status}</p>
+                  </div>
+                  <div className='flex items-end'>
+                    <button className='bg-[#12172B] text-[#ffffff] p-1 px-3 rounded-lg text-sm' onClick={() => handleReturn(result.itemRentId)}>
+                      반납완료
+                    </button>
+                  </div>
                 </div>
-                <div className='bg-gray-500 w-full h-[2px] rounded-xl mt-5' />
               </div>
             ))
           ) : (
