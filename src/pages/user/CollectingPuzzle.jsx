@@ -13,6 +13,7 @@ const CollectingPuzzle = () => {
   const [infoModalOpen, setInfoModalOpen] = useState(false); //이벤트 설명 모달
   const [puzzleData, setPuzzleData] = useState([]);
   const [selectedPuzzle, setSelectedPuzzle] = useState(null);
+  const [loading, setLoading] = useState(false); // 로딩 상태 변수 추가
 
   useEffect(() => {
     fetchData();
@@ -51,6 +52,7 @@ const CollectingPuzzle = () => {
       //   }
       // ];
       // setPuzzleData([...dummyPuzzleData]);
+      setLoading(true); // 데이터를 불러올 때 로딩 상태를 true로 변경
       const result = await API().post('/puzzle');
       const puzzleDataArray = result.data.map((item) => ({
         id: item.id,
@@ -61,9 +63,11 @@ const CollectingPuzzle = () => {
       }));
       console.log(puzzleDataArray);
       setPuzzleData(puzzleDataArray);
+      setLoading(false);
     } catch (error) {
       console.error(error);
-      
+    } finally {
+      setLoading(false); // 데이터를 모두 처리한 후 로딩 상태를 해제
     }
   };
 
@@ -103,16 +107,16 @@ const CollectingPuzzle = () => {
         </div>
         <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] mb-10'>
           <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
-          <button onClick={() => showModal(1)} style={{ display: !isJoined(1) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(1)} style={{ display: !isJoined(1) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal(2)} style={{ display: !isJoined(2) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(2)} style={{ display: !isJoined(2) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle2} alt="" className='w-[64%] absolute top-0 right-0 z-[2]' />
           </button>
-          <button onClick={() => showModal(3)} style={{ display: !isJoined(3) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(3)} style={{ display: !isJoined(3) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle3} alt="" className='w-[63%] absolute top-[49%] left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal(4)} style={{ display: !isJoined(4) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(4)} style={{ display: !isJoined(4) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[37%] right-0 z-[2]'/>
           </button>
           {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
