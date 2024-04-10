@@ -2,8 +2,8 @@ const PATH = process.env.PUBLIC_URL;
 
 export const images = {
     // BgPuzzle
-    leftPinkMenu: PATH + '/assets/images/BgPuzzle/leftPinkPuzzle.png',
-    rightPinkMenu: PATH + '/assets/images/BgPuzzle/rightPinkPuzzle.png',
+    leftPinkMenu: PATH + '/assets/images/BgPuzzle/LeftPinkPuzzle.png',
+    rightPinkMenu: PATH + '/assets/images/BgPuzzle/RightPinkPuzzle.png',
     leftGreen: PATH + '/assets/images/BgPuzzle/leftGreenPuzzle.png',
     rightGreen: PATH + '/assets/images/BgPuzzle/rightGreenPuzzle.png',
     LYP: PATH + '/assets/images/BgPuzzle/LeftYellowPuzzle.svg',
@@ -46,6 +46,6 @@ export const images = {
     puzzle2svg: PATH + '/assets/images/collectPuzzle/puzzle2.svg',
 
     // 마이페이지 
-    myPageRightBack : PATH + '/assets/images/Bgpuzzle/rightPinkPuzzle.png',
-    myPageLeftBack : PATH + '/assets/images/Bgpuzzle/leftPinkPuzzle.png',
+    myPageRightBack : PATH + '/assets/images/BgPuzzle/rightPinkPuzzle.png',
+    myPageLeftBack : PATH + '/assets/images/BgPuzzle/leftPinkPuzzle.png',
 }
