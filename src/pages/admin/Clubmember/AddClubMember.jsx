@@ -6,29 +6,30 @@ import { confirmModalStyle } from '../../../css/customModal';
 import Modal from 'react-modal';
 import { GiClick } from "react-icons/gi";
 
-const AddClubMember = () => { // 동아리원 추가
-  const [isOpen, setIsOpen] = useState(false) // 확인 모달창
-  const [allClubList, setAllClubList] = useState([]); // 모든 동아리 리스트 
-  const [allMemberList, setAllMemberList] = useState([]); // 모든 멤버 리스트 
-  const [addClubMemberData, setAddClubMemberData] = useState({ // 동아리원 추가 api로 보낼 데이터 담긴 변수
+const AddClubMember = () => {
+  const [isOpen, setIsOpen] = useState(false); // 확인 모달창 상태
+  const [allClubList, setAllClubList] = useState([]); // 모든 동아리 리스트 상태
+  const [allMemberList, setAllMemberList] = useState([]); // 모든 멤버 리스트 상태
+  const [errorMessage, setErrorMessage] = useState(""); // 에러 메시지 상태
+  const [addClubMemberData, setAddClubMemberData] = useState({ // 동아리원 추가 데이터
     studentId: '',
     studentName: '',
     clubName: '',
-  })
+  });
 
-  const handleClubChangeValue = (e) => { // 선택한 동아리 업데이트 
+  const handleClubChangeValue = (e) => { // 동아리 선택 핸들러
     const { name, value } = e.target;
     setAddClubMemberData({ ...addClubMemberData, [name]: value });
   }
 
-  const handleMemberChangeValue = (e) => { // 선택한 동아리원 업데이트
+  const handleMemberChangeValue = (e) => { // 멤버 선택 핸들러
     const selectedOption = e.target.options[e.target.selectedIndex];
-    const studentId = selectedOption.dataset.customattribute;
+    const studentId = selectedOption.getAttribute('data-customattribute');
     const { name, value } = e.target;
     setAddClubMemberData({ ...addClubMemberData, [name]: value, studentId: studentId});
   }
 
-  const fetchGetData = async () => { // 동아리조회 > 동아리원조회 : 비동기 처리
+  const fetchGetData = async () => { // 초기 데이터 로딩 함수
     try {
       await getAllClub();
       await getAllMember();
@@ -37,40 +38,47 @@ const AddClubMember = () => { // 동아리원 추가
     }
   }
 
-  const getAllClub = async  () => { // 동아리 조회
+  const getAllClub = async  () => { // 모든 동아리 조회
     try {
       const result = await API().get('/admin/club/all');
       const clubName = result.data[0].name;
-      setAddClubMemberData(prevData => ({ ...prevData, clubName })); // 초깃값 설정
+      setAddClubMemberData(prevData => ({ ...prevData, clubName })); // 초기값 설정
       setAllClubList(result.data);
     } catch (error) {
       console.error(error)
     }
   }
-  const getAllMember = async () => { // 동아리원 조회
+
+  const getAllMember = async () => { // 모든 멤버 조회
     try {
       const result = await API().get('/admin/join-club/all-list');
       const studentName = result.data[0].name;
       const studentId = result.data[0].studentId;
-      setAddClubMemberData(prevData => ({ ...prevData, studentName, studentId})); // 초깃값 설정
+      setAddClubMemberData(prevData => ({ ...prevData, studentName, studentId})); // 초기값 설정
       setAllMemberList(result.data); 
     } catch (error) {
       console.error(error);
     }
   }  
 
-  const addClubMember =  async () => { // 동아리+동아리원 추가 btn
+  const addClubMember = async () => { // 동아리원 추가 함수
     try {
-      await API().post('/admin/join-club/add', addClubMemberData); 
-      setIsOpen(!isOpen); // 확인 모달창 오픈
+      await API().post('/admin/join-club/add', addClubMemberData);
+      setIsOpen(true); // 모달창 열기
+      setErrorMessage(""); // 에러 메시지 초기화
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      if (error.response && error.response.status === 406) {
+        setErrorMessage("중복된 동아리원이 있습니다!"); // 406 에러 처리
+      } else {
+        setErrorMessage("오류가 발생했습니다. 다시 시도해주세요.");
+      }
     }
   }
 
-  useEffect(()=>{
-    fetchGetData();
-  }, [])
+  useEffect(() => {
+    fetchGetData(); // 컴포넌트 마운트 시 데이터 로딩
+  }, []);
 
   return (
     <div className='min-h-screen'>
@@ -80,37 +88,41 @@ const AddClubMember = () => { // 동아리원 추가
       </div>
       
       <div className="text-xl flex flex-col w-10/12 mx-auto gap-3">
+        {/* 동아리 선택 */}
         <div>
-          <label for="clubName">동아리 선택 : </label>
+          <label htmlFor="clubName">동아리 선택 : </label>
           <select id="clubName" name="clubName" onChange={handleClubChangeValue}>
-            {allClubList.map((item)=>{
-              return(
-                <option key={item.id} name='clubName' value={item.name}>{item.name}</option>
-              )
+            {allClubList.map((item) => {
+              return <option key={item.id} value={item.name}>{item.name}</option>;
             })}
           </select>
         </div>
 
+        {/* 멤버 선택 */}
         <div>
-          <label for="studentName">동아리원 선택 : </label>
+          <label htmlFor="studentName">동아리원 선택 : </label>
           <select id="studentName" name="studentName" onChange={handleMemberChangeValue}>
-            {allMemberList.map((item)=>{
-              return(
-                <option key={item.studentId} name={item.name} value={item.name} data-customattribute={item.studentId}>{item.name}</option>
-              )
+            {allMemberList.map((item) => {
+              return <option key={item.studentId} value={item.name} data-customattribute={item.studentId}>{item.name}</option>;
             })}
           </select>
-          
         </div>
+
+        {/* 동아리원 추가 버튼 */}
         <button onClick={addClubMember} className="py-2 px-3 bg-[#12172B] text-white rounded-2xl w-8/12 mx-auto">동아리원 추가</button>
+        
+        {/* 에러 메시지 */}
+        {errorMessage && <div className="text-center my-4 text-red-500">{errorMessage}</div>}
+        
+        {/* 멤버 추가 안내 */}
         <div className="text-xs text-[red] flex mx-auto">
-            <div className="mr-1">선택할 동아리원이 없다면 멤버로 먼저 추가하세요.</div>
-            <Link to="AddMember" className="underline italic flex items-center">멤버 추가<GiClick className="ml-1"/></Link>
-          </div>
+          <div className="mr-1">선택할 동아리원이 없다면 멤버로 먼저 추가하세요.</div>
+          <Link to="/AddMember" className="underline italic flex items-center">멤버 추가<GiClick className="ml-1"/></Link>
+        </div>
       </div>
       {isOpen && <ConfirmAddModal isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
-  )
+  );
 };
 export default AddClubMember;
 

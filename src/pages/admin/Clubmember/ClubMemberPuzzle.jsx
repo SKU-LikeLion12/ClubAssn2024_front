@@ -98,7 +98,7 @@ export const EventOfDate =  () => {
   const navigate = useNavigate();
   
   const handleAddButtonClick = () => {
-    navigate("AddmemberPuzzle"); // Use navigate to change the route
+    navigate("AddmemberPuzzle",{ state: { studentId } }); 
   };
 
   return (
