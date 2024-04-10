@@ -66,6 +66,7 @@ const Addmemberpuzzle = () => {
       }
       console.log('모든 POST 요청이 성공했습니다.');
       // 모든 요청이 성공하면, 필요한 경우 여기에 추가 동작을 구현할 수 있습니다.
+      navigate('/admin/adminMain/ClubMemberManagement'); // 여기에 페이지 이동 코드 추가
     } catch (error) {
       console.error("요청 중 오류 발생:", error);
     }
