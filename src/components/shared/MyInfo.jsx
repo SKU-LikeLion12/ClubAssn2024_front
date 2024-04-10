@@ -22,7 +22,6 @@ const MyInfo = () => {
       name: '',
       club: '',
     });
-    const [saveList, setSaveList] = useState([])
 
     // mypage API -> 맨 처음 대표 동아리 
     const getMyInfo = async () => {
@@ -45,21 +44,16 @@ const MyInfo = () => {
     // joined-list API -> 모든 동아리 리스트 보여주기
     const handleShowList = async () => {
       setIsOpen(!isOpen);
-      // try {
-      //   const result = await API().get('/joined-list');
-      //   setShowClubList(result.data);
-      // } catch (error) {
-      //   console.log(error);
-      // }
     }
 
     // 맨 처음 렌더링될 때 한 번 실행
     const handleisOneCheck = async () => {
       try {
         const result = await API().get('/joined-list');
-        const show = result.data.length === 1 ? true : false
-        setShowClubList(result.data)
-        setIsOne(show);
+        const one = result.data.length === 1 ? true : false;
+        setShowClubList(result.data); // 모든 동아리 받아와서 저장
+        setIsOne(one); // 한개면 true >> "대표 동아리 변경" 문구 안 보임
+        console.log(showClubList)
       } catch (error) {
         console.log(error);
       }
@@ -113,7 +107,7 @@ const MyInfo = () => {
     {/* 전체 동아리 리스트 보이기 */}
     {isOpen && (
     <div className={`flex flex-col w-9/12 mx-auto mb-3 rounded-xl border-[2px] ${ActiveColor}`}>
-      {saveList.map((item, index) => {
+      {showClubList.map((item, index) => {
         return (
           <>
             <button key={item.index} onClick={() => { handleSelectList(item.name) }}
