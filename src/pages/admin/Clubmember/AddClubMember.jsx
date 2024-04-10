@@ -128,6 +128,14 @@ export default AddClubMember;
 
 export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
   const navigate = useNavigate();
+  const closeModal = () => {
+    setIsOpen(!isOpen);
+    // setAddItemData({
+    //   name: '',
+    //   count: '',
+    //   image: null
+    // })
+  }
 
   return (
     <Modal
@@ -138,7 +146,7 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
         <div className='textFont flex flex-col items-center justify-center h-full'>
           <div className='text-2xl p-8'>동아리원 추가 완료</div>
           <div>
-            {/* <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>동아리원 추가</button> */}
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>동아리원 추가</button>
             <button className='text-white bg-[#12172b] py-1 px-8 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/ClubMemberManagement')}}>확인</button>
           </div>
         </div>

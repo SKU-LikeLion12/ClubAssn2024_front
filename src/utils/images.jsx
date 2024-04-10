@@ -2,8 +2,8 @@ const PATH = process.env.PUBLIC_URL;
 
 export const images = {
     // BgPuzzle
-    leftPinkMenu: PATH + '/assets/images/BgPuzzle/LeftPinkPuzzle.png',
-    rightPinkMenu: PATH + '/assets/images/BgPuzzle/RightPinkPuzzle.png',
+    leftPinkMenu: PATH + '/assets/images/BgPuzzle/leftPinkPuzzle.png',
+    rightPinkMenu: PATH + '/assets/images/BgPuzzle/rightPinkPuzzle.png',
     leftGreen: PATH + '/assets/images/BgPuzzle/leftGreenPuzzle.png',
     rightGreen: PATH + '/assets/images/BgPuzzle/rightGreenPuzzle.png',
     LYP: PATH + '/assets/images/BgPuzzle/LeftYellowPuzzle.svg',
