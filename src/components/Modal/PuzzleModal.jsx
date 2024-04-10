@@ -17,7 +17,7 @@ function PuzzleModal({setModalOpen, puzzleData}) {
                 </div>
                 <div className='p-5 textFont'>
                     <div className='box w-2/3 h-2/3'></div>
-                    <img src={`data:image/jpeg;base64, ${puzzleData.image}`} className='mb-5 w-2/3 mx-auto'/>
+                    <img src={puzzleData.image} className='mb-5 w-2/3 mx-auto'/>
                     <p className='text-xl'>{puzzleData.name}</p>
                     <p>{puzzleData.date}</p>
                 </div>

@@ -52,11 +52,10 @@ const CollectingPuzzle = () => {
       // ];
       // setPuzzleData([...dummyPuzzleData]);
       const result = await API().post('/puzzle');
-      const base64String = result.data.image;
       const puzzleDataArray = result.data.map((item) => ({
         id: item.id,
         name: item.name,
-        image: `data:image/jpeg;base64,${item.image}`,
+        image: `data:image/jpeg;base64, ${item.image}`,
         date: item.date,
         joined: item.joined
       }));
@@ -101,16 +100,16 @@ const CollectingPuzzle = () => {
         </div>
         <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] mb-10'>
           <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
-          <button onClick={() => showModal(1)} style={{ display: isJoined(1) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(1)} style={{ display: !isJoined(1) ? 'block' : 'none' }}>
             <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal(2)} style={{ display: isJoined(2) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(2)} style={{ display: !isJoined(2) ? 'block' : 'none' }}>
             <img src={images.puzzle2} alt="" className='w-[64%] absolute top-0 right-0 z-[2]' />
           </button>
-          <button onClick={() => showModal(3)} style={{ display: isJoined(3) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(3)} style={{ display: !isJoined(3) ? 'block' : 'none' }}>
             <img src={images.puzzle3} alt="" className='w-[63%] absolute top-[49%] left-0 z-[3]'/>
           </button>
-          <button onClick={() => showModal(4)} style={{ display: isJoined(4) ? 'block' : 'none' }}>
+          <button onClick={() => showModal(4)} style={{ display: !isJoined(4) ? 'block' : 'none' }}>
             <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[37%] right-0 z-[2]'/>
           </button>
           {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
