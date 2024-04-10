@@ -3,7 +3,7 @@
 <div align="center">
  <img src="" width="700" height="auto">
 </div>
-- 배포 URL : https://.sku-sku.com/
+- 배포 URL : https://puzzle.sku-sku.com/
   
 <br>
 
