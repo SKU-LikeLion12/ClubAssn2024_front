@@ -26,12 +26,12 @@ const Main = () => {
           <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
           <div className='textFont text-white text-lg mt-16'>
             <div className='flex justify-center mb-10 relative'>
-              <img src={images.mainPuzzle} className='absolute -z-10 w-2/3'/>
-              <div className='grid grid-cols-2 mt-8 gap-9'>
-                <Link to={linkPuzzle}><div className='flex w-[100px] h-[100px] text-center justify-center'>퍼즐 조각 <br/> 모으기</div></Link>
-                <Link to={linkRental}><div className='flex w-[100px] h-[100px] text-center justify-center'>물품<br/>대여</div></Link>
-                <Link to='map'><div className='flex w-[100px] h-[100px] text-center justify-center'>동아리<br/>미니맵</div></Link>
-                <button onClick={moveCS}><div className='flex w-[100px] h-[100px] justify-center'>강의실<br/>시간표</div></button>
+              <img src={images.mainPuzzle} className='absolute -z-10 w-[250px]'/>
+              <div className='grid grid-cols-2 items-center justify-center w-[250px]'>
+                <Link to={linkPuzzle}><div className='flex w-[125px] h-[125px] text-center justify-center items-center'>퍼즐 조각 <br/> 모으기</div></Link>
+                <Link to={linkRental}><div className='flex w-[125px] h-[125px] text-center justify-center items-center'>물품<br/>대여</div></Link>
+                <Link to='map'><div className='flex w-[125px] h-[125px] text-center justify-center items-center'>동아리<br/>미니맵</div></Link>
+                <button onClick={moveCS}><div className='flex w-[125px] h-[125px] justify-center items-center'>강의실<br/>시간표</div></button>
               </div>
             </div>
           </div>

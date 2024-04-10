@@ -12,7 +12,7 @@ export const MainNav = ({color}) => {
   const navLink = isLoggedIn ? 'myPage' : 'login';
 
   return (
-    <ul className='Nav flex justify-between items-center p-5 fixed top-0 w-full backdrop-blur-sm'>
+    <ul className='Nav flex justify-between items-center p-5 fixed top-0 w-full backdrop-blur-sm z-10'>
       <li><Link to='/'><img src={images.puzzle} className='w-8' /></Link></li>
       <div className='flex items-center'>
         <li><Link to={navLink}><AiOutlineUser size={30} className='mr-2'/></Link></li>
