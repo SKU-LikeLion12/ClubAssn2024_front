@@ -120,14 +120,14 @@ export const SearchResults = ({ results, setIsModalOpen, setSelectedItem, search
               <span className="ml-2">학번 :</span>
               <span className="border-b border-black ml-2 ml-5">{result.studentId}</span> 
             </div>
-            <button onClick={() => handleLeaveClick(result)} className="w-16 h-8 bg-zinc-300 rounded-lg">삭제</button>
+            <button onClick={() => handleLeaveClick(result)} className="w-[75px] h-8 bg-zinc-300 rounded-lg">삭제</button>
           </div>
           <div className="flex justify-between items-center mb-4"> 
             <div>
               <span className="font-semibold">소속 동아리 :</span>
               <span className='border-b border-black ml-7 font-semibold'>{result.clubName}</span>
             </div>
-            <button onClick={() => handlePuzzleClick(result)} className="w-16 h-8 bg-zinc-300 rounded-lg">퍼즐 조각</button>
+            <button onClick={() => handlePuzzleClick(result)} className="w-[75px] h-8 bg-zinc-300 rounded-lg">퍼즐 조각</button>
           </div>
         </div>
       ))}
@@ -140,7 +140,7 @@ export const DeleteConfirmationModal = ({ isOpen, onClose, onDelete, item }) => 
 
   return (
     <div className="fixed top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-black bg-opacity-50 z-50">
-      <div className="bg-white p-5 rounded w-[360px] h-1/3 relative flex flex-col items-center border-2 border-black rounded-lg">
+      <div className="bg-white p-5 rounded w-[340px] h-64 relative flex flex-col items-center border-2 border-black rounded-lg">
         <button 
           className="absolute top-0 right-0 mt-2 mr-2 text-4xl font-light text-gray-700 hover:text-gray-900" 
           onClick={onClose}
@@ -154,8 +154,8 @@ export const DeleteConfirmationModal = ({ isOpen, onClose, onDelete, item }) => 
         </div>
         <p className="text-center text-2xl font-bold mt-8">삭제하시겠습니까?</p>
         <div className="flex justify-center w-full mt-4">
-          <button className="bg-white text-black h-7 w-32 rounded mx-2 border-2 border-black rounded-lg font-bold" onClick={onDelete}>예</button>
-          <button className="bg-white text-black h-7 w-32 rounded mx-2 border-2 border-black rounded-lg font-bold" onClick={onClose}>아니오</button>
+          <button className="text-white bg-[#12172b] py-1 mx-2 rounded-xl w-4/12" onClick={onDelete}>삭제</button>
+          <button className="bg-gray-200 py-1 mx-2 rounded-xl w-4/12" onClick={onClose}>취소</button>
         </div>
       </div>
     </div>
