@@ -124,13 +124,13 @@ export const EventOfDate =  () => {
               <div className="w-full mt-4 border border-black"></div>
             </div>
           ))}
-          <div className="flex justify-end mt-2">
-            <button onClick={handleAddButtonClick} className="w-20 h-8 bg-zinc-300 rounded-lg font-bold">추가</button>
-          </div>
         </>
       ) : (
         <div className="mt-2">등록된 행사가 없습니다.</div>
       )}
+          <div className="flex justify-end mt-2">
+          <button onClick={handleAddButtonClick} className="w-20 h-8 bg-zinc-300 rounded-lg font-bold">추가</button>
+          </div>
       {isModalOpen && (
         <DeleteEventModal
           isOpen={isModalOpen}

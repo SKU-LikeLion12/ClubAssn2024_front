@@ -23,10 +23,22 @@ const ClubMemberManagement = () => {
   };
 
   const handleDelete = async () => {
+    console.log('Deleting item:', selectedItem);
+  
     try {
-      await API().delete(`/admin/join-club`, { data: { memberId: selectedItem.studentId, clubName: selectedItem.clubName } });
-      setIsModalOpen(false);
-      // 여기서 목록 새로고침 로직을 추가하세요
+      const requestBody = {
+        clubName: selectedItem.clubName,
+        memberId: selectedItem.studentId
+      };
+  
+      // API 호출로 항목 삭제
+      await API().delete("/admin/join-club", { data: requestBody });
+      setIsModalOpen(false); // 모달 닫기
+  
+      // 삭제 성공 후, 해당 항목을 searchResults에서 제거
+      const updatedResults = searchResults.filter(item => item.studentId !== selectedItem.studentId);
+      setSearchResults(updatedResults); // 업데이트된 목록으로 상태 변경
+  
     } catch (error) {
       console.error('Delete error:', error);
     }
@@ -36,7 +48,7 @@ const ClubMemberManagement = () => {
     <>
       <AdminNav/>
       <div className='mt-20 p-5'>
-        <div className='text-3xl pb-4'>동아리원 관리</div>
+        <div className='text-3xl pb-4 font-bold'>동아리원 관리</div>
         <div className='text-right'>
           <button onClick={()=>{navigate('AddClubMember')}} className='w-16 h-8 bg-zinc-300 rounded-lg'>추가</button>
         </div>
@@ -46,6 +58,7 @@ const ClubMemberManagement = () => {
           results={searchResults} 
           setIsModalOpen={setIsModalOpen} 
           setSelectedItem={setSelectedItem}
+          searchTerm={setSearchTerm}
         />
         <DeleteConfirmationModal
         isOpen={isModalOpen}
@@ -77,7 +90,7 @@ export const SearchBox = ({ searchTerm, setSearchTerm, onSearch }) => {
 };
 
 // SearchResults 컴포넌트
-export const SearchResults = ({ results, setIsModalOpen, setSelectedItem }) => {
+export const SearchResults = ({ results, setIsModalOpen, setSelectedItem, searchTerm}) => {
   const navigate = useNavigate(); // useNavigate 훅을 사용하여 페이지 이동
 
   const handlePuzzleClick = (item) => {
@@ -93,6 +106,8 @@ export const SearchResults = ({ results, setIsModalOpen, setSelectedItem }) => {
   if (results.length === 0) {
     return <div className="text-center my-5">검색 결과가 없습니다.</div>;
   }
+
+
 
   return (
     <div>
