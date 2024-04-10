@@ -14,8 +14,7 @@ const EditPuzzle = () => {
   const [EditItemData, setEditItemData] = useState({
     id: id,
     name: name,
-    date: date,
-    image: null
+    date: date
   }); // 수정한 데이터들이 객체형태로 담겨있는 state 변수
 
   const handleChangeValue = (e) => { // 행사명, 날짜 수정되는 핸들러
@@ -35,7 +34,9 @@ const EditPuzzle = () => {
     formData.append('id', EditItemData.id); // id
     formData.append('name', EditItemData.name); // 행사명
     formData.append('date', EditItemData.date); // 수량 추가 - 수정 후 주석 변경
-    formData.append('image', EditItemData.image); // 이미지 파일 추가
+    if(EditItemData.image !== undefined && EditItemData.image !== null) {
+      formData.append('image', EditItemData.image); // 이미지 파일 추가
+    } 
 
     console.log(formData)
     try {

@@ -24,7 +24,7 @@ const ClubMemberManagement = () => {
 
   const handleDelete = async () => {
     try {
-      await API().delete(`/admin/join-club`, { data: { studentId: selectedItem.studentId } });
+      await API().delete(`/admin/join-club`, { data: { memberId: selectedItem.studentId, clubName: selectedItem.clubName } });
       setIsModalOpen(false);
       // 여기서 목록 새로고침 로직을 추가하세요
     } catch (error) {
