@@ -36,7 +36,7 @@ export const ConfirmContent = () => {
 
   useEffect(() => {
     const now = new Date();
-    now.setDate(now.getDate() + 7);
+    now.setDate(now.getDate() + 1);
 
     const year = now.getFullYear();
     const month = now.getMonth() + 1;

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import AdminNav from './../../components/AdminNav';
 import { API } from '../../api/API';
+import ReservationCancelModal from '../../components/Modal/ReservationCancelModal';
 
 const ItemReservationStatus = () => {
   const [reserveStatus, setReserveStatus] = useState([]);
@@ -73,7 +74,13 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
     }
   };
 
-  const handleCancelClick = async () => {
+  const [modalOpen, setModalOpen] = useState(false);
+
+  const handleCancelClick = () => {
+    setModalOpen(true);
+  };
+  
+  const cancelReservation = async () => {
     try {
       const body = { itemRentId: reservationStatus.itemRentId };
       const response = await API().delete('/admin/item-rent', { data: body });
@@ -106,6 +113,7 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
             <div className='bg-[#d9d9d9] p-1 mx-1 rounded-md cursor-pointer' onClick={handleCancelClick}>
               예약 취소
             </div>
+            {modalOpen && <ReservationCancelModal modalOpen={modalOpen} setModalOpen={setModalOpen} onCancel={cancelReservation} />}
           </div>
         </div>
       </div>

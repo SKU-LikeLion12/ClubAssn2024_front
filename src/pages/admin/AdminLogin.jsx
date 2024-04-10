@@ -1,94 +1,69 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react';
+import PageTitle from '../../components/PageTitle';
+import { API }from '../../api/API';
 import { useNavigate } from 'react-router-dom';
-import AdminNav from './../../components/AdminNav';
-import PageTitle from './../../components/PageTitle';
+import { useLogin } from '../../context/LoginContext';
+import AdminNav from '../../components/AdminNav';
 import { useAuth } from '../../components/AuthContext';
-
-const User = {
-  id: 'puzzle40',
-  pw: 'dlatjdwn4040'
-}
+import AdminModal from '../../components/Modal/AdminModal';
 
 const AdminLogin = () => {
-  const [id, setId] = useState('');
-  const [pw, setPw] = useState('');
-
-  const [idValid, setIdValid] = useState(false);
-  const [pwValid, setPwValid] = useState(false);
-  const [notAllow, setNotAllow] = useState(true);
-
   const { setIsAuthenticated } = useAuth();
+  const { setIsLoggedIn } = useLogin();
+  const [modalOpen, setModalOpen] = useState(false);
   const navigate = useNavigate();
+  const [studentInfo, setStudentInfo] = useState({
+    studentId: '',
+    name: ''
+  });
 
-  useEffect(() => {
-    if(idValid && pwValid) {
-      setNotAllow(false);
-      return;
-    }
-    setNotAllow(true);
-  }, [idValid, pwValid]);
-  
-  const handleId = (e) => {
-    setId(e.target.value);
-    const regex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{5,}$/;
-    if(regex.test(e.target.value)) {
-      setIdValid(true);
-    }else{
-      setIdValid(false);
-    }
-  };
-  const handlePw = (e) => {
-    setPw(e.target.value);
-    const regex = /^(?=.*?[A-Za-z])(?=.*?[0-9]).{5,}$/;
-    if (regex.test(e.target.value)) {
-      setPwValid(true);
+// 이름,학번 입력
+const handleInputChange = (e) => {
+  setStudentInfo({
+    ...studentInfo,
+    [e.target.name]: e.target.value
+  })
+}
+
+// 로그인
+const handleLogin = async () => {
+  try {
+    const result = await API().post('/login', studentInfo); // 로그인 성공
+    console.log(result)
+    localStorage.clear()
+    localStorage.setItem('Token', result.data.accessToken)
+    setIsLoggedIn(true);
+    setIsAuthenticated(true);
+
+    if (result.data.role === "ROLE_ADMIN") { // 관리자 권한이면
+      navigate('/admin/adminMain'); // 관리자 메인으로 이동
     } else {
-      setPwValid(false);
+      setModalOpen(!modalOpen);
     }
-  };
-
-  const confirmMessage = () => {
-    if(id === User.id && pw === User.pw) {
-      setIsAuthenticated(true);
-      alert('로그인에 성공했습니다.');
-      navigate('/admin/adminMain')
-    }else {
-      alert('등록되지 않은 회원입니다.');
-    }
+  } catch (error) {
+    console.error(error)
+    setModalOpen(!modalOpen);
   }
+};
 
   return (
     <>
-      <AdminNav />
-      <div>
-        <PageTitle title='Puzzle' Tcolor='#12172B' />
-        <div className='flex flex-col justify-center mx-auto mt-12 p-5 w-10/12 border-2 border-[#12172b] rounded-md '>
-          <div className='text-3xl text-center'>로그인</div>
-          <div className='flex mt-8 mb-4 justify-center'>
-            <div className='w-3/12 my-auto text-center mr-2'>아이디</div>
-            <input type="text" 
-                   className='border-2 p-2 rounded-md'
-                   placeholder='아이디를 입력해주세요.'
-                   value={id}
-                   onChange={handleId}/>
-          </div>
-          <div className='flex mt-4 mb-8 justify-center'>
-            <div className='w-3/12  my-auto text-center mr-2'>비밀번호</div>
-            <input type="password" 
-                   className='border-2 p-2 rounded-md' 
-                   placeholder='비밀번호를 입력해주세요.'
-                   value={pw}
-                   onChange={handlePw}/>
-          </div>
-          <button className='adminLoginBtn text-xl text-[#ffffff] border-2 bg-[#12172b] px-2 py-1 mx-auto text-center rounded-md w-5/12 
-                          hover:bg-[#ffffff] hover:text-[#12172b] hover:border-2 hover:border-[#12172b] cursor-pointer
-                          disabled:bg-[#dadada] disabled:text-[#ffffff]'
-               disabled={notAllow} 
-               onClick={confirmMessage}>
-            로그인
-          </button>
+    <AdminNav />
+    <div className='relative min-h-screen'>
+      <PageTitle title={'Puzzle'} Tcolor={'#12172B'} />
+      <div className='flex justify-center text-center textFont text-[#12172B] my-8'>
+        <div className='py-14 px-8 bg-white rounded-xl border-2 border-[#12172B]'>
+          <p className='mb-6'>
+            학번:
+            <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/> </p>
+          <p>
+            이름:
+            <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" name='name' value={studentInfo.name} onChange={handleInputChange}/> </p>
+          <input type='button' value='로그인' className='mt-10 bg-[#12172B] p-2 px-6 rounded-lg text-white border-[#12172B]' onClick={handleLogin}/>
         </div>
-      </div> 
+      </div>
+    </div>
+    {modalOpen && <AdminModal modalOpen={modalOpen} setModalOpen={setModalOpen}/>} {/* 400 실패 */}
     </>
   );
 };

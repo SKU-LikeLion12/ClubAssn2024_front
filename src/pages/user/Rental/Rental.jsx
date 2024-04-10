@@ -25,7 +25,7 @@ const Rental = () => {
 
   useEffect(() => {
     fetchItems();
-  }, [location.state]); 
+  }, [location.state]);
 
   return (
     <>

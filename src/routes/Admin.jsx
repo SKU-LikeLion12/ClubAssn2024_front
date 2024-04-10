@@ -10,7 +10,6 @@ import ClubManagement from "../pages/admin/club/ClubManagement.jsx";
 import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
-import AdminLoginn from '../pages/admin/AdminLoginn.jsx';
 import { AuthProvider } from '../components/AuthContext.jsx';
 import Clubmember from '../pages/admin/Clubmember/Clubmember.jsx';
 
@@ -18,8 +17,7 @@ const Admin = () => {
   return (
     <AuthProvider>
       <Routes>
-        {/* <Route path='/adminLoginn' element={<AdminLogin/>} /> */}
-        <Route path='/adminLogin' element={<AdminLoginn />} />
+        <Route path='/adminLogin' element={<AdminLogin />} />
         <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
         <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
         <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
