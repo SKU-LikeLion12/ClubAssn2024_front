@@ -73,9 +73,12 @@ const CollectingPuzzle = () => {
   // }
 
   const showModal = (id) => {
-    setModalOpen(true);
     const puzzleItem = puzzleData.find((data) => data.id === id);
-    setSelectedPuzzle(puzzleItem);
+    if (puzzleItem) {
+      setSelectedPuzzle(puzzleItem);
+      setModalOpen(true);
+    } else {
+    }
   };
   const showInfoModal=()=>{
     setInfoModalOpen(true);
