@@ -42,7 +42,8 @@ const handleLogin = async () => {
     const result = await API().post('/login', studentInfo); // 로그인 성공
     navigate('/myPage'); 
     localStorage.clear()
-    localStorage.setItem('Token', result.data.accessToken)
+    localStorage.setItem('Token', result.data.accessToken);
+    localStorage.setItem('role', result.data.role);
     setIsLoggedIn(true);
   } catch (error) {
     if (error.response) {

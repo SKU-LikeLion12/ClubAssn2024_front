@@ -5,8 +5,9 @@ import { useAuth } from './AuthContext';
 const ProtectedRoute = ({ children }) => {
   const { isAuthenticated } = useAuth();
   const token = localStorage.getItem('Token');
-
-  if (!token) {
+  const role = localStorage.getItem('role');
+  
+  if (!token || role !== 'ROLE_ADMIN') {
     return <Navigate to="/admin/adminLogin" />;
   }
 
