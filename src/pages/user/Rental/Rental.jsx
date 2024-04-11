@@ -8,8 +8,9 @@ import Back from '../../../components/shared/Back';
 
 const Rental = () => {
   const [items, setItems] = useState([]);
+  const [isLoading, setIsLoading] = useState(true); // 로딩 상태 추가
   const location = useLocation();
-  
+
   const fetchItems = async () => {
     try {
       const response = await API().get('/item-rent/list');
@@ -20,9 +21,11 @@ const Rental = () => {
       setItems(updatedItems); 
     } catch (error) {
       console.error('물품 목록을 불러오는 데 실패했습니다.', error);
+    } finally {
+      setIsLoading(false); // 데이터 로딩이 끝나면 로딩 상태를 false로 설정
     }
   };
-
+  
   useEffect(() => {
     fetchItems();
   }, [location.state]);
@@ -35,11 +38,17 @@ const Rental = () => {
       <MyInfo />
       <div className="relative min-h-screen">
         <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">
-          <div className="w-full grid grid-cols-2 my-4">
-            {items.map((item) => (
-              <Article key={item.id} article={item} />
-            ))}
-          </div>
+          {isLoading ? ( // isLoading 상태에 따라 다른 컨텐츠를 보여줌
+            <div className="flex justify-center mt-16 text-gray-400">
+              <p>데이터를 불러오는 중입니다...</p>
+            </div>
+          ) : (
+            <div className="w-full grid grid-cols-2 my-4">
+              {items.map((item) => (
+                <Article key={item.id} article={item} />
+              ))}
+            </div>
+          )}
         </div>
       </div>
     </div>

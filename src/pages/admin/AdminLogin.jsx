@@ -53,13 +53,15 @@ const handleLogin = async () => {
     <div className='relative min-h-screen'>
       <PageTitle title={'Puzzle'} Tcolor={'#12172B'} />
       <div className='flex justify-center text-center textFont text-[#12172B] my-8'>
-        <div className='py-14 px-8 bg-white rounded-xl border-2 border-[#12172B]'>
-          <p className='mb-6'>
-            학번:
-            <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/> </p>
-          <p>
-            이름:
-            <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none" name='name' value={studentInfo.name} onChange={handleInputChange}/> </p>
+        <div className='py-14 px-8 bg-white rounded-xl border-2 border-[#12172B] w-2/3'>
+          <div className='flex items-center justify-center'>
+            <p className='pt-2'>학번 :</p>
+            <input type="text" className="border-b-2 border-[#12172b] w-1/2 ml-2 p-1 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/> 
+          </div>
+          <div className='flex items-center justify-center mt-4'>
+            <p className='pt-2'>이름 :</p>
+            <input type="text" className="border-b-2 border-[#12172b] w-1/2 ml-2 p-1 focus:outline-none" name='name' value={studentInfo.name} onChange={handleInputChange}/> 
+          </div>
           <input type='button' value='로그인' className='mt-10 bg-[#12172B] p-2 px-6 rounded-lg text-white border-[#12172B]' onClick={handleLogin}/>
         </div>
       </div>

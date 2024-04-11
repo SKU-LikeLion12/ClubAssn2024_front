@@ -7,7 +7,7 @@ function ReservationCancelModal({modalOpen, setModalOpen, onCancel}) {
 
 return (
   <div className='fixed inset-0 z-50 flex justify-center items-center bg-black bg-opacity-20'>
-    <div className=''>
+    <div>
       <div className='flex justify-center items-center textFont border-2 border-[#12172B] rounded-xl bg-white w-[300px] mx-auto'>
         <div className='p-10 my-aut0'>
           <div className='aboutEB text-[#12172B] mb-8'>
