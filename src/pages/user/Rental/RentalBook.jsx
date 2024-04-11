@@ -68,20 +68,21 @@ export const BookContent = () => {
     }
   };
 
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1); // 초기 count 값을 1로 설정
   const increaseCount = () => {
     setCount(prevQuantity => {
       if (prevQuantity >= 5) {
         alert("물품은 최대 5개까지만 예약 가능합니다.");
         return prevQuantity; // 현재 수량을 유지
       }
-      return prevQuantity + 1; 
+      return prevQuantity + 1;
     });
   };
 
   const decreaseCount = () => {
-    setCount(prevQuantity => prevQuantity - 1);
+    setCount(prevQuantity => prevQuantity > 1 ? prevQuantity - 1 : prevQuantity); // count가 1보다 클 때만 감소
   };
+
   const [color, setColor] = useState('red');
   const [isChecked, setIsChecked] = useState(false);
 

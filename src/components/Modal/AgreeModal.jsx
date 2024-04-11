@@ -17,8 +17,8 @@ function AgreeModal({setModalOpen, studentInfo, handleLogin}) {
     }
     
     return (
-        <div className='absolute z-50 top-10 break-keep'>
-            <div className='flex justify-center items-center textFont border-2 border-[#AB7A67] rounded-2xl pt-10 pb-3 mx-4 bg-white'>
+        <div className='absolute z-50 top-20 break-keep'>
+            <div className='LoginModal flex justify-center items-center textFont border-2 border-[#AB7A67] rounded-2xl pt-10 pb-3 mx-4 bg-white h-[80vh] overflow-y-scroll'>
                 <div className='text-center p-4'>
                     <div className=''>
                         <p className='text-xl text-[#AB7A67] mb-3'>Puzzle 웹사이트 사용을 위한<br/>개인정보 수집 이용 및 제공 동의서</p>

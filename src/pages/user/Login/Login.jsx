@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
-import PageTitle from '../../components/PageTitle';
-import Footer from "../../components/Footer";
-import Back from '../../components/shared/Back';
-import { API }from '../../api/API';
+import PageTitle from '../../../components/PageTitle';
+import Footer from "../../../components/Footer";
+import Back from '../../../components/shared/Back';
+import { API }from '../../../api/API';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import { useLogin } from '../../context/LoginContext';
-import AgreeModal from '../../components/Modal/AgreeModal';
-import FailModal from '../../components/Modal/FailModal';
+import { useLogin } from '../../../context/LoginContext';
+import AgreeModal from '../../../components/Modal/AgreeModal';
+import FailModal from '../../../components/Modal/FailModal';
 
 const Login = () => {
   const { isLoggedIn, setIsLoggedIn } = useLogin();
@@ -66,12 +66,12 @@ const handleLogin = async () => {
         <div className='flex justify-center text-center textFont text-[#AB7A67] w-4/6 mx-auto my-8'>
           <div className='py-14 px-4 bg-white rounded-xl border-2 border-[#AB7A67]'>
             <div className='flex items-center justify-center'>
-            <p>학번:</p>
-            <input type="text" className="border-b-2 ml-2 p-1 w-2/3 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/>
+              <p className='pt-2'>학번 :</p>
+              <input type="text" className="border-b-2 border-[#AB7A67] ml-2 p-1 w-2/3 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/>
             </div>
             <div className='flex items-center justify-center mt-4'>
-              <p>이름:</p>
-              <input type="text" className="border-b-2 ml-2 p-1 focus:outline-none w-2/3" name='name' value={studentInfo.name} onChange={handleInputChange}/>
+              <p className='pt-2'>이름 :</p>
+              <input type="text" className="border-b-2 border-[#AB7A67] ml-2 p-1 focus:outline-none w-2/3" name='name' value={studentInfo.name} onChange={handleInputChange}/>
             </div>
             <input type='button' value='로그인' className='mt-10 bg-[#AB7A67] p-2 px-6 rounded-lg text-white border-[#AB7A67]' onClick={handleLogin}/>
           </div>
