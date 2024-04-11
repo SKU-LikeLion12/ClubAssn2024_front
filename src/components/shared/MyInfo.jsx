@@ -53,11 +53,12 @@ const MyInfo = () => {
         const one = result.data.length === 1 ? true : false;
         setShowClubList(result.data); // 모든 동아리 받아와서 저장
         setIsOne(one); // 한개면 true >> "대표 동아리 변경" 문구 안 보임
+        setLoading(false);
       } catch (error) {
         console.error(error);
       }
     }
-
+    
     // changeIconClub API ->  대표 동아리 변경
     const handleSelectList = async (clubName) =>{
       try {
@@ -73,8 +74,8 @@ const MyInfo = () => {
       }
     }
     useEffect(()=> {
-      getMyInfo();
       handleisOneCheck();
+      getMyInfo();
     }, [isOpen])
 
   return (
@@ -104,7 +105,9 @@ const MyInfo = () => {
   )}
 
     {/* 전체 동아리 리스트 보이기 */}
-    {isOpen && (
+    {loading ? (
+    <div className='text-center text-gray-400'>데이터를 불러오는 중입니다...</div>
+    ) : isOpen && (
     <div className={`flex flex-col w-9/12 mx-auto mb-3 rounded-xl border-[2px] ${ActiveColor}`}>
       {showClubList.map((item, index) => {
         return (

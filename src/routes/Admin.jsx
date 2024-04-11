@@ -26,6 +26,15 @@ const Admin = () => {
         <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><Clubmember /></ProtectedRoute>}/>
         <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
+
+        {/* <Route path="/adminMain" element={<AdminMain/>}/>
+        <Route path="/adminMain/ItemReservationStatus" element={<ItemReservationStatus />}/>
+        <Route path="/adminMain/ItemRentalStatus" element={<ItemRentalStatus />}/>
+        <Route path="/adminMain/RentalItemManagement/*" element={<RentalItemManagement/>} />
+        <Route path="/adminMain/PuzzlePieceManagement/*" element={<PuzzlePieceManagement/>}/>
+        <Route path="/adminMain/ClubMemberManagement/*" element={<Clubmember />}/>
+        <Route path="/adminMain/ClubManagement/*" element={<ClubManagement/>}/>
+        <Route path="/adminMain/TimetableManagement" element={<TimetableManagement/>}/> */}
       </Routes>
     </AuthProvider>
 )};
