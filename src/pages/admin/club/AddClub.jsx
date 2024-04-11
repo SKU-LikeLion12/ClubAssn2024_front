@@ -49,18 +49,18 @@ const AddClub = () => {
     <div className='flex w-10/12 mx-auto py-3 px-1 gap-2 textFont mt-1 border-[#12172B] border-y'>
       <div className='w-full'>
         <div>
-          <div className='flex flex-col grow gap-1'>
+          <div className='flex flex-col grow gap-1 w-full'>
             <div className='flex justify-between items-end mt-1'>
               <label className='w-4/12' htmlFor="clubName">동아리명</label>
-              <input type="text" className='adminInput grow' id='clubName' name='clubName' value={isAdd.clubName} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-7/12' id='clubName' name='clubName' value={isAdd.clubName} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-4/12' htmlFor="description">동아리 설명</label>
-              <input type="text" className='adminInput grow' id='description' name='description' value={isAdd.description} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-7/12' id='description' name='description' value={isAdd.description} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
-              <label className='w-4/12' htmlFor="logo">동아리 로고</label>
-              <input type="file" className='text-xs grow ml-5' id='logo' name='logo' onChange={handleFileChange}/>
+            <div className='flex justify-between items-end mt-1 w-full'>
+              <label className='w-4/12' htmlFor="logo">로고</label>
+              <input type="file" className='text-xs w-7/12 ml-5' id='logo' name='logo' onChange={handleFileChange}/>
             </div>
           </div>
         </div>
