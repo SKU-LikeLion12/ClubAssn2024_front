@@ -8,12 +8,12 @@ import PuzzleModal from '../../components/Modal/PuzzleModal';
 import PuzzleInfoModal from '../../components/PuzzleInfoModal';
 
 const CollectingPuzzle = () => {
-  const [code, setCode] = useState(''); // 코드번호 저장 변수
-  const [modalOpen, setModalOpen] = useState(false); //이벤트 상세 모달
-  const [infoModalOpen, setInfoModalOpen] = useState(false); //이벤트 설명 모달
+  const [code, setCode] = useState(''); // 코드 번호 저장 변수
+  const [modalOpen, setModalOpen] = useState(false); // 이벤트 상세 모달
+  const [infoModalOpen, setInfoModalOpen] = useState(false); // 이벤트 설명 모달
   const [puzzleData, setPuzzleData] = useState([]);
   const [selectedPuzzle, setSelectedPuzzle] = useState(null);
-  const [loading, setLoading] = useState(false); // 로딩 상태 변수 추가
+  const [loading, setLoading] = useState(true); // 로딩 상태 변수
 
   useEffect(() => {
     fetchData();
@@ -21,38 +21,6 @@ const CollectingPuzzle = () => {
 
   const fetchData = async () => {
     try {
-      // const dummyPuzzleData = [
-      //   {
-      //     id: '1',
-      //     name: "홍길동",
-      //     image: images.emptyPuzzle,
-      //     date: "02/08",
-      //     joined: true,
-      //   },
-      //   {
-      //     id: '2',
-      //     name: "홍길동",
-      //     image: images.emptyPuzzle,
-      //     date: "04/08",
-      //     joined: true,
-      //   },
-      //   {
-      //     id: '3',
-      //     name: "홍길동",
-      //     image: images.emptyPuzzle,
-      //     date: "03/08",
-      //     joined: true,
-      //   },
-      //   {
-      //     id: '4',
-      //     name: "홍길동",
-      //     image: images.emptyPuzzle,
-      //     date: "05/08",
-      //     joined: true,
-      //   }
-      // ];
-      // setPuzzleData([...dummyPuzzleData]);
-      setLoading(true); // 데이터를 불러올 때 로딩 상태를 true로 변경
       const result = await API().post('/puzzle');
       const puzzleDataArray = result.data.map((item) => ({
         id: item.id,
@@ -63,7 +31,6 @@ const CollectingPuzzle = () => {
       }));
       console.log(puzzleDataArray);
       setPuzzleData(puzzleDataArray);
-      setLoading(false);
     } catch (error) {
       console.error(error);
     } finally {
@@ -71,22 +38,18 @@ const CollectingPuzzle = () => {
     }
   };
 
-  // const handleCode = () => {
-  //   // 서버로 보내고
-  //   setCode('') // input value 초기화
-  // }
-
   const showModal = (id) => {
     const puzzleItem = puzzleData.find((data) => data.id === id);
     if (puzzleItem) {
       setSelectedPuzzle(puzzleItem);
       setModalOpen(true);
-    } else {
     }
   };
-  const showInfoModal=()=>{
+
+  const showInfoModal = () => {
     setInfoModalOpen(true);
   };
+
   const isJoined = (id) => {
     const puzzle = puzzleData.find((data) => data.id === id);
     return puzzle?.joined || false;
@@ -106,11 +69,21 @@ const CollectingPuzzle = () => {
           </div>
         </div>
         <div className='relative w-9/12 h-9/12 mx-auto rounded-2xl bg-white border-1 border-[#476832] mb-10'>
-          <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
-          <button onClick={() => showModal(1)} style={{ display: isJoined(1) ? 'block' : 'none' }} disabled={loading}>
-            <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
-          </button>
-          <button onClick={() => showModal(2)} style={{ display: isJoined(2) ? 'block' : 'none' }} disabled={loading}>
+        {loading ? (
+          <div className='flex justify-center items-center h-full'>
+          <div className='absolute top-0 left-0 right-0 bottom-0 flex justify-center items-center bg-white bg-opacity-90'>
+            <p className='font-bold z-50'>퍼즐 조각을 불러오고 있습니다...</p>
+          </div>
+          <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' className='opacity-50' />
+         </div>
+          ) : (
+            <>
+              <img src={images.emptyPuzzle} alt='초기 빈 퍼즐' />
+              {/* 하나의 퍼즐 조각 예시 */}
+              <button onClick={() => showModal(1)} style={{ display: isJoined(1) ? 'block' : 'none' }} disabled={loading}>
+                <img src={images.puzzle1} alt="" className='w-[51%] absolute top-0 left-0 z-[3]'/>
+              </button>
+              <button onClick={() => showModal(2)} style={{ display: isJoined(2) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle2} alt="" className='w-[64%] absolute top-0 right-0 z-[2]' />
           </button>
           <button onClick={() => showModal(3)} style={{ display: isJoined(3) ? 'block' : 'none' }} disabled={loading}>
@@ -119,6 +92,8 @@ const CollectingPuzzle = () => {
           <button onClick={() => showModal(4)} style={{ display: isJoined(4) ? 'block' : 'none' }} disabled={loading}>
             <img src={images.puzzle4} alt="" className='w-[51%] absolute top-[37%] right-0 z-[2]'/>
           </button>
+            </>
+          )}
           {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
           {infoModalOpen&&<PuzzleInfoModal setModalOpen={setInfoModalOpen}/>}
         </div>

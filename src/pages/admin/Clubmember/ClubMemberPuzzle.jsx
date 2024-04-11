@@ -161,13 +161,13 @@ export const DeleteEventModal = ({ isOpen, onClose, event, onDeleteEvent }) => {
         <p className="text-center text-2xl font-bold mt-8">삭제하시겠습니까?</p>
         <div className="flex justify-center w-full mt-8">
           <button
-            className="bg-white text-black h-7 w-24 rounded mx-2 border-2 border-black rounded-lg font-bold"
+            className="text-white bg-[#12172b] py-1 mx-2 rounded-xl w-4/12"
             onClick={() => onDeleteEvent(event.id)}
           >
             예
           </button>
           <button
-            className="bg-white text-black h-7 w-24 rounded mx-2 border-2 border-black rounded-lg font-bold"
+            className="bg-gray-200 py-1 mx-2 rounded-xl w-4/12"
             onClick={onClose}
           >
             아니오
