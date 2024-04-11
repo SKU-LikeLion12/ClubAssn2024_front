@@ -32,6 +32,7 @@ const handleLogin = async () => {
     console.log(result)
     localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken)
+    localStorage.setItem('role', result.data.role);
     setIsLoggedIn(true);
     setIsAuthenticated(true);
 
