@@ -84,7 +84,9 @@ export const SearchBox = ({ searchTerm, setSearchTerm, onSearch }) => {
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
       />
-      <img src='../../assets/images/search_icon.png' alt='검색 아이콘' className='w-5 cursor-pointer' onClick={onSearch}/>
+      <button onClick={onSearch}>
+        <img src='../../assets/images/search_icon.png' alt='검색 아이콘' className='w-5 cursor-pointer' />
+      </button>
     </div>
   );
 };

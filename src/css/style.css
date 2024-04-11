@@ -61,6 +61,33 @@ body {
   height: 20px;
 }
 
+/* LoginModal scroll */
+.LoginModal::-webkit-scrollbar {
+  width: 8px;  /* 스크롤바의 너비 */
+}
+
+.LoginModal::-webkit-scrollbar-thumb {
+  height: 3px; /* 스크롤바의 길이 */
+  background: #AB7A67; /* 스크롤바의 색상 */
+  border-radius: 10px;
+}
+
+.LoginModal::-webkit-scrollbar-track {
+  background: inherit;
+  border-radius: 10px;
+}
+
+.LoginModal::-webkit-scrollbar-button:vertical:start:decrement {
+  display: block;
+  height: 20px; 
+}
+
+.LoginModal::-webkit-scrollbar-button:vertical:end:increment {
+  display: block;
+  height: 20px;
+}
+
+
 .rentalCheckBox {
   width: 16px;
   height: 16px;
@@ -84,3 +111,28 @@ body {
 .rentalCheckBox:checked::before {
   background-image: url(../../public/assets/images/rental/check.png);
 }
+
+/* table scroll*/
+.table::-webkit-scrollbar-button:vertical:start:decrement,
+.table::-webkit-scrollbar-button:vertical:start:increment {
+  display: block;
+  height: 25px;
+}
+/* 만일 스크롤바 트랙 아래쪽도 여백 공간을 주고 싶다면 ... */
+.table::-webkit-scrollbar-button:vertical:end:decrement {
+  display: block;
+  width: 25px;
+}
+.table::-webkit-scrollbar{
+  width: 12px;
+}  
+.table::-webkit-scrollbar-thumb {
+  background-color: #12172B;
+  border-radius: 20px;
+  background-clip: padding-box;
+  border: 3px solid transparent;
+}
+.table::-webkit-scrollbar-track {
+  background-color: rgba(78, 78, 78, 0);
+}
+
