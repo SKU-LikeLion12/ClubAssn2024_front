@@ -6,8 +6,8 @@ export const images = {
     rightPinkMenu: PATH + '/assets/images/BgPuzzle/rightPinkPuzzle.png',
     leftGreen: PATH + '/assets/images/BgPuzzle/leftGreenPuzzle.png',
     rightGreen: PATH + '/assets/images/BgPuzzle/rightGreenPuzzle.png',
-    LYP: PATH + '/assets/images/BgPuzzle/LeftYellowPuzzle.svg',
-    RYP: PATH + '/assets/images/BgPuzzle/RightYellowPuzzle.svg',
+    LYP: PATH + '/assets/images/BgPuzzle/leftYellowPuzzle.svg',
+    RYP: PATH + '/assets/images/BgPuzzle/rightYellowPuzzle.svg',
     backPuzzleT: PATH + '/assets/images/BgPuzzle/rightCoralPuzzle.svg',
     backPuzzleB: PATH + '/assets/images/BgPuzzle/leftCoralPuzzle.svg',
     
@@ -48,4 +48,8 @@ export const images = {
     // 마이페이지 
     myPageRightBack : PATH + '/assets/images/BgPuzzle/rightPinkPuzzle.png',
     myPageLeftBack : PATH + '/assets/images/BgPuzzle/leftPinkPuzzle.png',
+
+    // 동아리원 추가
+    searchBtn : PATH + '/assets/images/search_icon.png',
+    deleteBtn : PATH + '/assets/images/trash_icon.png',
 }

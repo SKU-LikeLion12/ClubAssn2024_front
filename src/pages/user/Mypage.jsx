@@ -293,7 +293,8 @@ export const ReserveStatus = () => {
               <div className="w-[5rem] h-[6rem] border-2 border-primary rounded overflow-hidden mb-3">
                 <img src={`data:image/jpeg;base64,${current.image}`} alt="물품 이미지" className="w-full h-full object-cover" />
               </div>
-              <div className="text-primary p-1 text-lg font-bold">{current.itemName}</div>
+              <div className="text-primary px-1 pt-1 text-lg font-bold">{current.itemName}</div>
+              <div className="text-primary px-1 pb-1 text-lg font-bold">수량 : {current.count} 개</div>
               <div className="text-primary font-medium text-[14px]">{formatDate(current.needReceiveTime)}까지<br/>동아리 연합회실로 방문해주세요.</div>
               {confirmVisible && cancelId === current.itemRentId ? (
                 // 예약 취소 확인 버튼

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { Route, Routes, useLocation } from "react-router-dom";
 import Main from '../pages/user/Main.jsx';
-import Login from "../pages/user/Login.jsx";
+import Login from "../pages/user/Login/Login.jsx";
 import Mypage from "../pages/user/Mypage.jsx";
 import Rental from "../pages/user/Rental/Rental.jsx";
 import {Map,StudentUnion,StudentCenter} from "../pages/user/Map.jsx";

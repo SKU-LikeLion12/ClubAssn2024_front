@@ -48,17 +48,17 @@ const AddRental = () => {
       <div className='w-full'>
         <div>
           <div className='flex flex-col grow gap-1'>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="물품명">물품명</label>
-              <input type="text" className='adminInput grow' name='name' value={addItemData.name} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-7/12' name='name' value={addItemData.name} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="총 수량">총 수량  </label>
-              <input type="text" className='adminInput grow' name='count' value={addItemData.count} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-7/12' name='count' value={addItemData.count} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="사진">사진 </label>
-              <input type="file" className='text-xs grow ml-5' name='image' onChange={handleFileChange}/>
+              <input type="file" className='text-xs ml-5' name='image' onChange={handleFileChange}/>
             </div>
           </div>
         </div>
