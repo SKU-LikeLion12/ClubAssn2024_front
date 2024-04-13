@@ -93,7 +93,7 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
     </Modal>
   )
 }
-/* export const MemberManagement = () => {
+export const MemberManagement = () => {
   const [keyword, setKeyword] = useState('');
   const [memberInfo, setMemberInfo] = useState(null);
   const [editInfo, setEditInfo] = useState({ studentId: '', studentName: '' });
@@ -120,7 +120,7 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
   };
   const handleDelete = async () => {
     try {
-      await API().delete('/admin/join-club', {
+      await API().delete('/admin/member/delete', {
         data: {
           memberId: memberInfo.studentId,
           clubName: memberInfo.clubName
@@ -210,4 +210,4 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
       )}
     </div>
   );
-}; */
+};

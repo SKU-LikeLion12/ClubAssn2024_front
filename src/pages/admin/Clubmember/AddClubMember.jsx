@@ -55,7 +55,7 @@ const AddClubMember = () => {
 
   const handleSearch = async () => {
     try {
-      const result = await API().get(`/admin/join-club/search?keyword=${searchStudentId}`);
+      const result = await API().get(`/admin/join-club/info?keyword=${searchStudentId}`);
       const resultMap = new Map();
       // 검색 결과에서 각 항목을 순회하며 Map 객체에 학번을 키로, 항목 전체를 값으로 저장
       result.data.forEach(item => {
@@ -158,7 +158,7 @@ const AddClubMember = () => {
         {/* 멤버 추가 안내 */}
         <div className="text-xs text-[red] flex mx-auto">
           <div className="mr-1">선택할 동아리원이 없다면 멤버로 먼저 추가하세요.</div>
-          <Link to="AddMember" className="underline italic flex items-center">멤버 추가<GiClick className="ml-1"/></Link>
+          <Link to="AddMember" className="underline italic flex items-center">멤버 관리<GiClick className="ml-1"/></Link>
         </div>
 
         {/* 에러 메시지 */}
