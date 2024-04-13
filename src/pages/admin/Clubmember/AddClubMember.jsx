@@ -55,13 +55,17 @@ const AddClubMember = () => {
 
   const handleSearch = async () => {
     try {
-      const result = await API().get(`/admin/join-club/info?keyword=${searchStudentId}`);
+      const requestBody = { studentId: searchStudentId };
+      const result = await API().post('/admin/join-club/info', requestBody);
       const resultMap = new Map();
-      // 검색 결과에서 각 항목을 순회하며 Map 객체에 학번을 키로, 항목 전체를 값으로 저장
-      result.data.forEach(item => {
-        resultMap.set(item.studentId, item);
+  
+      // 결과 데이터에서 학생 정보를 추출하고 Map 객체에 저장
+      resultMap.set(result.data.studentId, {
+        studentId: result.data.studentId,
+        studentName: result.data.name // 이름 정보도 추가
       });
-      // Map 객체의 값들만 배열로 변환하여 상태를 업데이트
+  
+      // Map 객체의 값들을 배열로 변환하여 상태를 업데이트
       const uniqueResults = Array.from(resultMap.values());
       setSearchResult(uniqueResults);
       setErrorMessage("");
@@ -70,6 +74,8 @@ const AddClubMember = () => {
       setErrorMessage("검색 중 오류가 발생했습니다. 다시 시도해주세요.");
     }
   }
+  
+
   const fetchGetData = async () => { // 초기 데이터 로딩 함수
     try {
       await getAllClub();
@@ -145,7 +151,7 @@ const AddClubMember = () => {
             </div> 
             <input
               type="text"
-              placeholder="학번 검색"
+              placeholder="8자리 입력"
               value={searchStudentId}
               onChange={handleSearchInputChange}
               className="w-7/12 text-[14px] pl-2 border-b-2 "/>

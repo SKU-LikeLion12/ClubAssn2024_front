@@ -1,10 +1,9 @@
 import React, { useEffect, useState } from "react";
 import AdminNav from "../../../components/AdminNav";
 import { API } from "../../../api/API";
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { confirmModalStyle } from '../../../css/customModal'; 
 import Modal from 'react-modal';
-import { GiClick } from "react-icons/gi";
 import { images } from "../../../utils/images";
 
 const AddMember = () => { // 동아리원 추가
@@ -66,7 +65,7 @@ const AddMember = () => { // 동아리원 추가
         </div>
       </div>
     </div>
-      {/* <MemberManagement /> */}
+      <MemberManagement />
       {isOpen && <ConfirmAddModal isOpen={isOpen} setIsOpen={setIsOpen} />}
     </div>
   )
@@ -93,73 +92,65 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
     </Modal>
   )
 }
+
 export const MemberManagement = () => {
   const [keyword, setKeyword] = useState('');
   const [memberInfo, setMemberInfo] = useState(null);
   const [editInfo, setEditInfo] = useState({ studentId: '', studentName: '' });
-  const [isOpen, setIsOpen] = useState(false);
 
-  // 학번으로 동아리원 검색
   const handleSearch = async () => {
     try {
-      const response = await API().get(`/admin/join-club/search?keyword=${keyword}`);
+      // API 요청시 POST 메서드를 사용하고, studentId를 요청 바디로 전송
+      const response = await API().post('/admin/join-club/info', {
+        studentId: keyword // 검색어로 입력받은 키워드를 studentId로 전송
+      });
       const results = response.data;
-      if (results.length > 0) {
-        setMemberInfo(results[0]); // 검색된 첫 번째 동아리원의 정보를 상태에 저장
+      if (results) {
+        setMemberInfo(results); // 검색된 동아리원 정보를 상태에 저장
         setEditInfo({
-          studentId: results[0].studentId,
-          studentName: results[0].studentName
+          studentId: results.studentId,
+          studentName: results.name
         });
       } else {
         alert('해당하는 동아리원이 없습니다.');
+        setMemberInfo(null); // 검색 결과가 없으면 정보 초기화
       }
     } catch (error) {
       console.error('검색 중 오류 발생:', error);
       alert('동아리원 정보를 불러오는 데 실패했습니다.');
     }
   };
+  
   const handleDelete = async () => {
     try {
-      await API().delete('/admin/member/delete', {
-        data: {
-          memberId: memberInfo.studentId,
-          clubName: memberInfo.clubName
-        }
-      });
-      alert('동아리원이 성공적으로 삭제되었습니다.');
-      setMemberInfo(null); // 상태 초기화
+      // studentId를 쿼리 파라미터로 전송
+      const response = await API().delete(`/admin/member/delete?studentId=${memberInfo.studentId}`);
+      const message = response.data; // API에서 반환된 메시지를 저장
+      alert(message); // API의 응답 메시지를 알림
+      setMemberInfo(null); // 멤버 정보 상태 초기화
     } catch (error) {
       console.error('삭제 중 오류 발생:', error);
-      alert('동아리원 삭제를 완료하지 못했습니다.');
+      if (error.response) {
+        // API에서 반환된 오류 메시지가 있을 경우, 그 메시지를 사용자에게 표시
+        alert(error.response.data);
+      } else {
+        // 오류 메시지가 없을 경우, 일반적인 실패 메시지 표시
+        alert('동아리원 삭제를 완료하지 못했습니다.');
+      }
     }
   };
-
-  // 입력값 변경 핸들러
-  const handleChange = (e) => {
-    setEditInfo({ ...editInfo, [e.target.name]: e.target.value });
-  };
-
-  // 동아리원 정보 수정
-  const handleEdit = async () => {
-    try {
-      await API().post('/admin/join-club/add', editInfo);
-      setIsOpen(true); // 수정 성공 모달 표시
-    } catch (error) {
-      console.error('수정 중 오류 발생:', error);
-      alert('정보 수정을 완료하지 못했습니다.');
-    }
-  };
+  
 
   return (
     <div className=''>
       <AdminNav />
       <div className='mt-20 flex justify-between items-center w-10/12 mx-auto mb-4 pt-4 pb-6 border-b-2 border-[#12172B]'>
-        <div className='text-3xl'>동아리원 관리</div>
+        <div className='text-3xl'>멤버 삭제</div>
       </div>
       <div className='flex justify-between w-8/12 mx-auto py-3 mt-4'>
         <input
           type="text"
-          placeholder="학번 또는 이름 검색"
+          placeholder="학번 8자리 입력"
           className='border-b-2 border-gray-200 pl-2'
           value={keyword}
           onChange={(e) => setKeyword(e.target.value)}
@@ -169,44 +160,23 @@ export const MemberManagement = () => {
         </button>
       </div>
       {memberInfo && (
-        <div className='flex flex-col items-center'>
-          <div className="flex justify-between">
+        <div className='flex flex-col items-center w-6/12 mx-auto mt-4'>
+          <div className="flex justify-between w-full">
             <div>
               <div className="flex">
                 <div>학번 :</div>
-                <input type="text" 
-                      name="studentId" 
-                      value={editInfo.studentId} 
-                      onChange={handleChange} 
-                      placeholder="수정할 학번"
-                      className="ml-1 pl-2" />  
+                <div className="ml-1 pl-2">{editInfo.studentId}</div>  
               </div>
               <div className="flex">
                 <div>이름 :</div>
-                <input type="text" 
-                      name="studentName" 
-                      value={editInfo.studentName} 
-                      onChange={handleChange} 
-                      placeholder="수정할 이름"
-                      className="ml-1 pl-2"  />
+                <div className="ml-1 pl-2">{editInfo.studentName}</div> 
               </div>  
             </div>
             <button className="w-5" onClick={handleDelete}>
               <img src={images.deleteBtn} alt="삭제하기버튼" className="w-5" />
             </button>
-          </div>
-          <button onClick={handleEdit} className='text-white bg-[#12172b] py-1 px-8 mx-2 rounded-xl mt-4'>수정</button>
+          </div>  
         </div>
-      )}
-      {isOpen && (
-        <Modal
-          isOpen={isOpen}
-          onRequestClose={() => setIsOpen(false)}
-          contentLabel="수정 완료 모달"
-        >
-          <h2>동아리원 정보가 수정되었습니다.</h2>
-          <button onClick={() => setIsOpen(false)}>확인</button>
-        </Modal>
       )}
     </div>
   );
