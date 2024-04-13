@@ -4,7 +4,7 @@ export const API = () => {
   const token = localStorage.getItem('Token');
 
   const instance = axios.create({
-    baseURL: 'https://puzzle.sku-sku.com:8080'
+    baseURL: 'https://puzzle.sku-sku.com/'
   });
 
   // 토큰이 있는 경우에만 헤더에 추가

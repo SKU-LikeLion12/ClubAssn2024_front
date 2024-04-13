@@ -114,7 +114,7 @@ export const SearchResults = ({ results, setIsModalOpen, setSelectedItem, search
   return (
     <div>
       {results.map((result, index) => (
-        <div key={index} className="my-4 p-2 rounded shadow-sm hover:shadow-md transition-shadow">
+        <div key={index} className="my-4 p-2 rounded shadow-sm hover:shadow-md transition-shadow text-sm">
           <div className="flex justify-between items-center mb-4"> 
             <div className="flex items-center font-semibold"> 
               <span>이름 :</span>
