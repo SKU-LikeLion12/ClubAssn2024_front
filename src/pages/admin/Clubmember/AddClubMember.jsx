@@ -42,29 +42,22 @@ const AddClubMember = () => {
   const handleSearchInputChange = (e) => {
     setSearchStudentId(e.target.value);
   }
-  
-  // 학번 검색 핸들러
-  /* const isValidStudentId = (studentId) => {
-    const pattern = /^[0-9]{8}$/; // 8자리 숫자로 이루어진 학번
-    return pattern.test(studentId);
-  }; */
-  /* if (!isValidStudentId(searchStudentId)) {
-    alert('유효하지 않은 학번입니다.');
-    return;
-  } */
 
-  const handleSearch = async () => {
+  const handleSearch = async (searchKeyword) => {
     try {
-      const requestBody = { studentId: searchStudentId };
-      const result = await API().post('/admin/join-club/info', requestBody);
+      // 쿼리 파라미터로 'keyword'를 사용하여 API 요청
+      const result = await API().get(`/admin/member/find?keyword=${encodeURIComponent(searchKeyword)}`);
+
       const resultMap = new Map();
-  
+
       // 결과 데이터에서 학생 정보를 추출하고 Map 객체에 저장
-      resultMap.set(result.data.studentId, {
-        studentId: result.data.studentId,
-        studentName: result.data.name // 이름 정보도 추가
+      result.data.forEach(student => {
+        resultMap.set(student.studentId, {
+          studentId: student.studentId,
+          studentName: student.name // 이름 정보도 추가
+        });
       });
-  
+
       // Map 객체의 값들을 배열로 변환하여 상태를 업데이트
       const uniqueResults = Array.from(resultMap.values());
       setSearchResult(uniqueResults);
@@ -145,18 +138,15 @@ const AddClubMember = () => {
               })}
             </select>
           </div>
-          <div className="w-6/12 flex text-[14px] ml-8">
-            <div>
-              학번 : 
-            </div> 
+          <div className="w-8/12 flex text-[14px] ml-8">
             <input
               type="text"
-              placeholder="8자리 입력"
+              placeholder="학번 또는 이름"
               value={searchStudentId}
               onChange={handleSearchInputChange}
-              className="w-7/12 text-[14px] pl-2 border-b-2 "/>
+              className="w-8/12 text-[14px] pl-2 border-b-2 "/>
           </div>
-          <button onClick={handleSearch} className="w-8">
+          <button onClick={() => handleSearch(searchStudentId)} className="w-8">
             <img src={images.searchBtn} alt='검색 아이콘' className='w-5' />
           </button>
         </div>
@@ -215,11 +205,6 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
   const navigate = useNavigate();
   const closeModal = () => {
     setIsOpen(!isOpen);
-    // setAddItemData({
-    //   name: '',
-    //   count: '',
-    //   image: null
-    // })
   }
 
   return (
