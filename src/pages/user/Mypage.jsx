@@ -135,6 +135,7 @@ export const RentalStatus = () => {
                 <img src={`data:image/jpeg;base64, ${currentItem.image}`}alt="물품 이미지" className="w-full h-full object-cover" />
               </div>
               <div className="text-primary p-1">{currentItem.itemName}</div>
+              <div className="text-primary px-1 pb-1 text-lg font-bold">수량 : {currentItem.count} 개</div>
 
               {/* 연체 메시지 */}
               {renderDelayMessage(currentItem.state) && (
