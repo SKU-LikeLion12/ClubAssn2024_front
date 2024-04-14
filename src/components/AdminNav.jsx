@@ -11,7 +11,7 @@ export default function AdminNav() {
   return (
     <>
       <div>
-        <ul className='Nav flex justify-between items-center p-5 bg-[#12172B] fixed z-20 top-0 w-full backdrop-blur-sm'>
+        <ul className='Nav flex justify-between items-center p-5 bg-[#12172B] fixed z-20 top-0 w-full'>
           <li onClick={backBtn}><FaArrowLeft size={30} color='#ffffff' /></li>
           <li><Link to='/admin/adminMain'><GoHome size={30} color='#ffffff' /></Link></li>
         </ul>

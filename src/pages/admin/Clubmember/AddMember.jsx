@@ -74,7 +74,9 @@ export default AddMember;
 
 export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
   const navigate = useNavigate();
-
+  const closeModal = () => {
+    setIsOpen(!isOpen);
+  }
   return (
     <Modal
       style={confirmModalStyle}
@@ -84,9 +86,9 @@ export const ConfirmAddModal = ({isOpen, setIsOpen}) => {
         <div className='textFont flex flex-col items-center justify-center h-full'>
           <div className='text-2xl pb-1'>멤버 추가 완료</div>
           <div className='text-sm pb-6 text-[red]'>이제 동아리원으로 추가할 수 있습니다.</div>
-          <div>
-            {/* <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl' onClick={closeModal}>동아리원 추가</button> */}
-            <button className='text-white bg-[#12172b] py-1 px-8 mx-2 rounded-xl' onClick={()=>{navigate('/admin/adminMain/ClubMemberManagement')}}>확인</button>
+          <div className="w-full">
+            <button className='text-white bg-[#12172b] py-1 px-4 mx-2 rounded-xl w-5/12' onClick={closeModal}>동아리원 추가</button>
+            <button className='bg-gray-200 py-1 mx-2 rounded-xl w-5/12' onClick={()=>{navigate('/admin/adminMain/ClubMemberManagement')}}>홈으로</button>
           </div>
         </div>
     </Modal>
