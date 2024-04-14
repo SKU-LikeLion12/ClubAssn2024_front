@@ -22,7 +22,7 @@ export const ClubIntroElement = ({title, sub, img}) => {
     <div className='mb-16 mt-4'>
       <p className='text-xl font-bold mb-3'>{title}</p>
       <p>
-        <p><img src={images[img]} alt="" className='mx-auto w-[24%]'/></p>
+        <p><img src={images[img]} alt="" className='mx-auto w-[17%] mb-3'/></p>
         <p className='break-keep'>{sub}</p>
       </p>
     </div>
