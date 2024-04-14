@@ -3,7 +3,6 @@ import PageTitle from '../../../components/PageTitle';
 import Footer from "../../../components/Footer";
 import Back from '../../../components/shared/Back';
 import { API }from '../../../api/API';
-import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { useLogin } from '../../../context/LoginContext';
 import AgreeModal from '../../../components/Modal/AgreeModal';
@@ -20,7 +19,7 @@ const Login = () => {
   });
 
   const showModal =() =>{
-    if(studentInfo.studentId === '' || studentInfo.name ===''){
+    if(studentInfo.studentId === '' || studentInfo.name ==='') {
     setFailModalOpen(true);
     } else {
       setModalOpen(true);
@@ -68,11 +67,11 @@ const handleLogin = async () => {
           <div className='py-14 px-4 bg-white rounded-xl border-2 border-[#AB7A67]'>
             <div className='flex items-center justify-center'>
               <p className='pt-2'>학번 :</p>
-              <input type="text" className="border-b-2 border-[#AB7A67] ml-2 p-1 w-2/3 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/>
+              <input type="text" className="border-b-2 border-[#AB7A67] rounded-none ml-2 p-1 w-2/3 focus:outline-none" name='studentId' value={studentInfo.studentId} onChange={handleInputChange}/>
             </div>
             <div className='flex items-center justify-center mt-4'>
               <p className='pt-2'>이름 :</p>
-              <input type="text" className="border-b-2 border-[#AB7A67] ml-2 p-1 focus:outline-none w-2/3" name='name' value={studentInfo.name} onChange={handleInputChange}/>
+              <input type="text" className="border-b-2 border-[#AB7A67] rounded-none ml-2 p-1 focus:outline-none w-2/3" name='name' value={studentInfo.name} onChange={handleInputChange}/>
             </div>
             <input type='button' value='로그인' className='mt-10 bg-[#AB7A67] p-2 px-6 rounded-lg text-white border-[#AB7A67]' onClick={handleLogin}/>
           </div>

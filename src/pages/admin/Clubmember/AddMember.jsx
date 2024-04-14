@@ -45,17 +45,17 @@ const AddMember = () => { // 동아리원 추가
           <div>
             <div className='flex flex-col grow gap-1'>
               <div className="text-red-400 text-[14px] text-center">학번이 틀릴 경우 수정이 불가하므로<br /> 정확하게 작성해주세요.</div>
-              <div className='flex justify-between items-end mt-1'>
+              <div className='flex justify-between items-end mt-1 full'>
                 <label className='w-3/12' htmlFor="studentId">학번</label>
-                <input type="text" className='adminInput grow' name='studentId' value={addMemberData.studentId} onChange={handleChangeValue}/>
+                <input type="text" className='adminInput w-7/12' name='studentId' value={addMemberData.studentId} onChange={handleChangeValue}/>
               </div>
-              <div className='flex justify-between items-end mt-1'>
+              <div className='flex justify-between items-end mt-1 w-full'>
                 <label className='w-3/12' htmlFor="name">이름</label>
-                <input type="text" className='adminInput grow' name='name' value={addMemberData.name} onChange={handleChangeValue}/>
+                <input type="text" className='adminInput w-7/12' name='name' value={addMemberData.name} onChange={handleChangeValue}/>
               </div>
-              <div className='flex justify-center items-center mt-1'>
+              <div className='flex justify-between items-center mt-1 w-full'>
                 <label className='w-3/12' htmlFor="role">관리자</label>
-                <input type="checkbox" className='adminInput grow' name='role' onChange={handleRoleChangeValue}/>
+                <input type="checkbox" className='adminInput w-7/12' name='role' onChange={handleRoleChangeValue}/>
               </div>
             </div>
           </div>

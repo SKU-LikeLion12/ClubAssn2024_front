@@ -62,17 +62,17 @@ const EditPuzzle = () => {
       <div className='w-full'>
         <div className='flex'>
           <div className='flex flex-col grow gap-1'>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="event">행사명</label>
-              <input type="text" className='adminInput grow' id='event' name='name' value={EditItemData.name} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-7/12' id='event' name='name' value={EditItemData.name} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="date">날짜</label>
-              <input type="date" className='adminInput grow' id='date' name='date' value={EditItemData.date} onChange={handleChangeValue}/>
+              <input type="date" className='adminInput w-7/12' id='date' name='date' value={EditItemData.date} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="image">포스터</label>
-              <input type="file" className='text-xs grow ml-5' id='image' name='image' onChange={handleFileChange}/>
+              <input type="file" className='text-xs w-7/12 ml-5' id='image' name='image' onChange={handleFileChange}/>
             </div>
           </div>
         </div>

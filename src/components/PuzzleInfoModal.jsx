@@ -16,7 +16,7 @@ function PuzzleInfoModal({setModalOpen}) {
           <p className='text-xl mb-8'>퍼즐 조각 모으기란?</p>
           <p>동아리연합회에서 주관하는 행사들에 참여하여 
             퍼즐 조각을 모아보아요! <br/> 퍼즐을 완성시킨다면 
-            큰 상품이 기다릴지도...?</p>
+            큰 상품이 <br />기다릴지도...?</p>
           </div>
         </div>
       </div>

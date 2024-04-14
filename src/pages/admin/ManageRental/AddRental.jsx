@@ -58,7 +58,7 @@ const AddRental = () => {
             </div>
             <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-3/12' htmlFor="사진">사진 </label>
-              <input type="file" className='text-xs ml-5' name='image' onChange={handleFileChange}/>
+              <input type="file" className='text-xs ml-5 w-7/12' name='image' onChange={handleFileChange}/>
             </div>
           </div>
         </div>

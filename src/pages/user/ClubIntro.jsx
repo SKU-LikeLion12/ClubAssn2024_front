@@ -19,10 +19,10 @@ export default ClubIntro;
 
 export const ClubIntroElement = ({title, sub, img}) => {
   return(
-    <div className='mb-10'>
+    <div className='mb-16 mt-4'>
       <p className='text-xl font-bold mb-3'>{title}</p>
       <p>
-        <p><img src={images[img]} alt="" className='mx-auto w-3/12'/></p>
+        <p><img src={images[img]} alt="" className='mx-auto w-[24%]'/></p>
         <p className='break-keep'>{sub}</p>
       </p>
     </div>
