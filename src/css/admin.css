@@ -17,9 +17,9 @@
 }
 
 .adminInput {
-  height: 16px;
   border-bottom: 1px solid #898989;
   text-align: center;
   margin-left: 8px;
   padding-bottom: 3px;
+  border-radius: none;
 }

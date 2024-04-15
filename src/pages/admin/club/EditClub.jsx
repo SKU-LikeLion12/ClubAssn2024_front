@@ -72,21 +72,21 @@ const EditClub = () => {
     <div className='flex w-10/12 mx-auto py-3 px-1 gap-2 textFont mt-1 border-[#12172B] border-y'>
       <div className='w-full'>
         <div className='flex'>
-          <div className='flex flex-col grow gap-1'>
-            <div className='flex justify-between items-end mt-1'>
+          <div className='flex flex-col grow gap-1 w-11/12'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-4/12' htmlFor="물품명">동아리명</label>
-              <input type="text" className='adminInput grow' name='name' value={addItemData.name} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-6/12' name='name' value={addItemData.name} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-4/12' htmlFor="총 수량">동아리 설명</label>
-              <input type="text" className='adminInput grow' name='description' value={addItemData.description} onChange={handleChangeValue}/>
+              <input type="text" className='adminInput w-6/12' name='description' value={addItemData.description} onChange={handleChangeValue}/>
             </div>
-            <div className='flex justify-between items-end mt-1'>
+            <div className='flex justify-between items-end mt-1 w-full'>
               <label className='w-4/12' htmlFor="로고">로고 </label>
-              <input type="file" className='text-xs grow ml-5' name='logo' onChange={handleFileChange}/>
+              <input type="file" className='text-xs w-6/12 ml-5' name='logo' onChange={handleFileChange}/>
             </div>
           </div>
-          <button onClick={()=>{setDeleteModal(!deleteModal)}} className='text-[red] w-2/12 ml-4'>
+          <button onClick={()=>{setDeleteModal(!deleteModal)}} className='text-[red] w-1/12 ml-1'>
             <IoTrashOutline size={22}/>
           </button>
         </div>

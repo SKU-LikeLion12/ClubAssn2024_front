@@ -48,7 +48,7 @@ const ClubMemberManagement = () => {
     <>
       <AdminNav/>
       <div className='mt-20 p-5'>
-        <div className='text-3xl pb-4 font-bold'>동아리원 관리</div>
+        <div className='text-3xl pb-4'>동아리원 관리</div>
         <div className='text-right'>
           <button onClick={()=>{navigate('AddClubMember')}} className='w-16 h-8 bg-zinc-300 rounded-lg'>추가</button>
         </div>
