@@ -36,11 +36,13 @@ const handleInputChange = (e) => {
 
 // 로그인
 const handleLogin = async () => {
+  // 로컬스토리지에서 토큰을 먼저 삭제
+  localStorage.clear();
+
   try {
     console.log(studentInfo)
     const result = await API().post('/login', studentInfo); // 로그인 성공
     navigate('/myPage'); 
-    localStorage.clear()
     localStorage.setItem('Token', result.data.accessToken);
     localStorage.setItem('role', result.data.role);
     setIsLoggedIn(true);
