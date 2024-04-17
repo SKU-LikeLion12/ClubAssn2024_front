@@ -40,7 +40,7 @@
     }
   },
   "기념관": {
-    "rooms": ["기 316호", "기 318호", "기320", "기 502호"],
+    "rooms": ["기 316호", "기 318호", "기 320호", "기 502호"],
     "images": {
       "기 316호": "/assets/images/classroom/기316.jpg",
       "기 318호": "/assets/images/classroom/기318.jpg",
