@@ -10,7 +10,9 @@ export const images = {
     RYP: PATH + '/assets/images/BgPuzzle/rightYellowPuzzle.svg',
     backPuzzleT: PATH + '/assets/images/BgPuzzle/rightCoralPuzzle.svg',
     backPuzzleB: PATH + '/assets/images/BgPuzzle/leftCoralPuzzle.svg',
-    
+    LBP: PATH + '/assets/images/BgPuzzle/leftBluePuzzle.svg',
+    RBP: PATH + '/assets/images/BgPuzzle/rightBluePuzzle.svg',
+
     // PuzzlePiece
     menuPuzzle: PATH + '/assets/images/puzzlePiece/menuPuzzle.png',
     
