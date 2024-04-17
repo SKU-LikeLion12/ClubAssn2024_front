@@ -7,7 +7,6 @@ import RentalItemManagement from "../pages/admin/ManageRental/RentalItemManageme
 import PuzzlePieceManagement from "../pages/admin/puzzle/PuzzlePieceManagement.jsx";
 import ClubMemberManagement from "../pages/admin/Clubmember/ClubMemberManagement.jsx";
 import ClubManagement from "../pages/admin/club/ClubManagement.jsx";
-import TimetableManagement from "../pages/admin/TimetableManagement.jsx";
 import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import { AuthProvider } from '../components/AuthContext.jsx';
@@ -25,16 +24,6 @@ const Admin = () => {
         <Route path="/adminMain/PuzzlePieceManagement/*" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
         <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><Clubmember /></ProtectedRoute>}/>
         <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
-        <Route path="/adminMain/TimetableManagement" element={<ProtectedRoute><TimetableManagement/></ProtectedRoute>}/>
-
-        {/* <Route path="/adminMain" element={<AdminMain/>}/>
-        <Route path="/adminMain/ItemReservationStatus" element={<ItemReservationStatus />}/>
-        <Route path="/adminMain/ItemRentalStatus" element={<ItemRentalStatus />}/>
-        <Route path="/adminMain/RentalItemManagement/*" element={<RentalItemManagement/>} />
-        <Route path="/adminMain/PuzzlePieceManagement/*" element={<PuzzlePieceManagement/>}/>
-        <Route path="/adminMain/ClubMemberManagement/*" element={<Clubmember />}/>
-        <Route path="/adminMain/ClubManagement/*" element={<ClubManagement/>}/>
-        <Route path="/adminMain/TimetableManagement" element={<TimetableManagement/>}/> */}
       </Routes>
     </AuthProvider>
 )};
