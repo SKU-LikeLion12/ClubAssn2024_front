@@ -1,7 +1,7 @@
 # 📌 성결대학교 동아리연합회 Puzzle
 
 <div align="center">
- <img src="" width="700" height="auto">
+ <img src="https://github.com/ckdwns1221/ckdwns1221/assets/130385395/c90fa6aa-86b0-47b9-a711-93a993dade8d" width="700" height="auto">
 </div>
 - 배포 URL : https://puzzle.sku-sku.com/
   
