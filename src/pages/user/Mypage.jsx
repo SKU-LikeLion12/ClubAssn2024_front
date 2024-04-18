@@ -52,6 +52,7 @@ const Mypage = () => {
 export default Mypage;
 
 export const RentalStatus = () => {
+  const navigate = useNavigate();
   // 상태 변수 선언 및 초기화
   const [rentalStatus, setRentalStatus] = useState([]); // 대여 상태 정보 배열
   const [isDetailsVisible, setIsDetailsVisible] = useState(false); // 상세 정보 표시 여부
@@ -74,6 +75,13 @@ export const RentalStatus = () => {
         // 대여 상태 업데이트
         setRentalStatus(formattedData);
       } catch (error) {
+        if (error.response) {
+          const statusCode = error.response.status;
+          if (statusCode === 401) {
+            localStorage.clear();
+            navigate('/login')
+          }
+        }
         console.error('데이터를 가져오는 중 오류가 발생했습니다:', error);
       }
     };

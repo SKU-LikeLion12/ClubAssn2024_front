@@ -11,7 +11,6 @@ import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import { AuthProvider } from '../components/AuthContext.jsx';
 import Clubmember from '../pages/admin/Clubmember/Clubmember.jsx';
-import ErrorBoundary from '../utils/ErrorBoundary.jsx';
 
 const Admin = () => {
   return (
