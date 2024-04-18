@@ -56,7 +56,7 @@ const CollectingPuzzle = () => {
   };
 
   return (
-    <div className='relative min-h-screen text-[#476832]'>
+    <div className='relative h-[120vh] text-[#476832]'>
       <Back left={'leftGreen'} right={'rightGreen'} />
       <PageTitle title={'퍼즐 조각'} title2={'모으기'} Tcolor={'#476832'} Tcolor2={'#B7C58B'} />
       <MyInfo />
