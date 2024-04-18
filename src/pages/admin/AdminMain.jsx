@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import '../../css/admin.css';
+import { useLogin } from '../../context/LoginContext';
 
 const AdminMain = () => {
   return (
