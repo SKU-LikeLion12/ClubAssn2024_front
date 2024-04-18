@@ -28,14 +28,20 @@ const AddClub = () => {
     formData.append('logo', isAdd.logo); // 이미지 파일 추가
 
     try {
-      const result = await API().post('/admin/club/add', formData, {
+      await API().post('/admin/club/add', formData, {
         headers: {
           'Content-Type': 'multipart/form-data'
         }
       });
       setConfirmModal(!confirmModal);
     } catch (error) {
-      console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

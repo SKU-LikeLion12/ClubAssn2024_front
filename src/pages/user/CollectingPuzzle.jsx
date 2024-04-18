@@ -14,6 +14,7 @@ const CollectingPuzzle = () => {
   const [puzzleData, setPuzzleData] = useState([]);
   const [selectedPuzzle, setSelectedPuzzle] = useState(null);
   const [loading, setLoading] = useState(true); // 로딩 상태 변수
+  const [puzzleLen, setPuzzleLen] = useState(0);
 
   useEffect(() => {
     fetchData();
@@ -29,8 +30,8 @@ const CollectingPuzzle = () => {
         date: item.date,
         joined: item.joined
       }));
-      console.log(puzzleDataArray);
       setPuzzleData(puzzleDataArray);
+      setPuzzleLen(puzzleDataArray.length);
     } catch (error) {
       console.error(error);
     } finally {
@@ -60,7 +61,14 @@ const CollectingPuzzle = () => {
       <Back left={'leftGreen'} right={'rightGreen'} />
       <PageTitle title={'퍼즐 조각'} title2={'모으기'} Tcolor={'#476832'} Tcolor2={'#B7C58B'} />
       <MyInfo />
-      <div className='text-center mt-8 mb-5'>퍼즐 조각을 모아 퍼즐을 완성해보세요!</div>
+      <div className='text-center mt-8 mb-5'>
+        {puzzleLen === 4 ? (
+          <>
+            축하합니다 <span role="img" aria-label="축하합니다"> 🎉</span><br />
+            퍼즐을 모두 완성하셨네요!
+          </>
+        ): '퍼즐 조각을 모아 퍼즐을 완성해보세요!'}
+      </div>
         <div className='mx-auto w-5/6'>
           <div className='flex justify-end'>
             <button onClick={showInfoModal}><svg width="15" height="15" viewBox="0 0 38 38" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -97,7 +105,7 @@ const CollectingPuzzle = () => {
           {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
           {infoModalOpen&&<PuzzleInfoModal setModalOpen={setInfoModalOpen}/>}
         </div>
-      
+        <div className='mb-[20vh]'></div>
       {/* <div className='w-9/12 mx-auto text-center my-7'>
         <div className='mb-4'>코드를 입력해주세요.</div>
         <div className='relative'>
@@ -107,7 +115,6 @@ const CollectingPuzzle = () => {
             type="submit" value='확인' className='absolute top-0 right-0 bg-[#476832] w-3/12 text-white rounded-2xl p-1 border-2 border-[#476832]'/>
         </div>
       </div> */}
-      
     </div>
   );  
 };

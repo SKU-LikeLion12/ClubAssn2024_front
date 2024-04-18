@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import AdminNav from './../../components/AdminNav';
 import { API } from '../../api/API';
 import ReservationCancelModal from '../../components/Modal/ReservationCancelModal';
+import { useNavigate } from 'react-router-dom';
 
 const ItemReservationStatus = () => {
   const [reserveStatus, setReserveStatus] = useState([]);
@@ -55,6 +56,7 @@ const ItemReservationStatus = () => {
 export default ItemReservationStatus;
 
 export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSuccess}) => {
+  const navigate = useNavigate();
   const formattedBookTime = new Date(reservationStatus.bookTime).toLocaleDateString('ko-KR', {
     year: 'numeric',
     month: '2-digit',
@@ -71,6 +73,13 @@ export const ReserveStatus = ({reservationStatus, onReceiveSuccess, onCancelSucc
     } catch (error) {
       console.error('수령 처리 실패', error);
       alert('수령 처리에 실패하였습니다.');
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   };
 

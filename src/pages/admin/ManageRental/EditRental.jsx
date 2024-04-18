@@ -33,6 +33,13 @@ const EditRental = () => {
       navigate('/admin/adminMain/RentalItemManagement');
     } catch (error) {
       console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
   
@@ -54,6 +61,13 @@ const EditRental = () => {
       setConfirmModal(!confirmModal);
     } catch (error) {
       console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

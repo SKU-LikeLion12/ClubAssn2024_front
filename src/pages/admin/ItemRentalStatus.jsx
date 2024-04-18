@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { API } from '../../api/API';
 import AdminNav from '../../components/AdminNav';
+import { useNavigate } from 'react-router-dom';
 
 const ItemRentalStatus = () => {
+  const navigate = useNavigate();
   const [data, setData] = useState(null);
   const [error, setError] = useState(null);
 
@@ -39,6 +41,13 @@ const ItemRentalStatus = () => {
       setData(data.filter((item) => item.itemRentId !== itemRentId));
     } catch (err) {
       console.error(err);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   };
 

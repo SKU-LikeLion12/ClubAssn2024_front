@@ -17,6 +17,13 @@ const ManageRental = () => {
     } catch (error) {
       console.error(error)
       setLoading(false);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
   useEffect(()=> {

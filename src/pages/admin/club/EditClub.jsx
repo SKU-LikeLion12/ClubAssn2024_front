@@ -36,7 +36,13 @@ const EditClub = () => {
       });
       navigate('/admin/adminMain/ClubManagement');
     } catch (error) {
-      console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
   
@@ -57,7 +63,14 @@ const EditClub = () => {
       })
       setConfirmModal(!confirmModal);
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

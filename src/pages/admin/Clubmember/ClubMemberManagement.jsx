@@ -41,6 +41,13 @@ const ClubMemberManagement = () => {
   
     } catch (error) {
       console.error('Delete error:', error);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   };
 

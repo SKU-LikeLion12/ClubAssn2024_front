@@ -6,6 +6,7 @@ import { API } from '../../../api/API';
 import AdminNav from '../../../components/AdminNav';
 
 const AddRental = () => {
+  const navigate = useNavigate();
   const [addItemData, setAddItemData] = useState({})
   const [confirmModal, setConfirmModal] = useState(false);
 
@@ -34,6 +35,13 @@ const AddRental = () => {
       setConfirmModal(!confirmModal);
     } catch (error) {
       console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

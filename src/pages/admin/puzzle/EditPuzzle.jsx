@@ -7,6 +7,7 @@ import { confirmModalStyle } from '../../../css/customModal';
 
 
 const EditPuzzle = () => {
+  const navigate = useNavigate();
   const location = useLocation();
   const { id, name, date } = location.state; // 퍼즐 관리 페이지에서 넘겨준 데이터 받기
   const [confirmModal, setConfirmModal] = useState(false); // 수정 모달
@@ -46,7 +47,14 @@ const EditPuzzle = () => {
       });
       setConfirmModal(!confirmModal);
     } catch (error) {
-      console.error(error)
+      console.error(error);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 
