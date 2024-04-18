@@ -1,51 +1,51 @@
 {
   "중생관": {
-    "rooms": ["중 107호", "중 206호", "중 207호", "중 208호", "중 209호", "중 301호", "중 302호", "중 303호", "중 304호", "중 305호", "중 306호", "중 307호", "중 308호", "중 309호", "중 310호", "중 406호"],
+    "rooms": ["107호", "206호", "207호", "208호", "209호", "301호", "302호", "303호", "304호", "305호", "306호", "307호", "308호", "309호", "310호", "406호"],
     "images": {
-      "중 107호": "/assets/images/classroom/중107.jpg",
-      "중 206호": "/assets/images/classroom/중206.jpg",
-      "중 207호": "/assets/images/classroom/중207.jpg",
-      "중 208호": "/assets/images/classroom/중208.jpg",
-      "중 209호": "/assets/images/classroom/중209.jpg",
-      "중 301호": "/assets/images/classroom/중301.jpg",
-      "중 302호": "/assets/images/classroom/중302.jpg",
-      "중 303호": "/assets/images/classroom/중303.jpg",
-      "중 304호": "/assets/images/classroom/중304.jpg",
-      "중 305호": "/assets/images/classroom/중305.jpg",
-      "중 306호": "/assets/images/classroom/중306.jpg",
-      "중 307호": "/assets/images/classroom/중307.jpg",
-      "중 308호": "/assets/images/classroom/중308.jpg",
-      "중 309호": "/assets/images/classroom/중309.jpg",
-      "중 310호": "/assets/images/classroom/중310.jpg",
-      "중 406호": "/assets/images/classroom/중406.jpg"
+      "107호": "/assets/images/classroom/중107.jpg",
+      "206호": "/assets/images/classroom/중206.jpg",
+      "207호": "/assets/images/classroom/중207.jpg",
+      "208호": "/assets/images/classroom/중208.jpg",
+      "209호": "/assets/images/classroom/중209.jpg",
+      "301호": "/assets/images/classroom/중301.jpg",
+      "302호": "/assets/images/classroom/중302.jpg",
+      "303호": "/assets/images/classroom/중303.jpg",
+      "304호": "/assets/images/classroom/중304.jpg",
+      "305호": "/assets/images/classroom/중305.jpg",
+      "306호": "/assets/images/classroom/중306.jpg",
+      "307호": "/assets/images/classroom/중307.jpg",
+      "308호": "/assets/images/classroom/중308.jpg",
+      "309호": "/assets/images/classroom/중309.jpg",
+      "310호": "/assets/images/classroom/중310.jpg",
+      "406호": "/assets/images/classroom/중406.jpg"
     }
   },
   "영암관": {
-    "rooms": ["영 111호", "영 204호", "영 205호", "영 206호", "영 303호", "영 304호", "영 305호", "영 306호", "영 307호", "영 309호", "영 310호", "영 401호", "영 403호", "영 404호"],
+    "rooms": ["111호", "204호", "205호", "206호", "303호", "304호", "305호", "306호", "307호", "309호", "310호", "401호", "403호", "404호"],
     "images": {
-      "영 111호": "/assets/images/classroom/영111.jpg",
-      "영 204호": "/assets/images/classroom/영204.jpg",
-      "영 205호": "/assets/images/classroom/영205.jpg",
-      "영 206호": "/assets/images/classroom/영206.jpg",
-      "영 303호": "/assets/images/classroom/영303.jpg",
-      "영 304호": "/assets/images/classroom/영304.jpg",
-      "영 305호": "/assets/images/classroom/영305.jpg",
-      "영 306호": "/assets/images/classroom/영306.jpg",
-      "영 307호": "/assets/images/classroom/영307.jpg",
-      "영 309호": "/assets/images/classroom/영309.jpg",
-      "영 310호": "/assets/images/classroom/영310.jpg",
-      "영 401호": "/assets/images/classroom/영401.jpg",
-      "영 403호": "/assets/images/classroom/영403.jpg",
-      "영 404호": "/assets/images/classroom/영404.jpg"
+      "111호": "/assets/images/classroom/영111.jpg",
+      "204호": "/assets/images/classroom/영204.jpg",
+      "205호": "/assets/images/classroom/영205.jpg",
+      "206호": "/assets/images/classroom/영206.jpg",
+      "303호": "/assets/images/classroom/영303.jpg",
+      "304호": "/assets/images/classroom/영304.jpg",
+      "305호": "/assets/images/classroom/영305.jpg",
+      "306호": "/assets/images/classroom/영306.jpg",
+      "307호": "/assets/images/classroom/영307.jpg",
+      "309호": "/assets/images/classroom/영309.jpg",
+      "310호": "/assets/images/classroom/영310.jpg",
+      "401호": "/assets/images/classroom/영401.jpg",
+      "403호": "/assets/images/classroom/영403.jpg",
+      "404호": "/assets/images/classroom/영404.jpg"
     }
   },
   "기념관": {
-    "rooms": ["기 316호", "기 318호", "기 320호", "기 502호"],
+    "rooms": ["316호", "318호", "320호", "502호"],
     "images": {
-      "기 316호": "/assets/images/classroom/기316.jpg",
-      "기 318호": "/assets/images/classroom/기318.jpg",
-      "기 320호": "/assets/images/classroom/기320.jpg",
-      "기 502호": "/assets/images/classroom/기502.jpg"
+      "316호": "/assets/images/classroom/기316.jpg",
+      "318호": "/assets/images/classroom/기318.jpg",
+      "320호": "/assets/images/classroom/기320.jpg",
+      "502호": "/assets/images/classroom/기502.jpg"
     }
   }
 }
