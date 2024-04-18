@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { images } from '../../utils/images';
-import { useLocation } from 'react-router';
+import { useLocation, useNavigate} from 'react-router';
 import { API } from '../../api/API';
 
 const MyInfo = () => {
+    const navigate = useNavigate();
     const location = useLocation();
     const currentPath = location.pathname; // 현재 경로
     const myPageColor = 'bg-[#FFF] border-[#AB7A67] text-[#AB7A67]'; // myPage 색상
@@ -56,7 +57,12 @@ const MyInfo = () => {
         setIsOne(one); // 한개면 true >> "대표 동아리 변경" 문구 안 보임
         setLoading(false);
       } catch (error) {
-        console.error(error);
+        if (error.response) {
+          const statusCode = error.response.status;
+          if (statusCode === 401) {
+            navigate('/login')
+          }
+        }
       }
     }
     

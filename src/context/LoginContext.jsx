@@ -4,7 +4,7 @@ const LoginContext = createContext();
 
 export const LoginProvider = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
-
+  
   useEffect(() => {
     // localStorage에서 토큰을 가져와서 유무를 판별하여 isLoggedIn 상태 설정
     const token = localStorage.getItem('Token');
