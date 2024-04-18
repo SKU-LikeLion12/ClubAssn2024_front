@@ -37,8 +37,17 @@ const MyInfo = () => {
         });
         setLoading(false);
       } catch (error) {
-        console.error(error)
         setLoading(false);
+        localStorage.clear();
+        navigate('/login');
+        // if (error.response) {
+        //   const statusCode = error.response.status;
+        //   if (statusCode === 401) {
+        //      console.log('???');
+        //      localStorage.clear();
+        //      navigate('/login')
+        //   }
+        // }
       }
     }
 
@@ -57,13 +66,8 @@ const MyInfo = () => {
         setIsOne(one); // 한개면 true >> "대표 동아리 변경" 문구 안 보임
         setLoading(false);
       } catch (error) {
-        if (error.response) {
-          const statusCode = error.response.status;
-          if (statusCode === 401) {
-            localStorage.clear();
-            navigate('/login')
-          }
-        }
+        localStorage.clear();
+        navigate('/login')
       }
     }
     
@@ -78,7 +82,8 @@ const MyInfo = () => {
         getMyInfo(); // 대표 동아리 api 재호출
         setIsOpen(!isOpen);
       } catch (error) {
-        console.error(error)
+        localStorage.clear();
+        navigate('/login')
       }
     }
     useEffect(()=> {

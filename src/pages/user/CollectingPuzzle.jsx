@@ -6,8 +6,10 @@ import { images } from '../../utils/images';
 import { API } from '../../api/API';
 import PuzzleModal from '../../components/Modal/PuzzleModal';
 import PuzzleInfoModal from '../../components/PuzzleInfoModal';
+import { useNavigate } from 'react-router-dom';
 
 const CollectingPuzzle = () => {
+  const navigate = useNavigate()
   const [code, setCode] = useState(''); // 코드 번호 저장 변수
   const [modalOpen, setModalOpen] = useState(false); // 이벤트 상세 모달
   const [infoModalOpen, setInfoModalOpen] = useState(false); // 이벤트 설명 모달
@@ -33,6 +35,8 @@ const CollectingPuzzle = () => {
       setPuzzleData(puzzleDataArray);
       setPuzzleLen(puzzleDataArray.length);
     } catch (error) {
+      localStorage.clear();
+      navigate('/login')
       console.error(error);
     } finally {
       setLoading(false); // 데이터를 모두 처리한 후 로딩 상태를 해제

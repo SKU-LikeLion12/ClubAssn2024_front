@@ -7,6 +7,7 @@ import { API } from '../../../api/API';
 import Back from '../../../components/shared/Back';
 
 const Rental = () => {
+  const navigate = useNavigate();
   const [items, setItems] = useState([]);
   const [isLoading, setIsLoading] = useState(true); // 로딩 상태 추가
   const location = useLocation();
@@ -20,6 +21,8 @@ const Rental = () => {
       }));
       setItems(updatedItems); 
     } catch (error) {
+      localStorage.clear();
+      navigate('/login')
       console.error('물품 목록을 불러오는 데 실패했습니다.', error);
     } finally {
       setIsLoading(false); // 데이터 로딩이 끝나면 로딩 상태를 false로 설정
