@@ -11,20 +11,23 @@ import AdminLogin from '../pages/admin/AdminLogin.jsx';
 import ProtectedRoute from "../components/ProtectedRoute .jsx";
 import { AuthProvider } from '../components/AuthContext.jsx';
 import Clubmember from '../pages/admin/Clubmember/Clubmember.jsx';
+import ErrorBoundary from '../utils/ErrorBoundary.jsx';
 
 const Admin = () => {
   return (
     <AuthProvider>
-      <Routes>
-        <Route path='/adminLogin' element={<AdminLogin />} />
-        <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
-        <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
-        <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
-        <Route path="/adminMain/RentalItemManagement/*" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>} />
-        <Route path="/adminMain/PuzzlePieceManagement/*" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
-        <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><Clubmember /></ProtectedRoute>}/>
-        <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
-      </Routes>
+      {/* <ErrorBoundary> */}
+        <Routes>
+          <Route path='/adminLogin' element={<AdminLogin />} />
+          <Route path="/adminMain" element={<ProtectedRoute><AdminMain/></ProtectedRoute>}/>
+          <Route path="/adminMain/ItemReservationStatus" element={<ProtectedRoute><ItemReservationStatus /></ProtectedRoute>}/>
+          <Route path="/adminMain/ItemRentalStatus" element={<ProtectedRoute><ItemRentalStatus /></ProtectedRoute>}/>
+          <Route path="/adminMain/RentalItemManagement/*" element={<ProtectedRoute><RentalItemManagement/></ProtectedRoute>} />
+          <Route path="/adminMain/PuzzlePieceManagement/*" element={<ProtectedRoute><PuzzlePieceManagement/></ProtectedRoute>}/>
+          <Route path="/adminMain/ClubMemberManagement/*" element={<ProtectedRoute><Clubmember /></ProtectedRoute>}/>
+          <Route path="/adminMain/ClubManagement/*" element={<ProtectedRoute><ClubManagement/></ProtectedRoute>}/>
+        </Routes>
+      {/* </ErrorBoundary> */}
     </AuthProvider>
 )};
 

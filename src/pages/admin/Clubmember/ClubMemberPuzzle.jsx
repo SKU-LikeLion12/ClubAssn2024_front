@@ -63,6 +63,13 @@ export const EventOfDate = () => {
         console.log(response.data);
       } catch (error) {
         console.error("axios를 사용하여 이벤트를 가져오는 중 오류:", error);
+        if (error.response) {
+          const statusCode = error.response.status;
+          if (statusCode === 401) {
+            localStorage.clear();
+            navigate('/admin/adminLogin')
+          }
+        }
       }
     };
 
@@ -87,6 +94,13 @@ export const EventOfDate = () => {
       setEvents(currentEvents => currentEvents.filter(event => event.id !== selectedEvent.id));
     } catch (error) {
       console.error("이벤트 삭제 중 오류 발생:", error);
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
 
     setIsModalOpen(false);

@@ -60,7 +60,7 @@ export const BookContent = () => {
       }
     } catch (error) {
       if (error.response) {
-        const errorMessage = error.response.data.message || "예약에 실패하셨습니다. \n 물품대여 유의사항을 다시 확인하시고, \n 문의사항은 동아리 연합회에 문의해주세요.";
+        const errorMessage = error.response.data.message || "예약에 실패하셨습니다. \n 물품대여 유의사항을 다시 확인하시고, \n 문의사항은 동아리연합회실에 문의해주세요.";
         navigate("/rentalBookFail", { state: { errorMessage } });
       } else {
         console.error("대여 예약 요청 중 오류 발생:", error.message);

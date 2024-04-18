@@ -35,10 +35,11 @@ const ClassroomSchedule = () => {
   return (
     <>
       <div className='relative min-h-screen'>
-        <div className='relative -z-20'>
+        <Back left={'LBP'} right={'RBP'} />
+        {/* <div className='relative -z-20'>
           <img src={images.RBP} alt="오른쪽퍼즐" className='absolute right-0 w-1/2 mt-[200px]' />
           <img src={images.LBP} alt="왼쪽퍼즐" className='absolute left-0 w-1/2 mt-[400px]' />
-        </div>
+        </div> */}
         <PageTitle title={'강의실'} title2={'시간표'} Tcolor={'#A3CDF6'} Tcolor2={'#6FA9E3'}/>
         <div className='flex w-11/12 mx-auto justify-evenly font-bold '>
           <select name="building" id="building-select" className='bg-[#d3edf9] border-[3px] border-[#6fa9e3] text-[#6fa9e3] rounded-md px-4 py-1' value={building} onChange={e => setBuilding(e.target.value)}>

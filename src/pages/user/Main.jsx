@@ -23,6 +23,10 @@ const Main = () => {
     <div>
       <div className='relative min-h-screen'>
         <div className='relative'>
+          <div className='relative -z-20'>
+            <img src={images.rightPinkMenu} alt="오른쪽퍼즐" className='absolute right-0 w-1/2 mt-[100px]' />
+            <img src={images.leftPinkMenu} alt="왼쪽퍼즐" className='absolute left-0 w-1/2 mt-[300px]' />
+          </div>
           <PageTitle title={'Puzzle'} Tcolor={'#AB7A67'}/>
           <div className='textFont text-white text-lg mt-16'>
             <div className='flex justify-center mb-10 relative'>
@@ -36,7 +40,7 @@ const Main = () => {
             </div>
           </div>
         </div>
-        <Back left={'leftPinkMenu'} right={'rightPinkMenu'} />
+        {/* <Back left={'leftPinkMenu'} right={'rightPinkMenu'} /> */}
         <Footer/>
       </div>
     </div>

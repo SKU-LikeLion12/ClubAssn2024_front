@@ -163,7 +163,7 @@ export const RentalStatus = () => {
           ) : (
             // 대여 중인 물품이 없는 경우 메시지 출력
             <div className="flex justify-center items-center h-52">
-              <div className="text-primary">대여중인 물품이 없습니다.</div>
+              <div className="text-primary">대여 중인 물품이 없습니다.</div>
             </div>
           )}
         </div>
@@ -296,7 +296,7 @@ export const ReserveStatus = () => {
               </div>
               <div className="text-primary px-1 pt-1 text-lg font-bold">{current.itemName}</div>
               <div className="text-primary px-1 pb-1 text-lg font-bold">수량 : {current.count} 개</div>
-              <div className="text-primary font-medium text-[14px]">{formatDate(current.needReceiveTime)}까지<br/>동아리 연합회실로 방문해주세요.</div>
+              <div className="text-primary font-medium text-[14px]">{formatDate(current.needReceiveTime)}까지<br/>동아리연합회실로 방문해주세요.</div>
               {confirmVisible && cancelId === current.itemRentId ? (
                 // 예약 취소 확인 버튼
                 <div className="flex flex-col justify-center mt-3">

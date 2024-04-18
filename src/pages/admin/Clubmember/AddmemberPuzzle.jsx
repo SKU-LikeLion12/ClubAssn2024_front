@@ -25,12 +25,14 @@ const Addmemberpuzzle = () => {
           console.error('GET 요청이 실패했습니다.');
         }
       } catch (error) {
+        const statusCode = error.response.status;
         if (error.response) {
           console.error("서버 응답 에러:", error.response.data);
         } else if (error.request) {
           console.error("응답 받지 못함:", error.request);
-        } else {
-          console.error("Error", error.message);
+        } else if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
         }
       }
     };

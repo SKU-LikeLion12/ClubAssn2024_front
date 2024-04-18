@@ -7,6 +7,7 @@ import Modal from 'react-modal';
 import { images } from "../../../utils/images";
 
 const AddMember = () => { // 동아리원 추가
+  const navigate = useNavigate()
   const [isOpen, setIsOpen] = useState(false) // 확인 모달창
   const [addMemberData, setAddMemberData] = useState({ 
     studentId: '',
@@ -29,8 +30,14 @@ const AddMember = () => { // 동아리원 추가
       await API().post('/admin/member/add', addMemberData);
       setIsOpen(!isOpen); 
     } catch (error) {
-      console.error(error)
-      alert('학생 정보를 확인해주세요.')
+      alert('학생 정보를 확인해주세요.');
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

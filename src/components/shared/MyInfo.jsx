@@ -60,6 +60,7 @@ const MyInfo = () => {
         if (error.response) {
           const statusCode = error.response.status;
           if (statusCode === 401) {
+            localStorage.clear();
             navigate('/login')
           }
         }

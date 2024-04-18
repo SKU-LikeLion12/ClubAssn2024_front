@@ -34,7 +34,7 @@ const Rental = () => {
     <>
     <div className='relative min-h-screen'>
       <Back left={'LYP'} right={'RYP'} />
-      <PageTitle title='물품대여' Tcolor='#B79A5F' />
+      <PageTitle title='물품 대여' Tcolor='#B79A5F' />
       <MyInfo />
       <div className="relative min-h-screen">
         <div className="rentalBox mt-8 absolute z-1 bg-[#FCF3CD] w-[90%] h-[80vh] rounded-3xl border-solid border-4 border-[#CEB341] top-0 left-0 right-0 bottom-0 mx-auto py-5 pl-2 overflow-y-scroll">

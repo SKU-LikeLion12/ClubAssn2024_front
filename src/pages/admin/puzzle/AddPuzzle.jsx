@@ -37,6 +37,13 @@ const AddPuzzle = () => {
       setConfirmModal(!confirmModal);
     } catch (error) {
       console.error(error)
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
 

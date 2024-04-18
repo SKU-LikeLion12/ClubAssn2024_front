@@ -8,6 +8,7 @@ import { GiClick } from "react-icons/gi";
 import { images } from "../../../utils/images";
 
 const AddClubMember = () => {
+  const navigate = useNavigate();
   const [isOpen, setIsOpen] = useState(false); // 확인 모달창 상태
   const [allClubList, setAllClubList] = useState([]); // 모든 동아리 리스트 상태
   const [allMemberList, setAllMemberList] = useState([]); // 모든 멤버 리스트 상태
@@ -63,8 +64,14 @@ const AddClubMember = () => {
       setSearchResult(uniqueResults);
       setErrorMessage("");
     } catch (error) {
-      console.error(error);
       setErrorMessage("검색 중 오류가 발생했습니다. 다시 시도해주세요.");
+      if (error.response) {
+        const statusCode = error.response.status;
+        if (statusCode === 401) {
+          localStorage.clear();
+          navigate('/admin/adminLogin')
+        }
+      }
     }
   }
   
