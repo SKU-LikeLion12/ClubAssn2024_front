@@ -1,10 +1,10 @@
-# 📌 성결대학교 동아리연합회 Puzzle
-
-<div align="center">
- <img src="" width="700" height="auto">
+# <img src="https://github.com/SKU-LikeLion12/ClubAssn2024_front/assets/130385395/4e7d1739-ca21-445e-af1e-4c83c68caeaf" width="30"> 성결대학교 동아리연합회 Puzzle
+<div>
+  <img src="https://github.com/ckdwns1221/ckdwns1221/assets/130385395/c90fa6aa-86b0-47b9-a711-93a993dade8d" width="700" height="auto">
 </div>
 - 배포 URL : https://puzzle.sku-sku.com/
   
+<br>
 <br>
 
 ## 📋 프로젝트 소개
