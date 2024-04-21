@@ -16,7 +16,7 @@ const CollectingPuzzle = () => {
   const [puzzleData, setPuzzleData] = useState([]);
   const [selectedPuzzle, setSelectedPuzzle] = useState(null);
   const [loading, setLoading] = useState(true); // 로딩 상태 변수
-  const [puzzleLen, setPuzzleLen] = useState(0);
+  const [complete, setComplete] = useState(0);
 
   useEffect(() => {
     fetchData();
@@ -33,7 +33,8 @@ const CollectingPuzzle = () => {
         joined: item.joined
       }));
       setPuzzleData(puzzleDataArray);
-      setPuzzleLen(puzzleDataArray.length);
+      const completePuzzle = puzzleDataArray.every(item => item.joined === true); 
+      setComplete(completePuzzle)
     } catch (error) {
       localStorage.clear();
       navigate('/login')
@@ -66,12 +67,12 @@ const CollectingPuzzle = () => {
       <PageTitle title={'퍼즐 조각'} title2={'모으기'} Tcolor={'#476832'} Tcolor2={'#B7C58B'} />
       <MyInfo />
       <div className='text-center mt-8 mb-5'>
-        {puzzleLen === 4 ? (
+        {complete ? (
           <>
             축하합니다 <span role="img" aria-label="축하합니다"> 🎉</span><br />
             퍼즐을 모두 완성하셨네요!
           </>
-        ): '퍼즐 조각을 모아 퍼즐을 완성해보세요!'}
+        ) : '퍼즐 조각을 모아 퍼즐을 완성해보세요!'}
       </div>
         <div className='mx-auto w-5/6'>
           <div className='flex justify-end'>
@@ -107,7 +108,7 @@ const CollectingPuzzle = () => {
             </>
           )}
           {modalOpen && <PuzzleModal setModalOpen={setModalOpen} puzzleData={selectedPuzzle}/>}
-          {infoModalOpen&&<PuzzleInfoModal setModalOpen={setInfoModalOpen}/>}
+          {infoModalOpen&& <PuzzleInfoModal setModalOpen={setInfoModalOpen}/>}
         </div>
         <div className='mb-[20vh]'></div>
       {/* <div className='w-9/12 mx-auto text-center my-7'>
