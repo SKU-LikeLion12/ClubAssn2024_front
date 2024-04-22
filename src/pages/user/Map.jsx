@@ -48,7 +48,9 @@ export const StudentCenter = () => {
   return (
     <div>
       <div className="mapSmallTitle">중생관</div>
-      <img src={images.center} alt="중생관 배치도" />
+      <div className="h-[60vh]">
+        <img src={images.center} alt="중생관 배치도" />
+      </div>
     </div>
   );
 };
@@ -56,7 +58,7 @@ export const StudentCenter = () => {
 // 학생회관 component
 export const StudentUnion = () => {
   return (
-    <div>
+    <div className="h-[65vh]">
       <div className="mapSmallTitle">학생회관 3F</div>
       <img src={images.union3F} alt="학생회관 3층" />
 
